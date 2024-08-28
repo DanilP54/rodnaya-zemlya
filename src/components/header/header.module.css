@@ -1,0 +1,46 @@
+:root {
+    --link-font-size: 1.1rem
+}
+
+.header_wrapper {
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem 0;
+}
+
+.logo {
+    height: 7rem;
+    width: 7rem;
+}
+
+.auth_box {
+    display: flex;
+    gap: 2rem
+}
+
+.auth_link {
+    color: black;
+    font-weight: 600;
+}
+
+.lang_list {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+
+.lang_link {
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: var(--link-font-size);
+}
+
+.input_box {
+    width: 25rem;
+}
