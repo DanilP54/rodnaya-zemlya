@@ -18,7 +18,7 @@ export function NavigationBox() {
                 }} radius={0} position="right-start" offset={0} shadow="none" width={200}>
                     <Menu.Target>
                         <Button style={{
-                            height: '50px',
+                            height: '40px',
                             width: '250px',
                             border: 'none',
                             margin: '0px',
@@ -31,7 +31,7 @@ export function NavigationBox() {
                         display: 'flex',
                         width: 'calc(100% - 250px)',
                         padding: '0px',
-                        height: '50px',
+                        height: '40px',
                         border: 'none',
                         margin: '0px',
                         backgroundColor: 'hsla(0, 100%, 50%, 0.5)'
@@ -83,7 +83,7 @@ export function NavigationBox() {
                 <Menu radius={0} position="right-start" offset={0} width={200}>
                     <Menu.Target>
                         <Button style={{
-                            height: '50px',
+                            height: '40px',
                             width: '250px',
                             border: 'none',
                             backgroundColor: 'hsl(248, 53%, 58%)',
@@ -96,7 +96,7 @@ export function NavigationBox() {
                         width: 'calc(100% - 250px)',
                         padding: '0px',
                         border: 'none',
-                        height: '50px',
+                        height: '40px',
                         backgroundColor: 'hsl(248, 53%, 58%)'
                     }}>
                         <Menu.Item style={{
@@ -143,7 +143,7 @@ export function NavigationBox() {
                 <Menu radius={0} position="right-start" offset={0} width={200}>
                     <Menu.Target>
                         <Button style={{
-                            height: '50px',
+                            height: '40px',
                             border: 'none',
                             width: '250px',
                             // marginTop: '5px',
@@ -155,7 +155,7 @@ export function NavigationBox() {
                         width: 'calc(100% - 250px)',
                         padding: '0px',
                         border: 'none',
-                        height: '50px',
+                        height: '40px',
                         backgroundColor: 'hsla(196, 49%, 48%, 0.7)'
                     }}>
                         <Menu.Item style={{
