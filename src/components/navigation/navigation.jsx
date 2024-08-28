@@ -20,8 +20,7 @@ export function NavigationBox() {
                         <Button style={{
                             height: '50px',
                             width: '250px',
-                            // border: '1px solid black',
-                            // borderLeft: '8px solid black',
+                            border: 'none',
                             margin: '0px',
                             padding: '0px',
                             backgroundColor: 'hsla(0, 100%, 50%, 0.5)'
@@ -33,51 +32,50 @@ export function NavigationBox() {
                         width: 'calc(100% - 250px)',
                         padding: '0px',
                         height: '50px',
-                        // border: '.6px solid black',
-                        // borderRight: '8px solid black',
+                        border: 'none',
                         margin: '0px',
                         backgroundColor: 'hsla(0, 100%, 50%, 0.5)'
                     }}>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px',
-                                '&:hover': {
-                                    backgroundColor: 'none'
-                                }
-                            }}>
-                                Фильмы
-                            </Menu.Item >
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Музыка
-                            </Menu.Item>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Живопись
-                            </Menu.Item>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Игры
-                            </Menu.Item>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Литература
-                            </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px',
+                            '&:hover': {
+                                backgroundColor: 'none'
+                            }
+                        }}>
+                            Фильмы
+                        </Menu.Item >
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Музыка
+                        </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Живопись
+                        </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Игры
+                        </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Литература
+                        </Menu.Item>
 
-                      
+
                     </Menu.Dropdown>
                 </Menu>
             </div >
@@ -87,7 +85,7 @@ export function NavigationBox() {
                         <Button style={{
                             height: '50px',
                             width: '250px',
-                            // marginTop: '5px',
+                            border: 'none',
                             backgroundColor: 'hsl(248, 53%, 58%)',
                             // border: '6px solid black',
                             // backgroundColor: 'hsl(248, 53%, 58%)'
@@ -97,47 +95,47 @@ export function NavigationBox() {
                         display: 'flex',
                         width: 'calc(100% - 250px)',
                         padding: '0px',
-                        // border: '2px solid black',
+                        border: 'none',
                         height: '50px',
                         backgroundColor: 'hsl(248, 53%, 58%)'
                     }}>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Фильмы
-                            </Menu.Item >
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Музыка
-                            </Menu.Item>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Живопись
-                            </Menu.Item>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Игры
-                            </Menu.Item>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Литература
-                            </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Фильмы
+                        </Menu.Item >
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Музыка
+                        </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Живопись
+                        </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Игры
+                        </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Литература
+                        </Menu.Item>
 
-                      
+
                     </Menu.Dropdown>
                 </Menu>
             </div>
@@ -146,7 +144,7 @@ export function NavigationBox() {
                     <Menu.Target>
                         <Button style={{
                             height: '50px',
-                            // border: '6px solid black',
+                            border: 'none',
                             width: '250px',
                             // marginTop: '5px',
                             backgroundColor: 'hsla(196, 49%, 48%, 0.7)'
@@ -160,43 +158,43 @@ export function NavigationBox() {
                         height: '50px',
                         backgroundColor: 'hsla(196, 49%, 48%, 0.7)'
                     }}>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Фильмы
-                            </Menu.Item >
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Музыка
-                            </Menu.Item>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Живопись
-                            </Menu.Item>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Игры
-                            </Menu.Item>
-                            <Menu.Item style={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                fontSize: '14px'
-                            }}>
-                                Литература
-                            </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Фильмы
+                        </Menu.Item >
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Музыка
+                        </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Живопись
+                        </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Игры
+                        </Menu.Item>
+                        <Menu.Item style={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '14px'
+                        }}>
+                            Литература
+                        </Menu.Item>
 
-                      
+
                     </Menu.Dropdown>
                 </Menu>
             </div>
