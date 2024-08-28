@@ -154,7 +154,7 @@ export function NavigationBox() {
                         display: 'flex',
                         width: 'calc(100% - 250px)',
                         padding: '0px',
-                        // border: '2px solid black',
+                        border: 'none',
                         height: '50px',
                         backgroundColor: 'hsla(196, 49%, 48%, 0.7)'
                     }}>
