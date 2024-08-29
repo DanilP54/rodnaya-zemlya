@@ -24,7 +24,7 @@
 
 .auth_link {
     color: black;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .lang_list {
@@ -37,7 +37,7 @@
 .lang_link {
     text-decoration: none;
     color: black;
-    font-weight: 800;
+    font-weight: 700;
     font-size: var(--link-font-size);
 }
 
