@@ -12,6 +12,7 @@ import { SecondaryVideo } from './secondary-video/secondaryVideo';
 import { SecondaryImage } from './image/secondaryImage';
 import { useState } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
+import { Link } from 'react-router-dom';
 
 
 
@@ -20,21 +21,30 @@ import AudioPlayer from 'react-h5-audio-player';
 
 export function Recommendation() {
 
-    const [isPlaying, setIsPlaying] = useState(false)
+    const [isPlaying, setIsPlaying] = useState(false);
 
 
     return (
-        <>
+        <div style={{marginTop: '20px'}}>
             <Grid gutter={'none'} style={{ padding: 0, width: '100%', height: 'calc(100vh - 42vh)' }}>
-                <Grid.Col style={{ border: '2px solid black', height: 'calc(100vh - 42vh)', padding: 0 }} span={8}>
+                <Grid.Col style={{
+                    // border: '2px solid black', 
+                    height: 'calc(100vh - 42vh)', padding: 0
+                }} span={8}>
                     <div className={classes.image_box}>
-                        <img className={classes.rec_image} src={BigImage} alt="image" />
-                        <img className={classes.play_icon} src={PlayIcon} alt="play icon" />
-                        <a href='#' className={classes.rec_title}>The Best Ambient Music on Rodnaya Zemlya, August 2024</a>
-                        <div className={classes.dimmer}></div>
+                        <Link to='#'>
+                            <img className={classes.rec_image} src={BigImage} alt="image" />
+                            {/* <img className={classes.play_icon} src={PlayIcon} alt="play icon" /> */}
+                            <Link to='#' className={classes.rec_title}>The Best Ambient Music on Rodnaya Zemlya, August 2024</Link>
+                            <div className={classes.dimmer}></div>
+                        </Link>
                     </div>
+
                 </Grid.Col>
-                <Grid.Col style={{ padding: 0, height: 'calc(100vh - 42vh)', border: '2px solid black' }} span={4}>
+                <Grid.Col style={{
+                    padding: 0, height: 'calc(100vh - 42vh)',
+                    // border: '2px solid black'
+                }} span={4}>
                     <Grid.Col style={{ padding: 0, height: 'calc(100% / 2)' }} span={12}>
                         <SecondaryVideo imageSrc={BigImageFive} iconSrc={PlayIcon} />
                     </Grid.Col>
@@ -44,9 +54,9 @@ export function Recommendation() {
                 </Grid.Col>
 
             </Grid>
-            <>
 
-            </>
+
+
 
             <div>
                 {
@@ -58,6 +68,7 @@ export function Recommendation() {
                             zIndex: 999,
 
                         }}
+                        header={<p>dwdawd</p>}
                         layout='horizontal-reverse'
                         autoPlay
                         src=""
@@ -68,7 +79,7 @@ export function Recommendation() {
 
             </div>
 
-        </>
+        </div>
 
     )
 }

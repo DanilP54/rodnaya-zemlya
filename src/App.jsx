@@ -1,9 +1,13 @@
+import { Outlet } from 'react-router-dom';
 import './App.css'
 import { Header } from './components/header/header'
-import { NavigationBox } from './components/navigation/navigation'
+import { NavigationMenu } from './components/navigation-menu/NavigationMenu';
+// import { NavigationBox } from './components/navigation/navigation'
 import { Recommendation } from './components/recommendation/recommendation'
 import AudioPlayer from 'react-h5-audio-player';
 import ReactPlayer from 'react-player'
+
+
 
 function App() {
 
@@ -11,19 +15,13 @@ function App() {
   return (
     <>
       <div style={{
-        height: '40svh'
+        // height: '40svh'
       }}>
         <Header />
-        <NavigationBox />
+        <NavigationMenu />
+        {/* <NavigationBox /> */}
       </div>
-      <div style={{
-        height: 'calc(100vh - 42vh)',
-        padding: '0 0 0',
-        // width: '800px',
-        backgroundColor: 'black'
-      }}>
-        <Recommendation />
-      </div>
+      <Outlet />
       {/* <div>
         <AudioPlayer
 

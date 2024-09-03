@@ -1,9 +1,7 @@
 .image_box {
     position: relative;
     z-index: 1;
-    border: 1px solid black;
-    height: 100%;
-    cursor: pointer;
+
 }
 
 .small_image {
@@ -17,15 +15,20 @@
     left: 10px;
     cursor: pointer;
     bottom: 10px;
-    width: 50px;
+    /* width: 30px; */
     display: none;
     transition: transform .1s ease-out;
     z-index: 55;
+}
 
-    &:hover {
-        transform: scale(1.1);
-    }
-
+.paused_icon {
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+    bottom: 10px;
+    display: block;
+    transition: transform .1s ease-out;
+    z-index: 55;
 }
 
 .image_box:hover .play_icon {
@@ -33,12 +36,15 @@
     /* Показываем .play_icon при наведении */
 }
 
+
+
 .small_image:hover {
     cursor: pointer;
 }
 
 .image_box:hover .dimmer {
-    background-color: rgba(0, 0, 0, .2); /* Сохраняем затемнение при наведении */
+    background-color: rgba(0, 0, 0, .2);
+    /* Сохраняем затемнение при наведении */
 }
 
 .box_title {
@@ -70,7 +76,7 @@
     height: 100%;
 
     &:hover {
-        background-color: rgba(0, 0, 0, .2);
+        background-color: rgba(0, 0, 0, .4);
         /* transition: background-color .2s ease-in; */
     }
 }

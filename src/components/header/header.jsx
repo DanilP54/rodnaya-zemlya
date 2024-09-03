@@ -1,6 +1,7 @@
 import style from './header.module.css';
 import LogoImage from '../../../public/logo.png';
 import { Input } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
 
 export function Header() {
@@ -8,9 +9,9 @@ export function Header() {
         <div className={style.header_wrapper}>
             <header className={style.header}>
                 <div>
-                    <a href='#'>
+                    <Link to='#'>
                         <img src={LogoImage} alt="" className={style.logo}/>
-                    </a>
+                    </Link>
                 </div>
                 <div style={{
                     display: 'flex',
