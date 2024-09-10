@@ -2,6 +2,22 @@ import { Card, Image, Text } from '@mantine/core';
 import classes from './secondary.image.module.css'
 import { Link } from 'react-router-dom';
 import PlayIcon from '../../../../../public/play.svg';
+import styled from 'styled-components';
+
+const LinkStyled = styled(Link)`
+
+        width: 200px;
+        padding: 0;
+        font-weight: 500;
+        color: black;
+        margin-top: 14px;
+
+        &:hover {
+            color: gray
+        }
+            
+
+`
 
 
 export function MovieCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
@@ -34,15 +50,9 @@ export function MovieCard({ src, title, subtitle, index, isPlay, handle, id, cat
 
                 </Card.Section>
 
-                <Link component={Link} to={`/${category}/movie/${id}`}
-                    style={{
-                        width: '200px',
-                        padding: 0,
-                        fontWeight: '500',
-                        marginTop: '14px'
-                    }}>
+                <LinkStyled to={`/${category}/movie/${id}`}>
                     {title}
-                </Link>
+                </LinkStyled >
 
                 <Text mt="xs" c="dimmed" size="sm">
                     {subtitle}

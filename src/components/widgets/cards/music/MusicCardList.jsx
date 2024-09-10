@@ -38,7 +38,7 @@ export function MusicCardList({list}) {
             display: 'flex',
             marginTop: '50px',
             marginLeft: '80px',
-            padding: '0 68px 0 99px'
+            padding: '0 68px 20px 99px'
         }}>
             <div style={{
                 display: 'flex',

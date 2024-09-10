@@ -3,6 +3,23 @@ import classes from './secondary.image.module.css'
 import { Link } from 'react-router-dom';
 import PlayIcon from '../../../../../public/play.svg';
 import X from '../../../../../public/x.svg'
+import styled from 'styled-components';
+
+
+const LinkStyled = styled(Link)`
+
+        width: 200px;
+        padding: 0;
+        font-weight: 500;
+        color: black;
+        margin-top: 14px;
+
+        &:hover {
+            color: gray
+        }
+            
+
+`
 
 
 export function MusicCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
@@ -34,19 +51,23 @@ export function MusicCard({ src, title, subtitle, index, isPlay, handle, id, cat
                     </div>
 
                 </Card.Section>
-
-                <Link to={`/${category}/album/${id}`} style={{
-                    width: '200px',
-                    padding: 0,
-                    marginTop: '14px'
+                <div style={{
+                    height: '100%',
+                    gap: '10px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between'
                 }}>
-                    {title}
-                </Link>
+
+                    <LinkStyled to={`/${category}/album/${id}`}>
+                        {title}
+                    </LinkStyled >
 
 
-                <Text mt="xs" c="dimmed" size="sm">
-                    {subtitle}
-                </Text>
+                    <Text mt="" c="dimmed" size="sm">
+                        {subtitle}
+                    </Text>
+                </div>
             </Card >
         </>
     )
