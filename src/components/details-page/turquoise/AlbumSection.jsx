@@ -28,6 +28,7 @@ const AlbumSectionWrapper = styled.div`
     border: 1px solid red;  
     height: 100%;
     grid-template-columns: 3fr 1fr;
+    padding-right: 20px;
     /* grid-template-rows: 100%; */
 `
 
@@ -71,11 +72,13 @@ const AsideBox = styled.aside`
         gap: 10px;
 
         & .bold {
+            width: 50%;
             font-weight: 700;
             font-size: 13px;
         }
 
         & .descr {
+            width: 50%;
             font-size: 13px;
         }
     }
@@ -136,7 +139,6 @@ export function AlbumSection({ color }) {
                     <span className="title">The Fragile</span>
                     <img src={Card6} alt="" />
                     <span className="subtitle">Studio Album by Nine Inch Nails</span>
-
                 </AlbumCard>
                 <div className="album_details">
                     <div className="item">
