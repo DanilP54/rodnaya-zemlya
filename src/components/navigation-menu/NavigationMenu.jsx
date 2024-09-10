@@ -171,15 +171,17 @@ const StyledNavLink = styled(NavLink)`
   font-weight: bold;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   color: ${props => props.$isActive ? 'black' : 'white'};
   background-color: ${props => props.$isActive ? 'white' : 'transparent'};
 
   &:hover {
+    color: ${props => props.$isActive ? 'black' : 'white'};;
     background-color: ${props => props.$isActive ? 'white' : 'rgba(0, 0, 0, 0.2)'};
   }
-  &:visited {
-    color: ${props => props.$isActive ? 'black' : 'white'}; // Сохраняет цвет для посещенных ссылок
-}
+  /* &: {
+    color: white; // Сохраняет цвет для посещенных ссылок
+} */
 `
 
 
