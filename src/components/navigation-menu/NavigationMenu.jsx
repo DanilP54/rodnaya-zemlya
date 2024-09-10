@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react"
-// import { Link } from "react-router-dom"
-import { Input } from "@mantine/core"
-import { Link, useLocation } from "react-router-dom"
+import { useState } from "react"
 import { NavLink } from "react-router-dom"
+import { useLocation } from "react-router-dom";
 import { useLayoutEffect } from "react"
+import styled from "styled-components";
 
 
 
@@ -54,28 +53,29 @@ const buttonsList = [
         id: 1,
         color: '#CD5C5C',
         name: 'red',
+        hover: '#d67070',
         isActive: false,
         isSelected: false,
         menu: [
             {
-                name: 'Unknow',
-                path: '/unknow'
+                name: 'Фильмы',
+                path: '/red-movie'
             },
             {
-                name: 'Unknow',
-                path: '/unknow'
+                name: 'Музыка',
+                path: '/red-music'
             },
             {
-                name: 'Unknow',
-                path: '/unknow'
+                name: 'Игры',
+                path: '/red-games'
             },
             {
-                name: 'Unknow',
-                path: '/unknow'
+                name: 'Живопись',
+                path: '/red-arts'
             },
             {
-                name: 'Unknow',
-                path: '/unknow'
+                name: 'Литература',
+                path: '/red-literature'
             }
 
         ]
@@ -83,29 +83,30 @@ const buttonsList = [
     }, {
         id: 2,
         color: '#00FA9A',
+        hover: '#38fcb1',
         name: 'green',
         isActive: false,
         isSelected: false,
         menu: [
             {
-                name: 'Unknow',
-                path: '/unknow'
+                name: 'Фильмы',
+                path: '/green-movie'
             },
             {
-                name: 'Unknow',
-                path: '/unknow'
+                name: 'Музыка',
+                path: '/green-music'
             },
             {
-                name: 'Unknow',
-                path: '/unknow'
+                name: 'Игры',
+                path: '/green-games'
             },
             {
-                name: 'Unknow',
-                path: '/unknow'
+                name: 'Живопись',
+                path: '/green-arts'
             },
             {
-                name: 'Unknow',
-                path: '/unknow'
+                name: 'Литература',
+                path: '/green-literature'
             }
 
         ]
@@ -115,28 +116,29 @@ const buttonsList = [
         id: 3,
         color: '#00CED1',
         isActive: false,
+        hover: '#18e1e4',
         name: 'turquoise',
         isSelected: false,
         menu: [
             {
                 name: 'Фильмы',
-                path: '/movie'
+                path: '/turquoise-movie'
             },
             {
                 name: 'Музыка',
-                path: '/music'
+                path: '/turquoise-music'
             },
             {
                 name: 'Игры',
-                path: '/games'
+                path: '/turquoise-games'
             },
             {
                 name: 'Живопись',
-                path: '/arts'
+                path: '/turquoise-arts'
             },
             {
                 name: 'Литература',
-                path: '/literature'
+                path: '/turquoise-literature'
             }
 
         ]
@@ -145,6 +147,40 @@ const buttonsList = [
 
 ]
 
+
+const ButtonStyled = styled.button`
+    cursor: pointer;
+    height: 40px;
+    width: ${props => props.buttonIsSelected ? '80px' : '250px'};
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: ${props => props.color};
+
+    &:hover {
+        background-color: ${props => props.hover};
+    }
+
+`
+
+
+const StyledNavLink = styled(NavLink)`
+  border-radius: 20px;
+  display: flex;
+  padding: 2px 15px;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  color: ${props => props.$isActive ? 'black' : 'white'};
+  background-color: ${props => props.$isActive ? 'white' : 'transparent'};
+
+  &:hover {
+    background-color: ${props => props.$isActive ? 'white' : 'rgba(0, 0, 0, 0.2)'};
+  }
+  &:visited {
+    color: ${props => props.$isActive ? 'black' : 'white'}; // Сохраняет цвет для посещенных ссылок
+}
+`
 
 
 export function NavigationMenu() {
@@ -231,23 +267,22 @@ export function NavigationMenu() {
                 {
                     buttons.map((button) => {
                         return <div id={'nav'} key={button.id} style={{
-                            display: 'flex', width: '100%', order: `${button.isSelected ? '1' : '0'}`,
+                            display: 'flex', width: '100%', order: `${button.isSelected ? '1' : '0'} `,
                         }}>
-                            <button
+                            <ButtonStyled
                                 onClick={() => handleButtonClick(button.id)}
                                 type="button"
-                                style={{
-                                    cursor: 'pointer', height: `40px`,
-                                    width: `${buttonIsSelected ? '80px' : '250px'}`,
-                                    border: 'none', margin: '0px', padding: '0px', backgroundColor: button.color
-                                }}>
-                            </button>
+                                color={button.color}
+                                buttonIsSelected={buttonIsSelected}
+                                hover={button.hover}
+                            >
+                            </ButtonStyled>
 
                             {
 
                                 button.isActive &&
 
-                                <nav style={{ display: 'flex', width: `${buttonIsSelected ? 'calc(100% - 80px)' : 'calc(100% - 250px)'}`, backgroundColor: button.color }}>
+                                <nav style={{ display: 'flex', width: `${buttonIsSelected ? 'calc(100% - 80px)' : 'calc(100% - 250px)'} `, backgroundColor: button.color }}>
 
                                     <ul id="link_list" style={{
                                         display: 'flex',
@@ -260,24 +295,13 @@ export function NavigationMenu() {
                                             button.menu.map((link, index) => {
                                                 return (
                                                     <li key={index} style={{ listStyle: 'none', height: '100%', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                                        <NavLink to={link.path}
+                                                        <StyledNavLink
+                                                            to={link.path}
                                                             onClick={(e) => handleSelectButtonNav(button.id, e)}
-                                                            style={({ isActive, isPending, isTransitioning }) => {
-                                                                return {
-                                                                    borderRadius: '20px',
-                                                                    display: 'block',
-                                                                    padding: '2px 15px',
-                                                                    // width: '60%',
-                                                                    // height: '60%',
-                                                                    display: 'flex',
-                                                                    fontWeight: 'bold',
-                                                                    color: isActive ? 'black' : 'white',
-                                                                    alignItems: 'center',
-                                                                    justifyContent: 'center',
-                                                                    backgroundColor: isActive ? 'white' : 'transparent',
-                                                                };
-                                                            }}
-                                                        >{link.name}</NavLink>
+                                                            $isActive={location.pathname === link.path}
+                                                        >
+                                                            {link.name}
+                                                        </StyledNavLink>
                                                     </li>
                                                 )
                                             })
@@ -292,3 +316,4 @@ export function NavigationMenu() {
         </div >
     )
 }
+

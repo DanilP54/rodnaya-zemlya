@@ -1,13 +1,10 @@
 import { Card, Image, Text } from '@mantine/core';
 import classes from './secondary.image.module.css'
 import { Link } from 'react-router-dom';
-import PlayIcon from '../../../public/play.svg';
-import PlayPausedIcon from '../../../public/player.paused.svg';
-import { useState } from 'react';
-import X from '../../../public/x.svg'
+import PlayIcon from '../../../../../public/play.svg';
 
 
-export function CardFilms({ src, title, subtitle, index, isPlay, handle, id, category }) {
+export function MovieCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
 
 
     return (
@@ -37,7 +34,7 @@ export function CardFilms({ src, title, subtitle, index, isPlay, handle, id, cat
 
                 </Card.Section>
 
-                <Link component={Link} to={`/turquoise/movie/${id}`}
+                <Link component={Link} to={`/${category}/movie/${id}`}
                     style={{
                         width: '200px',
                         padding: 0,
