@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { RootLayout } from './RootLayout.jsx'
 import App from './App.jsx'
 import 'semantic-ui-css/semantic.min.css'
 import '@mantine/core/styles.css';
@@ -15,6 +16,13 @@ import { Filters } from './components/Filters.jsx';
 import { CardList } from './components/card/CardList.jsx';
 import { FiltersFilm } from './components/FiltersFilm.jsx';
 import { CardFilmsList } from './components/films-cards/FilmsCardsList.jsx';
+import { TurquoiseAlbumPage } from './components/details-page/turquoise/TurquoiseAlbumPage.jsx';
+import { RedAlbumPage } from './components/details-page/red/RedAlbumPage.jsx';
+import { GreenAlbumPage } from './components/details-page/green/GreenAlbumPage.jsx';
+import { TurquoiseMoviePage } from './components/details-page/turquoise/TurquoiseMoviePage.jsx'
+import { RedMoviePage } from './components/details-page/red/RedMoviePage.jsx'
+import { GreenMoviePage } from './components/details-page/green/GreenMoviePage.jsx'
+
 
 function Films() {
   return (
@@ -90,26 +98,51 @@ const routers = [
         element: <Recommendation />
       },
       {
-        path: '/films', element: <Films />,
+        path: 'movie', element: <Films />,
       },
       {
-        path: '/music', element: <Music />
+        path: 'music', element: <Music />
       },
       {
-        path: '/games', element: <Games />
+        path: 'games', element: <Games />
       },
       {
-        path: '/arts', element: <Arts />
+        path: 'arts', element: <Arts />
       },
       {
-        path: '/literature', element: <Literature />
+        path: 'literature', element: <Literature />
       },
       {
-        path: '/unknow', element: <Unknow />
+        path: 'unknow', element: <Unknow />
       },
+    ],
+  },
 
-    ]
-  }
+  {
+    path: 'turquoise/album/:id',
+    element: <TurquoiseAlbumPage />
+  },
+  {
+    path: 'red/album/:id',
+    element: <RedAlbumPage />
+  },
+  {
+    path: 'green/album/:id',
+    element: <GreenAlbumPage />
+  },
+  {
+    path: 'turquoise/movie/:id',
+    element: <TurquoiseMoviePage />
+  },
+  {
+    path: 'red/movie/:id',
+    element: <RedMoviePage />
+  },
+  {
+    path: 'green/movie/:id',
+    element: <GreenMoviePage />
+  },
+
 ]
 
 
@@ -123,7 +156,7 @@ createRoot(document.getElementById('root')).render(
     <MantineProvider>
       <StrictMode>
         <AppRouters />
-      </StrictMode>,
+      </StrictMode>
     </MantineProvider>
   </>
 )

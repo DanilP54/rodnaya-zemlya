@@ -1,23 +1,25 @@
-import style from './header.module.css';
+import style from './header.module.css'
+import { Link } from 'react-router-dom'
+import { Input } from 'semantic-ui-react';
 import LogoImage from '../../../public/logo.png';
-import { Input } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
 
-
-export function Header() {
+export function HeaderDetails() {
     return (
         <div className={style.header_wrapper}>
             <header className={style.header}>
                 <div>
-                    <Link to='#'>
+                    <Link style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }} to='#'>
                         <img src={LogoImage} alt="" className={style.logo} />
                     </Link>
                 </div>
                 <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '4rem',
-                    height: 'min-content'
+                    gap: '50px'
                 }}>
                     <div>
                         <ul className={style.lang_list}>
@@ -36,15 +38,9 @@ export function Header() {
                         </ul>
                     </div>
                     <div className={style.input_box}>
-                        <Input fluid icon='search' placeholder='Search for artist, album or track' />
-                    </div>
-                    <div className={style.auth_box}>
-                        <div>
-                            <a href='#' className={style.auth_link}>Log In</a>
-                        </div>
-                        <div>
-                            <a href='#' className={style.auth_link}>Sign Up</a>
-                        </div>
+                        <Input size='small' style={{
+                            width: '250px'
+                        }} icon='search' placeholder='Search for artist, album or track' />
                     </div>
                 </div>
             </header>

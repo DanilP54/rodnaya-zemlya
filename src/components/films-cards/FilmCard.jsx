@@ -7,7 +7,7 @@ import { useState } from 'react';
 import X from '../../../public/x.svg'
 
 
-export function CardFilms({ src, title, subtitle, index, isPlay, handle }) {
+export function CardFilms({ src, title, subtitle, index, isPlay, handle, id }) {
 
 
     return (
@@ -37,11 +37,15 @@ export function CardFilms({ src, title, subtitle, index, isPlay, handle }) {
 
                 </Card.Section>
 
-                <Text component={Link} to='#' style={{
-                    padding: 0
-                }} fw={500} size="md" mt="md" w={200}>
+                <Link component={Link} to={`/turquoise/movie/${id}`}
+                    style={{
+                        width: '200px',
+                        padding: 0,
+                        fontWeight: '500',
+                        marginTop: '14px'
+                    }}>
                     {title}
-                </Text>
+                </Link>
 
                 <Text mt="xs" c="dimmed" size="sm">
                     {subtitle}

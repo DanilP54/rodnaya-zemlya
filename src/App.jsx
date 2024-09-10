@@ -6,40 +6,18 @@ import { NavigationMenu } from './components/navigation-menu/NavigationMenu';
 import { Recommendation } from './components/recommendation/recommendation'
 import AudioPlayer from 'react-h5-audio-player';
 import ReactPlayer from 'react-player'
-
+import { ScrollRestoration } from 'react-router-dom';
 
 
 function App() {
 
-
   return (
     <>
-      <div style={{
-        // height: '40svh'
-      }}>
+      <div>
         <Header />
         <NavigationMenu />
-        {/* <NavigationBox /> */}
       </div>
       <Outlet />
-      {/* <div>
-        <AudioPlayer
-
-          style={{
-            position: 'fixed',
-            bottom: 0,
-            zIndex: 999,
-
-          }}
-          autoPlay
-          src="http://example.com/audio.mp3"
-          onPlay={e => console.log("onPlay")}
-        // other props here
-        />
-      </div> */}
-      <div>
-        {/* <ReactPlayer url='https://www.youtube.com/watch?v=LXb3EKWsInQ' /> */}
-      </div>
     </>
   )
 }

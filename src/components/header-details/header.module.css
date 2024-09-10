@@ -1,0 +1,55 @@
+:root {
+    --link-font-size: 1rem
+}
+
+.header_wrapper {
+    position: fixed;
+    z-index: 222;
+    background-color: #00CED1;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    padding: 7px;
+}
+
+.logo {
+    height: 3.2rem;
+    width: 3.2rem;
+}
+
+.auth_box {
+    display: flex;
+    gap: 2rem
+}
+
+.auth_link {
+    color: black;
+    font-weight: 700;
+}
+
+.lang_list {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+
+.lang_link {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: var(--link-font-size);
+}
+
+.input_box {
+    /* width: 25rem; */
+}

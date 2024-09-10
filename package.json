@@ -16,10 +16,12 @@
     "react-do": "^1.1.6",
     "react-dom": "^18.3.1",
     "react-h5-audio-player": "^3.9.3",
+    "react-icons": "^5.3.0",
     "react-player": "^2.16.0",
     "react-router-dom": "^6.26.1",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.5",
+    "styled-components": "^6.1.13",
     "video-react": "^0.16.0"
   },
   "devDependencies": {

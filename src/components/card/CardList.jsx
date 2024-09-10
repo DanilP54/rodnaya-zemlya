@@ -20,16 +20,16 @@ import Close from '../../../public/close.svg'
 
 
 const cardList = [
-    { "id": 1, "title": "Nobody Loves You Moreby Kim Deal", "src": Card6, "genre": "punk", isPlay: false },
-    { "id": 2, "title": "The Minuteby Yatte & Duett", "src": Card10, "genre": "alternative", isPlay: false },
-    { "id": 3, "title": "Songs of Blood and Mireby SPECTRAL", "src": Card11, "genre": "metal", isPlay: false },
-    { "id": 4, "title": "Seekerby Carbon Based Lifeforms", "src": Card15, "genre": "ambient", isPlay: false },
-    { "id": 5, "title": "When Glory Disappears (EP)by Nöldr", "src": Card9, "genre": "matal", isPlay: false },
-    { "id": 6, "title": "Lust For Goldby Starflyer 59", "src": Card8, "genre": "alternative", isPlay: false },
-    { "id": 7, "title": "YOU'LL HAVE TO LOSE SOMETHINGby", "src": Card20, "genre": "rock", isPlay: false },
-    { "id": 8, "title": "Карточка 8Love Rudiments by Ty Segall", "src": Card21, "genre": "techno", isPlay: false },
-    { "id": 9, "title": "The Duality of Decapitation", "src": Card23, "genre": "electronic", isPlay: false },
-    { "id": 10, "title": "Duck Face Killingsby Fulci", "src": Card24, "genre": "experimental", isPlay: false },
+    { "id": 1, "title": "Nobody Loves You Moreby Kim Deal", "src": Card6, "genre": "punk", isPlay: false, color: 'turquoise' },
+    { "id": 2, "title": "The Minuteby Yatte & Duett", "src": Card10, "genre": "alternative", isPlay: false, color: 'turquoise' },
+    { "id": 3, "title": "Songs of Blood and Mireby SPECTRAL", "src": Card11, "genre": "metal", isPlay: false, color: 'turquoise' },
+    { "id": 4, "title": "Seekerby Carbon Based Lifeforms", "src": Card15, "genre": "ambient", isPlay: false, color: 'turquoise' },
+    { "id": 5, "title": "When Glory Disappears (EP)by Nöldr", "src": Card9, "genre": "matal", isPlay: false, color: 'turquoise' },
+    { "id": 6, "title": "Lust For Goldby Starflyer 59", "src": Card8, "genre": "alternative", isPlay: false, color: 'turquoise' },
+    { "id": 7, "title": "YOU'LL HAVE TO LOSE SOMETHINGby", "src": Card20, "genre": "rock", isPlay: false, color: 'turquoise' },
+    { "id": 8, "title": "Карточка 8Love Rudiments by Ty Segall", "src": Card21, "genre": "techno", isPlay: false, color: 'turquoise' },
+    { "id": 9, "title": "The Duality of Decapitation", "src": Card23, "genre": "electronic", isPlay: false, color: 'turquoise' },
+    { "id": 10, "title": "Duck Face Killingsby Fulci", "src": Card24, "genre": "experimental", isPlay: false, color: 'turquoise' },
 ]
 
 export function CardList() {
@@ -79,7 +79,7 @@ export function CardList() {
                             <div style={{
                                 display: 'flex', flexWrap: 'wrap', gap: '10px',
                             }}>
-                                <CardC key={c.id} src={c.src} title={c.title} subtitle={c.genre} isPlay={c.isPlay} index={index} handle={() => handlePlay(c.id)} />
+                                <CardC key={c.id} src={c.src} title={c.title} subtitle={c.genre} isPlay={c.isPlay} index={index} id={c.id} handle={() => handlePlay(c.id)} />
                                 {
                                     c.isPlay && <AudioPlayer
                                         style={{

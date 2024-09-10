@@ -11,7 +11,7 @@ import { useLayoutEffect } from "react"
 const links = [
     {
         name: 'Фильмы',
-        url: 'films'
+        url: 'movie'
     },
     {
         name: 'Музыка',
@@ -53,6 +53,7 @@ const buttonsList = [
     {
         id: 1,
         color: '#CD5C5C',
+        name: 'red',
         isActive: false,
         isSelected: false,
         menu: [
@@ -82,6 +83,7 @@ const buttonsList = [
     }, {
         id: 2,
         color: '#00FA9A',
+        name: 'green',
         isActive: false,
         isSelected: false,
         menu: [
@@ -113,11 +115,12 @@ const buttonsList = [
         id: 3,
         color: '#00CED1',
         isActive: false,
+        name: 'turquoise',
         isSelected: false,
         menu: [
             {
                 name: 'Фильмы',
-                path: '/films'
+                path: '/movie'
             },
             {
                 name: 'Музыка',
