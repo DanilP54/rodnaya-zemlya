@@ -41,7 +41,7 @@ export function MovieCard({ src, title, subtitle, index, isPlay, handle, id, cat
                             h={200}
                             alt="No way!"
                         />
-                        <img style={{
+                        <img loading='lazy' style={{
                             backgroundColor: 'black',
                             padding: '7px'
                         }} onClick={handle} className={classes.play_icon} src={PlayIcon} alt="play icon" />
