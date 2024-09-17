@@ -168,7 +168,7 @@ export function MovieSection() {
                                 <span className="descr">Комедия</span>
                             </div>
                             <div style={{
-                                marginTop: '10px'
+                                marginTop: '20px'
                             }} className="item">
                                 <div style={{
                                     display: 'flex',
