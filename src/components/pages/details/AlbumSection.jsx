@@ -53,32 +53,34 @@ const SectionBox = styled.section`
 `
 const AsideBox = styled.aside`
     margin-top: 120px;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 20px;
     display: flex;
     height: min-content;
     flex-direction: column;
-    background-color: rgb(242, 249, 249);
+    /* background-color: rgb(242, 249, 249); */
 
     & .album_details {
         margin-top: 5px;
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        margin-top: 20px;
     }
 
     & .item {
         display: flex;
-        gap: 10px;
+        gap: 50px;
+        margin-top: 5px;
 
         & .bold {
             width: 50%;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         & .descr {
             width: 50%;
-            font-size: 13px;
+            font-size: 12px;
         }
     }
 
@@ -107,7 +109,8 @@ align-items: center;
         width: 100%;
     }
     & img {
-        height: 200px
+        height: 230px;
+        width: 100%
     }
 
     
@@ -133,51 +136,32 @@ export function AlbumSection({ color }) {
             </SectionBox>
             <AsideBox>
                 <AlbumCard>
-                    <span style={{
+                    {/* <span style={{
                         backgroundColor: color
-                    }} className="title">The Fragile</span>
+                    }} className="title">The Fragile</span> */}
                     <img src={Card6} alt="" />
-                    <span style={{
+                    {/* <span style={{
                         backgroundColor: color
-                    }} className="subtitle">Studio Album by Nine Inch Nails</span>
+                    }} className="subtitle">Studio Album by Nine Inch Nails</span> */}
                 </AlbumCard>
                 <div className="album_details">
                     <div className="item">
-                        <span className="bold">Released</span>
-                        <span className="descr">September 21, 1999</span>
+                        <span className="bold">Жанр:</span>
+                        <span className="descr">Индастриал</span>
                     </div>
                     <div className="item">
-                        <span className="bold">Recorded</span>
-                        <span className="descr">January 1997 - July 1999</span>
+                        <span className="bold">Страна:</span>
+                        <span className="descr">Америка</span>
                     </div>
                     <div className="item">
-                        <span className="bold">Studio</span>
+                        <span className="bold">Композитор</span>
                         <span className="descr">
-                            <a href="#">Nothing, </a>
-                            New Orlean
+                            Трент Резнор
                         </span>
                     </div>
                     <div className="item">
-                        <span className="bold">Genre</span>
-                        <span className="descr">Indastrial rock - art rock - alternative rock</span>
-                    </div>
-                    <div className="item">
-                        <span className="bold">Length</span>
-                        <span className="descr">103:39</span>
-                    </div>
-                    <div className="item">
-                        <span className="bold">Label</span>
-                        <span className="descr">
-                            <a href="#">Nothing, </a>
-                            <a href="#">Interscope</a>
-                        </span>
-                    </div>
-                    <div className="item">
-                        <span className="bold">Producer</span>
-                        <span className="descr">
-                            <a href="#">Trent Reznor, </a>
-                            <a href="#">Alan Moulder</a>
-                        </span>
+                        <span className="bold">Продюсер:</span>
+                        <span className="descr">Трент Резнор, Алан Молдер</span>
                     </div>
                 </div>
             </AsideBox>
