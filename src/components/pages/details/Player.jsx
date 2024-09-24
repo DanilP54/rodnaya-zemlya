@@ -127,19 +127,19 @@ const formatTimeFull = (secs) => {
     let hours = Math.floor(secs / 3600);
     let minutes = Math.floor((secs % 3600) / 60);
     let seconds = Math.ceil(secs % 60);
-  
+
     if (hours < 10) {
-      hours = `0${hours}`;
+        hours = `0${hours}`;
     }
     if (minutes < 10) {
-      minutes = `0${minutes}`;
+        minutes = `0${minutes}`;
     }
     if (seconds < 10) {
-      seconds = `0${seconds}`;
+        seconds = `0${seconds}`;
     }
-  
+
     return `${hours}:${minutes}:${seconds}`;
-  };
+};
 
 const formatTime = (secs) => {
     let minutes = Math.floor(secs / 60);

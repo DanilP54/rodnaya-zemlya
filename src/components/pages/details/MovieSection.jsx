@@ -11,8 +11,6 @@ const MovieSectionWrapper = styled.div`
 `
 
 const AsideBox = styled.aside`
-    /* margin-top: 120px; */
-    /* padding: 5px 25px; */
     display: flex;
     height: min-content;
     flex-direction: column;
@@ -140,7 +138,6 @@ export function MovieSection() {
                 </div>
                 <MovieSectionWrapper>
                     <AsideBox>
-
                         <AlbumCard>
                             <img src={Movie} alt="" />
                         </AlbumCard>
