@@ -86,6 +86,7 @@ const Button = styled.button`
 const Pagination = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px;
     background-color: white;
     width: 70%;
@@ -93,10 +94,10 @@ const Pagination = styled.div`
 `;
 
 const PageButton = styled.button`
-    padding: 5px 10px; /* Уменьшенная высота */
+    padding: 5px 10px;
     border: none;
     background-color: transparent;
-    color: black; /* Цвет текста черный */
+    color: black;
     cursor: pointer;
     &:hover {
         background-color: rgba(0, 0, 0, 0.1);
@@ -106,9 +107,14 @@ const PageButton = styled.button`
         cursor: not-allowed;
     }
 `;
-
 const ChapterTitle = styled.h2`
     text-align: center;
+    `
+
+
+const PageIndicator = styled.span`
+    font-size: 16px;
+    color: black;
 `;
 
 export function ReaderPage({ color, href }) {
@@ -223,8 +229,9 @@ export function ReaderPage({ color, href }) {
                         </div>
                         
                         <Pagination>
-                            <PageButton onClick={goToPreviousPage} disabled={currentPage === 1}>Назад</PageButton>
-                            <PageButton onClick={goToNextPage} disabled={currentPage === bookData.pages.length}>Далее</PageButton>
+                            <PageButton onClick={goToPreviousPage} disabled={currentPage === 1}>←</PageButton>
+                            <PageIndicator>{currentPage}/{bookData.pages.length}</PageIndicator>
+                            <PageButton onClick={goToNextPage} disabled={currentPage === bookData.pages.length}>→</PageButton>
                         </Pagination>
                     </ContentBox>
 
