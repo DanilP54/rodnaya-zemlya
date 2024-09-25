@@ -4,6 +4,15 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useLayoutEffect, useState } from "react";
 import { bookData } from './dataBook';
+import { useFullscreen } from "@mantine/hooks";
+
+function FullScreenIcon({ fullscreen }) {
+    return (
+        <>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill={`${fullscreen ? 'yellow' : 'none'}`} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fullscreen"><path d="M3 7V5a2 2 0 0 1 2-2h2" /><path d="M17 3h2a2 2 0 0 1 2 2v2" /><path d="M21 17v2a2 2 0 0 1-2 2h-2" /><path d="M7 21H5a2 2 0 0 1-2-2v-2" /><rect width="10" height="8" x="7" y="8" rx="1" /></svg>
+        </>
+    )
+}
 
 const ArrowLeft = styled(Link)`
     position: fixed;
@@ -45,16 +54,18 @@ const ContentBox = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0px auto;
-    padding-top: 20px;
+    padding-top: ${props => props.fullscreen ? '' : '20px'};
     display: flex;
     /* padding: 20px; */
     /* font-size: ${props => props.fontSize};
     font-weight: ${props => props.isBold ? 'bold' : 'normal'}; */
 `
 
+// ${props => props.isBold ? 'rgba(250, 244, 211, 1)' : ''}
+
 const ControlPanel = styled.div`
     display: flex;
-    padding: 60px 40px 20px 40px;
+    padding: ${props => props.fullscreen ? '20px 40px 20px 40px' : '60px 40px 20px 40px'} ;
     justify-content: space-between;
     align-items: center;
     width: inherit;
@@ -62,6 +73,7 @@ const ControlPanel = styled.div`
     /* border: 1px solid red; */
     background-color: white;
     /* backdrop-filter: blur(20px); */
+
 `
 
 const Select = styled.select`
@@ -123,6 +135,10 @@ export function ReaderPage({ color, href }) {
     const [fontSize, setFontSize] = useState('16px');
     const [isBold, setIsBold] = useState(false);
 
+
+    const { toggle, fullscreen } = useFullscreen()
+    console.log(fullscreen)
+
     useLayoutEffect(() => {
         if (pathname) {
             window.scrollTo(0, 0);
@@ -134,7 +150,7 @@ export function ReaderPage({ color, href }) {
         window.scrollTo(0, 0);
     };
 
-    const handleChangePageButton = () => {}
+    const handleChangePageButton = () => { }
 
     const handleFontSizeChange = (e) => {
         setFontSize(e.target.value);
@@ -164,17 +180,20 @@ export function ReaderPage({ color, href }) {
     return (
         <>
             <DetailsPageWrapper>
-                <HeaderBox>
-                    <HeaderDetails color={color} />
-                </HeaderBox>
+                {
+                    !fullscreen && <HeaderBox>
+                        <HeaderDetails color={color} />
+                    </HeaderBox>
+                }
                 <MainBox>
-                    <ContentBox fontSize={fontSize} isBold={isBold}>
-                        <ControlPanel>
-                            <div style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '70px'
-                            }}>
+                    <ContentBox fullscreen={fullscreen} fontSize={fontSize} isBold={isBold}>
+                        <ControlPanel fullscreen={fullscreen}>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '70px'
+                                }}>
                                 <div style={{
                                     display: 'flex',
                                     alignItems: 'center'
@@ -209,15 +228,25 @@ export function ReaderPage({ color, href }) {
                                     </Select>
                                     <Button isBold={isBold} onClick={toggleBold}>Ж</Button>
                                 </div>
+                                <div
+                                    onClick={toggle}
+                                    style={{
+                                        cursor: 'pointer',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+                                    <FullScreenIcon fullscreen={fullscreen} />
+                                </div>
                             </div>
                             <span style={{
                                 color: 'gray'
                             }}>{bookData.title}</span>
                         </ControlPanel>
                         <div style={{
-                            marginTop: '150px',
+                            marginTop: fullscreen ? '100px' : '150px',
                         }}>
-                        <ChapterTitle>{currentChapter?.title}</ChapterTitle>
+                            <ChapterTitle>{currentChapter?.title}</ChapterTitle>
                         </div>
                         <div style={{
                             marginTop: '50px',
@@ -227,17 +256,19 @@ export function ReaderPage({ color, href }) {
                             fontSize: fontSize
                         }} dangerouslySetInnerHTML={{ __html: currentPageContent }}>
                         </div>
-                        
+
                         <Pagination>
                             <PageButton onClick={goToPreviousPage} disabled={currentPage === 1}>←</PageButton>
                             <PageIndicator>{currentPage}/{bookData.pages.length}</PageIndicator>
                             <PageButton onClick={goToNextPage} disabled={currentPage === bookData.pages.length}>→</PageButton>
                         </Pagination>
                     </ContentBox>
+                    {
+                        !fullscreen && <ArrowLeft to={href} preventScrollReset={true}>
+                            <img src={LeftArrow} alt="icon" />
+                        </ArrowLeft>
+                    }
 
-                    <ArrowLeft to={href} preventScrollReset={true}>
-                        <img src={LeftArrow} alt="icon" />
-                    </ArrowLeft>
                 </MainBox>
             </DetailsPageWrapper>
         </>
