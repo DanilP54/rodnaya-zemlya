@@ -125,6 +125,7 @@ export function ReaderPage({ color, href }) {
 
     const handlePageChange = (e) => {
         setCurrentPage(Number(e.target.value));
+        window.scrollTo(0, 0);
     };
 
     const handleChangePageButton = () => {}
