@@ -1,4 +1,3 @@
-import { MusicCardList } from "../../../widgets/cards/music/MusicCardList";
 import { RedFilterMusic } from "../../../widgets/red/RedFiltersMusic";
 import Card6 from '../../../../../public/Card6.jpg'
 import Card8 from '../../../../../public/Card8.jpg'
@@ -9,16 +8,25 @@ import Card15 from '../../../../../public/Card15.jpg'
 import Card20 from '../../../../../public/Card20.jpg'
 import Card21 from '../../../../../public/Card21.jpg'
 import Card23 from '../../../../../public/Card23.jpg'
-import Card24 from '../../../../../public/Card24.jpg'   
+import Card24 from '../../../../../public/Card24.jpg'
 
-const albumsList = [
-    { "id": 1, "title": "Nobody Loves You Moreby Kim Deal", "src": Card6, "genre": "punk", isPlay: false, category: 'red' },
-    { "id": 2, "title": "The Minuteby Yatte & Duett", "src": Card10, "genre": "alternative", isPlay: false, category: 'red' },
-    { "id": 3, "title": "Songs of Blood and Mireby SPECTRAL", "src": Card11, "genre": "metal", isPlay: false, category: 'red' },
-    { "id": 4, "title": "Seekerby Carbon Based Lifeforms", "src": Card15, "genre": "ambient", isPlay: false, category: 'red' },
-    { "id": 5, "title": "When Glory Disappears (EP)by Nöldr", "src": Card9, "genre": "matal", isPlay: false, category: 'red' },
-    { "id": 6, "title": "Lust For Goldby Starflyer 59", "src": Card8, "genre": "alternative", isPlay: false, category: 'red' },
-    { "id": 7, "title": "YOU'LL HAVE TO LOSE SOMETHINGby", "src": Card20, "genre": "rock", isPlay: false, category: 'red' },
+import track1 from '../../../../../public/red-music/1.mp3'
+import track2 from '../../../../../public/red-music/2.mp3'
+import track3 from '../../../../../public/red-music/3.mp3'
+import track4 from '../../../../../public/red-music/4.mp3'
+import track5 from '../../../../../public/red-music/5.mp3'
+import track6 from '../../../../../public/red-music/6.mp3'
+import track7 from '../../../../../public/red-music/7.mp3'
+import { RedMusicCardList } from "../../../widgets/cards/music/RedMusicCardList";
+
+const redMusic = [
+    { "id": 1, "title": "Nobody Loves You Moreby Kim Deal", "src": Card6, "genre": "punk", isPlay: false, category: 'red', trackSrc: track1 },
+    { "id": 2, "title": "The Minuteby Yatte & Duett", "src": Card10, "genre": "alternative", isPlay: false, category: 'red', trackSrc: track2 },
+    { "id": 3, "title": "Songs of Blood and Mireby SPECTRAL", "src": Card11, "genre": "metal", isPlay: false, category: 'red', trackSrc: track3 },
+    { "id": 4, "title": "Seekerby Carbon Based Lifeforms", "src": Card15, "genre": "ambient", isPlay: false, category: 'red', trackSrc: track4 },
+    { "id": 5, "title": "When Glory Disappears (EP)by Nöldr", "src": Card9, "genre": "matal", isPlay: false, category: 'red', trackSrc: track5 },
+    { "id": 6, "title": "Lust For Goldby Starflyer 59", "src": Card8, "genre": "alternative", isPlay: false, category: 'red', trackSrc: track6 },
+    { "id": 7, "title": "YOU'LL HAVE TO LOSE SOMETHINGby", "src": Card20, "genre": "rock", isPlay: false, category: 'red', trackSrc: track7 },
     { "id": 8, "title": "Карточка 8Love Rudiments by Ty Segall", "src": Card21, "genre": "techno", isPlay: false, category: 'red' },
     { "id": 9, "title": "The Duality of Decapitation", "src": Card23, "genre": "electronic", isPlay: false, category: 'red' },
     { "id": 10, "title": "Duck Face Killingsby Fulci", "src": Card24, "genre": "experimental", isPlay: false, category: 'red' },
@@ -44,7 +52,7 @@ export function RedMusic() {
     return (
         <>
             <RedFilterMusic />
-            <MusicCardList list={albumsList} />
+            <RedMusicCardList list={redMusic} />
         </>
     )
 }

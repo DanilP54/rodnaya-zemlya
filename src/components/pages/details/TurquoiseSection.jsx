@@ -87,12 +87,12 @@ const AlbumCard = styled.div`
 export function TurquoiseSection({ color }) {
 
     const [isPlayBook, setIsPlayBook] = useState(false)
-    const { onPlayTrack, isOpen } = usePlayerContext()
-
+    const { onPlayTrack, isOpen, getCurrentTrackId } = usePlayerContext()
+    console.log(isPlayBook)
     const handleOnPlayBook = () => {
         setIsPlayBook(true)
         onPlayTrack({
-            id: 1,
+            id: 100,
             title: "Аудиокнига Зверский Детектив - Глава 1: Такие дела",
             trackSrc: audioBook,
             imageSrc: ''
@@ -100,10 +100,21 @@ export function TurquoiseSection({ color }) {
     }
 
     useEffect(() => {
+        if (isOpen) {
+            const id = getCurrentTrackId()
+
+            if (id === 100) {
+                setIsPlayBook(true)
+            }
+        }
+
         if (!isOpen) {
             setIsPlayBook(false)
         }
+
     }, [isOpen])
+
+
 
     return (
         <LiteratureSectionWrapper>
@@ -189,7 +200,7 @@ export function TurquoiseSection({ color }) {
                                 width: '130px',
                                 height: '30.9px',
                                 backgroundColor: '#F0F0F0',
-                                border: '1px solid black',
+                                border: '1px solid gray',
                                 padding: '3px 10px'
                             }}>Скачать
                         </a>

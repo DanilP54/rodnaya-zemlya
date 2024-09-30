@@ -1,9 +1,7 @@
 import { MusicCard } from './MusicCard';
 import { useEffect, useState } from "react";
-import AudioPlayer from 'react-h5-audio-player';
-import Close from '../../../../../public/close.svg';
 import { usePlayerContext } from '../../../../context/usePlayerContext';
-import musicTrack from '../../../../../public/music.mp3'
+
 
 
 

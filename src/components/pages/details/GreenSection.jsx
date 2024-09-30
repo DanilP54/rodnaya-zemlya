@@ -1,7 +1,11 @@
 import styled from "styled-components"
-import {useState} from "react"
+import { useState } from "react"
 import Book from "../../../../public/book.jpg";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { usePlayerContext } from "../../../context/usePlayerContext";
+import audioBook from '../../../../public/audio-books/green-book.mp3'
+import linkBook from '../../../../public/book.pdf'
 
 
 const LiteratureSectionWrapper = styled.div`
@@ -9,7 +13,7 @@ const LiteratureSectionWrapper = styled.div`
     /* height: 100%; */
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
-    padding: 120px 50px 0;
+    padding: 120px 50px 60px;
 `
 
 const SectionBox = styled.section`
@@ -80,35 +84,59 @@ const AlbumCard = styled.div`
 
 `
 
-export function GreenSection({color}) {
+export function GreenSection({ color }) {
 
-    const [currentSongIndex, setCurrentSongIndex] = useState(0);
+    const [isPlayBook, setIsPlayBook] = useState(false)
+    const { onPlayTrack, isOpen, getCurrentTrackId } = usePlayerContext()
+
+    const handleOnPlayBook = () => {
+        setIsPlayBook(true)
+        onPlayTrack({
+            id: 101,
+            title: "Аудиокнига Зверский Детектив - Глава 1: Такие дела",
+            trackSrc: audioBook,
+            imageSrc: ''
+        })
+    }
+
+    useEffect(() => {
+        if (isOpen) {
+            const id = getCurrentTrackId()
+
+            if (id === 100) {
+                setIsPlayBook(true)
+            }
+        }
+        if (!isOpen) {
+            setIsPlayBook(false)
+        }
+    }, [isOpen])
 
 
     return (
         <LiteratureSectionWrapper>
             <AsideBox>
                 <AlbumCard>
-                    <img src={Book} alt=""/>
+                    <img src={Book} alt="" />
                 </AlbumCard>
                 <div className="movie_details">
                     <div className="item">
                         <span className="bold">Писатель:</span>
                         <span className="descr">
-                                    Никита Волок
-                                </span>
+                            Никита Волок
+                        </span>
                     </div>
                     <div className="item">
                         <span className="bold">Дата выхода:</span>
                         <span className="descr">
-                                    2 июня 1996 года
-                                </span>
+                            2 июня 1996 года
+                        </span>
                     </div>
                     <div className="item">
                         <span className="bold">Страна:</span>
                         <span className="descr">
-                                    Молдова
-                                </span>
+                            Молдова
+                        </span>
                     </div>
                     <div className="item">
                         <span className="bold">Жанр:</span>
@@ -160,11 +188,19 @@ export function GreenSection({color}) {
                         alignItems: 'center',
                         gap: '10px'
                     }}>
-                        <button style={{
-                            width: '130px',
-                            padding: '3px 10px'
-                        }}>Скачать
-                        </button>
+                        <a
+                            href={linkBook}
+                            download='book.pdf'
+                            style={{
+                                color: 'black',
+                                textAlign: 'center',
+                                width: '130px',
+                                height: '30.9px',
+                                backgroundColor: '#F0F0F0',
+                                border: '1px solid gray',
+                                padding: '3px 10px'
+                            }}>Скачать
+                        </a>
                         <span>pdf. файл</span>
                     </div>
                     <div style={{
@@ -172,10 +208,13 @@ export function GreenSection({color}) {
                         alignItems: 'center',
                         gap: '10px'
                     }}>
-                        <button style={{
-                            width: '130px',
-                            padding: '3px 10px'
-                        }}>Слушать
+                        <button
+                            disabled={isPlayBook ? true : false}
+                            onClick={() => handleOnPlayBook()}
+                            style={{
+                                width: '130px',
+                                padding: '3px 10px'
+                            }}>Слушать
                         </button>
                         <span>аудиокнигу</span>
                     </div>

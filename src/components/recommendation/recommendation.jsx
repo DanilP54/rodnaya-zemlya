@@ -25,10 +25,9 @@ export function Recommendation() {
 
 
     return (
-        <div style={{marginTop: '20px'}}>
+        <div style={{ marginTop: '20px' }}>
             <Grid gutter={'none'} style={{ padding: 0, width: '100%', height: 'calc(100vh - 42vh)' }}>
                 <Grid.Col style={{
-                    // border: '2px solid black', 
                     height: 'calc(100vh - 42vh)', padding: 0
                 }} span={8}>
                     <div className={classes.image_box}>
@@ -43,7 +42,6 @@ export function Recommendation() {
                 </Grid.Col>
                 <Grid.Col style={{
                     padding: 0, height: 'calc(100vh - 42vh)',
-                    // border: '2px solid black'
                 }} span={4}>
                     <Grid.Col style={{ padding: 0, height: 'calc(100% / 2)' }} span={12}>
                         <SecondaryVideo imageSrc={BigImageFive} iconSrc={PlayIcon} />

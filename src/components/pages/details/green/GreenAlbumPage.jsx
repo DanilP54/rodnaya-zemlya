@@ -47,6 +47,7 @@ const ContentBox = styled.div`
         width: 70%;
         height: 100%;
         margin: 0 auto;
+        padding: 0 0 70px 0;
 `
 
 
