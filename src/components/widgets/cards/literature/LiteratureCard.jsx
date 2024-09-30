@@ -1,6 +1,6 @@
-import {Card, Image, Text} from '@mantine/core';
+import { Card, Image, Text } from '@mantine/core';
 import classes from './secondary.image.module.css'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ReadIcon from '../../../../../public/read.svg';
 import X from '../../../../../public/x.svg'
 import styled from 'styled-components';
@@ -22,7 +22,7 @@ const LinkStyled = styled(Link)`
 `
 
 
-export function LiteratureCard({src, title, subtitle, index, isPlay, handle, id, category}) {
+export function LiteratureCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
 
 
     return (
@@ -47,7 +47,7 @@ export function LiteratureCard({src, title, subtitle, index, isPlay, handle, id,
                             <img style={{
                                 // backgroundColor: 'black',
                                 // padding: '7px'
-                            }} onClick={handle} className={classes.book_icon} src={ReadIcon} alt="play icon"/>
+                            }} onClick={handle} className={classes.book_icon} src={ReadIcon} alt="play icon" />
                             {/* <div className={classes.dimmer}></div> */}
                         </div>
                     </LinkStyled>

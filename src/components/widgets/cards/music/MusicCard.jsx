@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import PlayIcon from '../../../../../public/play.svg';
 import X from '../../../../../public/x.svg'
 import styled from 'styled-components';
+import { BiPause } from 'react-icons/bi';
+import { usePlayerContext } from '../../../../context/usePlayerContext';
+import PausedIcon from '../../../../../public/paused.svg'
+
 
 
 const LinkStyled = styled(Link)`
@@ -23,7 +27,6 @@ const LinkStyled = styled(Link)`
 
 
 export function MusicCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
-
 
     return (
         <>
@@ -46,7 +49,7 @@ export function MusicCard({ src, title, subtitle, index, isPlay, handle, id, cat
                         <img style={{
                             backgroundColor: 'black',
                             padding: '7px'
-                        }} onClick={handle} className={isPlay ? classes.paused_icon : classes.play_icon} src={isPlay ? X : PlayIcon} alt="play icon" />
+                        }} onClick={handle} className={isPlay ? classes.paused_icon : classes.play_icon} src={isPlay ? PausedIcon : PlayIcon} alt="play icon" />
                         {/* <div className={classes.dimmer}></div> */}
                     </div>
 

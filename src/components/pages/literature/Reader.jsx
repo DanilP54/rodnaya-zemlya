@@ -72,7 +72,6 @@ const ControlPanel = styled.div`
     position: fixed;
     /* border: 1px solid red; */
     background-color: white;
-    /* backdrop-filter: blur(20px); */
 
 `
 
@@ -206,13 +205,6 @@ export function ReaderPage({ color, href }) {
                                             <option key={page.page} value={page.page}>{page.page}</option>
                                         ))}
                                     </Select>
-                                    <button disabled style={{
-                                        height: '20px',
-                                        fontSize: '12px',
-                                        outline: 'none',
-                                        padding: '0 3px',
-                                        marginLeft: '15px'
-                                    }} type="button">Перейти</button>
                                 </div>
                                 <div style={{
                                     display: 'flex',

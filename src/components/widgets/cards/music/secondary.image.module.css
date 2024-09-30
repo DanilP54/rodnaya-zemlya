@@ -26,12 +26,17 @@
     left: 10px;
     cursor: pointer;
     bottom: 10px;
-    display: block;
+    display: none;
     transition: transform .1s ease-out;
     z-index: 55;
 }
 
 .image_box:hover .play_icon {
+    display: block;
+    /* Показываем .play_icon при наведении */
+}
+
+.image_box:hover .paused_icon {
     display: block;
     /* Показываем .play_icon при наведении */
 }

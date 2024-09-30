@@ -4,7 +4,7 @@ import { Player } from "video-react";
 
 const MovieSectionWrapper = styled.div`
     display: grid;
-    /* height: 100%; */
+
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
     padding: 20px 50px;
@@ -14,7 +14,6 @@ const AsideBox = styled.aside`
     display: flex;
     height: min-content;
     flex-direction: column;
-    /* background-color: rgb(242, 249, 249); */
 
     & .movie_details {
         margin-top: 30px;
@@ -45,30 +44,7 @@ const AsideBox = styled.aside`
 const SectionBox = styled.section`
 margin-top: 20px;
 padding-left: 40px;
-/* padding-top: 90px; */
 height: 100%;
-
-/* & .title {
-    display: flex;
-    justify-content: center;
-
-    & .title-box {
-
-    & h1 {
-        font-size: 40px;
-        padding: 0;
-        margin: 0;
-    }
-
-    & h3 {
-        font-size: 20px;
-        color: gray;
-        margin: 0;
-    } */
-/* } */
-
-
-/* } */
 
 & .about {
     margin-top: 50px;
@@ -104,8 +80,7 @@ gap: 10px;
 const VideoBox = styled.div`
 display: flex;
 justify-content: center;
-/* margin-top: 50px; */
-/* padding: 20px 0; */
+
     & div {
         width: 100%;
     }
@@ -183,7 +158,6 @@ export function MovieSection() {
                             </div>
                         </div>
                     </AsideBox>
-
                     <SectionBox>
                         <VideoBox>
                             <div>
@@ -192,43 +166,28 @@ export function MovieSection() {
                                 </Player>
                             </div>
                         </VideoBox>
-                        {/* <div className="title">
-                        <div className="title-box">
-                            <h1>Список Шиндлера</h1>
-                            <h3>Schindler's List</h3>
-                        </div>
-                    </div>
-                    <div className="about">
-                        <div className="about-title">
-                            <span>Про что фильм "Список Шиндлера": </span>
-                        </div>
-                        <span className="subtitle">В основу сюжета картины лёг роман Томаса Кеннили "Ковчег Шиндлера". Картина рассказывает о немецком бизнесмене, спасшем во время Второй Мировой Войны не одну тысячу польских евреев.</span>
-                    </div> */}
-
                     </SectionBox>
-                   
-
                 </MovieSectionWrapper>
                 <div style={{
-                    padding: '25px 50px'
-                        // marginTop: '50px'
-                    }} className="item">
+                    padding: '25px 50px',
+                    paddingBottom: '80px'
+                }} className="item">
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '10px'
+                    }}>
                         <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '10px'
-                        }}>
-                            <div style={{
-                                fontWeight: 'bold'
-                            }} className="bold">Описание: </div>
-                            <span style={{
-                                display: 'block',
-                                width: '100%'
-                            }} className="descr">
-                                Никита Волок куда-то пошёл, и что-то сделал, после чего, Волок, конечно, уже не был прежним
-                            </span>
-                        </div>
+                            fontWeight: 'bold'
+                        }} className="bold">Описание: </div>
+                        <span style={{
+                            display: 'block',
+                            width: '100%'
+                        }} className="descr">
+                            Никита Волок куда-то пошёл, и что-то сделал, после чего, Волок, конечно, уже не был прежним
+                        </span>
                     </div>
+                </div>
 
             </div >
         </>

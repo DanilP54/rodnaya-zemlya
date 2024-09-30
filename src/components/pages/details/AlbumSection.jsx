@@ -23,8 +23,7 @@ const songs = [
 
 
 const AlbumSectionWrapper = styled.div`
-    display: grid;
-    border: 1px solid red;  
+    display: grid; 
     height: 100%;
     grid-template-columns: 3fr 1fr;
     padding-right: 20px;

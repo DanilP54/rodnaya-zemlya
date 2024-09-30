@@ -8,14 +8,15 @@ import {
     ModalContent,
     Modal,
 } from 'semantic-ui-react'
+import { usePlayerContext } from '../../../../context/usePlayerContext'
 
 
 export function MovieCardList({ list }) {
 
     const [cards, setCards] = useState(list || [])
+    const { isOpen, onClose } = usePlayerContext()
 
     const handlePlay = (id) => {
-
         cards.forEach((card) => {
             const p = card.isPlay
 
@@ -38,7 +39,7 @@ export function MovieCardList({ list }) {
             display: 'flex',
             marginTop: '50px',
             marginLeft: '80px',
-            padding: '0 68px 0 99px'
+            padding: '0 68px 70px 99px'
         }}>
             <div style={{
                 display: 'flex',
@@ -60,7 +61,6 @@ export function MovieCardList({ list }) {
                                         backgroundColor: 'transparent'
                                     }}
                                     onClose={() => handlePlay(c.id)}
-                                    // onOpen={() => setOpen(true)}
                                     open={c.isPlay}
                                 // trigger={<img className={styles.play_icon} src={iconSrc} alt="play icon" />}
                                 >
@@ -74,7 +74,11 @@ export function MovieCardList({ list }) {
                                         backgroundColor: 'transparent',
                                         padding: 0,
                                     }}>
-                                        <Player>
+                                        <Player onPlay={() => {
+                                            if (isOpen) {
+                                                onClose()
+                                            }
+                                        }}>
                                             <source src="https://yandex.ru/video/preview/11747625689222203345" />
                                         </Player>
                                     </ModalContent>

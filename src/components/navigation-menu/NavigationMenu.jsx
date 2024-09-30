@@ -18,11 +18,6 @@ const links = [
 
     },
     {
-        name: 'Игры',
-        url: 'games'
-
-    },
-    {
         name: 'Живопись',
         url: 'arts'
 
@@ -66,10 +61,6 @@ const buttonsList = [
                 path: '/red-music'
             },
             {
-                name: 'Игры',
-                path: '/red-games'
-            },
-            {
                 name: 'Живопись',
                 path: '/red-arts'
             },
@@ -95,10 +86,6 @@ const buttonsList = [
             {
                 name: 'Музыка',
                 path: '/green-music'
-            },
-            {
-                name: 'Игры',
-                path: '/green-games'
             },
             {
                 name: 'Живопись',
@@ -127,10 +114,6 @@ const buttonsList = [
             {
                 name: 'Музыка',
                 path: '/turquoise-music'
-            },
-            {
-                name: 'Игры',
-                path: '/turquoise-games'
             },
             {
                 name: 'Живопись',

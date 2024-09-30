@@ -1,18 +1,43 @@
-import { MusicCard } from './MusicCard'
-import { useState } from "react"
+import { MusicCard } from './MusicCard';
+import { useEffect, useState } from "react";
 import AudioPlayer from 'react-h5-audio-player';
-import Close from '../../../../../public/close.svg'
+import Close from '../../../../../public/close.svg';
+import { usePlayerContext } from '../../../../context/usePlayerContext';
+import musicTrack from '../../../../../public/music.mp3'
 
 
 
 
-export function MusicCardList({list}) {
+export function MusicCardList({ list }) {
 
     const [cards, setCards] = useState(list || [])
+    const { onPlayTrack, isOpen, handleOnPause, getCurrentTrackId, handleOnPlay, isPlayPlayer } = usePlayerContext()
 
-    const handlePause = () => {
+    useEffect(() => {
+        if (!isOpen) {
+            cards.forEach((card) => {
+                card.isPlay = false
+                setCards((s) => [...s])
+            })
+        }
+    }, [isOpen])
 
-    }
+    useEffect(() => {
+        const currentTrack = getCurrentTrackId()
+
+        cards.forEach(card => {
+            if (card.id === currentTrack) {
+                if (isPlayPlayer) {
+                    card.isPlay = true
+                } else {
+                    card.isPlay = false
+                }
+            }
+
+            setCards(s => [...s])
+        })
+
+    }, [isPlayPlayer])
 
     const handlePlay = (id) => {
 
@@ -20,7 +45,27 @@ export function MusicCardList({list}) {
             const p = card.isPlay
 
             if (card.id === id) {
-                card.isPlay = !p
+                if (!p) {
+                    const currentTrack = getCurrentTrackId()
+
+                    if (currentTrack && currentTrack === id) {
+                        card.isPlay = true
+                        handleOnPlay()
+                    } else {
+                        card.isPlay = true
+                        onPlayTrack({
+                            id: card.id,
+                            title: card.title,
+                            imageSrc: card.src,
+                            trackSrc: card.trackSrc
+                        })
+                    }
+
+                } else {
+                    card.isPlay = false
+                    handleOnPause()
+                }
+
             }
 
             if (card.id !== id && p) {
@@ -38,7 +83,7 @@ export function MusicCardList({list}) {
             display: 'flex',
             marginTop: '50px',
             marginLeft: '80px',
-            padding: '0 68px 20px 99px'
+            padding: '0 68px 70px 99px'
         }}>
             <div style={{
                 display: 'flex',
@@ -54,37 +99,6 @@ export function MusicCardList({list}) {
                                 display: 'flex', flexWrap: 'wrap', gap: '10px',
                             }}>
                                 <MusicCard key={c.id} src={c.src} title={c.title} subtitle={c.genre} isPlay={c.isPlay} index={index} id={c.id} category={c.category} handle={() => handlePlay(c.id)} />
-                                {
-                                    c.isPlay && <AudioPlayer
-                                        style={{
-                                            position: 'fixed',
-                                            left: 0,
-                                            bottom: 0,
-                                            zIndex: 999,
-
-                                        }}
-                                        header={
-                                            <div style={{
-                                                display: 'flex',
-                                                justifyContent: 'space-between'
-                                            }}>
-                                                <span style={{
-                                                    fontWeight: 'bold',
-                                                }}>{c.title}</span>
-                                                <img onClick={() => handlePlay(c.id)} style={{
-                                                    cursor: 'pointer',
-                                                }} src={Close} alt="" />
-                                            </div>
-                                        }
-                                        layout='horizontal-reverse'
-                                        src="https://t4.bcbits.com/stream/b19cdccb60402a239096e09b508e379e/mp3-128/2781034870?p=0&ts=1725462009&t=e0eda725ac8e11f15d9e9283fcc295091d8602ea&token=1725462009_5669f72235ff88309e6050f28a4037d23d66dbfa"
-                                        autoPlay
-                                        onPlay={() => handle(c.id)}
-                                        onPause={() => handle(c.id)}
-                                    // other props here
-                                    />
-
-                                }
                             </div>
                         )
                     })

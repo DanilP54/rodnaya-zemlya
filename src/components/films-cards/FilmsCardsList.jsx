@@ -1,25 +1,9 @@
-import { Grid } from "@mantine/core"
 import { CardFilms } from "./FilmCard"
-import Yellow from '../../../public/yellow.gif'
-import Card1 from '../../../public/Card1.jpg'
-import Card6 from '../../../public/Card6.jpg'
-import Card8 from '../../../public/Card8.jpg'
-import Card9 from '../../../public/Card9.jpg'
-import Card10 from '../../../public/Card10.jpg'
-import Card11 from '../../../public/Card11.jpg'
-import Card15 from '../../../public/Card15.jpg'
-import Card20 from '../../../public/Card20.jpg'
-import Card21 from '../../../public/Card21.jpg'
-import Card22 from '../../../public/Card22.jpg'
-import Card23 from '../../../public/Card23.jpg'
-import Card24 from '../../../public/Card24.jpg'
-import Card25 from '../../../public/Card25.jpg'
 import Film1 from '../../../public/Film1.jpg'
 import { Player } from "video-react"
 import { useState } from "react"
-import AudioPlayer from 'react-h5-audio-player';
-import Close from '../../../public/close.svg'
-import styles from './secondary.video.module.css'
+import { usePlayerContext } from "../../context/usePlayerContext"
+
 import {
     ModalHeader,
     ModalContent,
@@ -43,6 +27,8 @@ const movieList = [
 export function CardFilmsList(list) {
 
     const [cards, setCards] = useState(movieList)
+
+    const { onClose, isOpen } = usePlayerContext()
 
     const handlePlay = (id) => {
 
@@ -90,7 +76,11 @@ export function CardFilmsList(list) {
                                         backgroundColor: 'transparent'
                                     }}
                                     onClose={() => handlePlay(c.id)}
-                                    // onOpen={() => setOpen(true)}
+                                    onPlay={() => {
+                                        if (isOpen) {
+                                            onClose()
+                                        }
+                                    }}
                                     open={c.isPlay}
                                 // trigger={<img className={styles.play_icon} src={iconSrc} alt="play icon" />}
                                 >
