@@ -65,6 +65,7 @@ export default function GreenMusic() {
         })
         setAlbums(filtered)
     }, [value])
+    
     return (
         <>
             <GreenFilterMusic setValue={setValue} />

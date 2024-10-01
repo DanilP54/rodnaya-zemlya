@@ -13,7 +13,7 @@ function IconX() {
 const primaryColor = '#00FA9A'
 const secondaryColor = '#d1f8e9'
 
-function CustomChip({ title, color, checkedGenre, selectedGenres, setSelectedGenres }) {
+function CustomChip({ title, color }) {
 
     const [checked, setChecked] = useState(false);
 

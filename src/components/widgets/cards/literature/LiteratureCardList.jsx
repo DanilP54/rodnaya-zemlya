@@ -3,9 +3,9 @@ import { useState } from "react"
 import Close from '../../../../../public/close.svg'
 
 
-export function LiteratureCardList({ list }) {
+export function LiteratureCardList({ cards, setCards }) {
 
-    const [cards, setCards] = useState(list || [])
+    // const [cards, setCards] = useState(list || [])
 
 
     return (
