@@ -189,7 +189,6 @@ export function NavigationMenu() {
         })
 
         const handleBodyClick = (e) => {
-            console.log(e.target.closest('#nav'))
             if (e.target.closest('#nav') === null) {
 
                 buttons.forEach(button => {

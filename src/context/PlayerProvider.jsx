@@ -107,6 +107,7 @@ export function PlayerProvider({ children }) {
                     left: collaps ? '10px' : 0,
                 }}>
                     <AudioPlayer
+                        showDownloadProgress={true}
                         header={
                             <div
                                 style={{

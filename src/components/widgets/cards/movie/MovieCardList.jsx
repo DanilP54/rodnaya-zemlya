@@ -11,9 +11,9 @@ import {
 import { usePlayerContext } from '../../../../context/usePlayerContext'
 
 
-export function MovieCardList({ list }) {
+export function MovieCardList({ cards, setCards }) {
 
-    const [cards, setCards] = useState(list || [])
+    // const [cards, setCards] = useState(list || [])
     const { isOpen, onClose } = usePlayerContext()
 
     const handlePlay = (id) => {

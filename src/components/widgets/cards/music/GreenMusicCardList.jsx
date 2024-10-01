@@ -6,9 +6,9 @@ import { usePlayerContext } from '../../../../context/usePlayerContext';
 
 
 
-export function GreenMusicCardList({ list }) {
+export function GreenMusicCardList({ cards, setCards }) {
 
-    const [cards, setCards] = useState(list || [])
+    // const [cards, setCards] = useState(list || [])
     const { onPlayTrack, isOpen, handleOnPause, getCurrentTrackId, handleOnPlay, isPlayPlayer } = usePlayerContext()
 
     useEffect(() => {

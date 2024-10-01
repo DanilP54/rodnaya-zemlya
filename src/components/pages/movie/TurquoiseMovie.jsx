@@ -1,6 +1,7 @@
 import { MovieCardList } from "../../widgets/cards/movie/MovieCardList";
 import { TurquoiseFiltersMovie } from "../../widgets/turquoise/TurquoiseFiltersMovie";
-import Film1 from '../../../../public/Film1.jpg'
+import { useState } from "react";
+import { useEffect } from "react";
 
 const movieList = [
     { "id": 1, "title": "Inception", "src": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg", "genre": "Sci-Fi", isPlay: false, category: "turquoise" },
@@ -23,11 +24,32 @@ const movieList = [
     { "id": 18, "title": "The Departed", "src": "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_SX300.jpg", "genre": "Crime", isPlay: false, category: "turquoise" },
 ];
 
-export function TurquoiseMovie() {
+function TurquoiseMovie() {
+
+    const [value, setValue] = useState([])
+    console.log(value)
+    const [movies, setMovies] = useState(movieList || [])
+    console.log(movies)
+
+    useEffect(() => {
+        if (!value.length) return setMovies(movieList || [])
+
+        const filtered = movieList.filter(item => {
+            return value.includes(item.genre)
+        })
+        setMovies(filtered)
+    }, [value])
+
+
+
+
     return (
         <>
-            <TurquoiseFiltersMovie />
-            <MovieCardList list={movieList} />
+            <TurquoiseFiltersMovie setValue={setValue} />
+            <MovieCardList cards={movies} setCards={setMovies} />
         </>
     )
 }
+
+
+export default TurquoiseMovie

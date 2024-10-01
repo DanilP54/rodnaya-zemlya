@@ -13,12 +13,16 @@ const MiniPlayerStyled = styled.div`
     
     & .play-button {
         border: 1px solid gray;
-        
-        /* height: ; */
-        /* width: 20px; */
+        background-color: #0d0d0d;
+        border-radius: 50%;
+        width: 25px;
+        aspect-ratio: 1;
+        display: flex;
+        justify-content: center;
         
         & button {
             height: 100%;
+            width: 100%;
             padding: 5px;
             cursor: pointer;
             display: flex;
@@ -57,6 +61,10 @@ const MiniPlayerList = styled.div`
     margin-top: 80px; // Добавлен отступ сверху
 `
 
+function PlayIcon() {
+    return <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="white" class="icon icon-tabler icons-tabler-filled icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" /></svg>
+}
+
 const tracks = [
     { id: 1, title: "Bohemian Rhapsody", time: "5:55" },
     { id: 2, title: "Stairway to Heaven", time: "8:02" },
@@ -80,7 +88,7 @@ export function MiniPlayer() {
                         <button
                             onClick={() => setPlayingId(playingId === track.id ? null : track.id)}
                         >
-                            {playingId === track.id ? <FaPause size={10} /> : <FaPlay size={10} />}
+                            {playingId === track.id ? <FaPause color="white" size={10} /> : <PlayIcon />}
                         </button>
                     </div>
                     <div className="name">

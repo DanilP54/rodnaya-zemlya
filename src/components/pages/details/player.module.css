@@ -13,26 +13,30 @@
     left: 54px;
 }
 
-.time_box {
-   
-}
+
 
 .music_player {
     display: flex;
     gap: 10px;
     align-items: center;
     /* padding: 10px; */
-    
+
 }
 
 .play_box {
     border: 1px solid gray;
+    background-color: #0d0d0d;
+    border-radius: 50%;
+    width: 40px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* padding: 10px; */
 }
 
 
 .play_box button {
-    padding: 10px;
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -88,10 +92,10 @@
 .progress_bar input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    margin-top: -3px;
+    margin-top: -6px;
     background-color: #ffffff;
-    height: 13px;
-    width: 40px;
+    height: 18px;
+    width: 10px;
     border: 1px solid #474646;
     border-radius: 2px;
 

@@ -6,9 +6,10 @@ import { usePlayerContext } from '../../../../context/usePlayerContext';
 
 
 
-export function TurquoiseMusicCardList({ list }) {
+export function TurquoiseMusicCardList({ cards, setCards }) {
 
-    const [cards, setCards] = useState(list || [])
+    // const [cards, setCards] = useState(list || [])
+    console.log(cards)
     const { onPlayTrack, isOpen, handleOnPause, getCurrentTrackId, handleOnPlay, isPlayPlayer } = usePlayerContext()
 
     useEffect(() => {

@@ -1,5 +1,5 @@
-import {TurquoiseFiltersLiterature} from "../../../widgets/turquoise/TurquoiseFiltersLiterature.jsx";
-import {LiteratureCardList} from "../../../widgets/cards/literature/LiteratureCardList.jsx";
+import { TurquoiseFiltersLiterature } from "../../../widgets/turquoise/TurquoiseFiltersLiterature.jsx";
+import { LiteratureCardList } from "../../../widgets/cards/literature/LiteratureCardList.jsx";
 
 const booksList = [
     {
@@ -173,10 +173,10 @@ const booksList = [
 ]
 
 
-export function TurquoiseLiterature() {
+export default function TurquoiseLiterature() {
     return (
         <>
-            <TurquoiseFiltersLiterature/>
+            <TurquoiseFiltersLiterature />
             <LiteratureCardList list={booksList} />
 
         </>

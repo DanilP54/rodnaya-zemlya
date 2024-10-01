@@ -1,5 +1,5 @@
-import {LiteratureCardList} from "../../../widgets/cards/literature/LiteratureCardList.jsx";
-import {GreenFiltersLiterature} from "../../../widgets/green/GreenFiltersLiterature.jsx";
+import { LiteratureCardList } from "../../../widgets/cards/literature/LiteratureCardList.jsx";
+import { GreenFiltersLiterature } from "../../../widgets/green/GreenFiltersLiterature.jsx";
 
 const booksList = [
     {
@@ -173,7 +173,7 @@ const booksList = [
 ]
 
 
-export function GreenLiterature() {
+export default function GreenLiterature() {
     return (
         <>
             <GreenFiltersLiterature />

@@ -185,7 +185,7 @@ const booksList = [
 ]
 
 
-export function RedLiterature() {
+export default function RedLiterature() {
     return (
         <>
             <RedFiltersLiterature />

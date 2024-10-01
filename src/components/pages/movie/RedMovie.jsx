@@ -1,5 +1,5 @@
 import { RedFilter } from "../../widgets/red/RedFilters";
-
+import { useState, useEffect } from "react";
 import Film1 from '../../../../public/Film1.jpg'
 import { MovieCardList } from "../../widgets/cards/movie/MovieCardList";
 
@@ -24,11 +24,25 @@ const movieList = [
     { "id": 18, "title": "Saving Private Ryan", "src": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg", "genre": "War", isPlay: false, category: "red" },
 ];
 
-export function RedMovie() {
+function RedMovie() {
+    const [value, setValue] = useState([])
+    const [movies, setMovies] = useState(movieList || [])
+
+    useEffect(() => {
+        if (!value.length) return setMovies(movieList || [])
+
+        const filtered = movieList.filter(item => {
+            return value.includes(item.genre)
+        })
+        setMovies(filtered)
+    }, [value])
     return (
         <>
-            <RedFilter />
-            <MovieCardList list={movieList} />
+            <RedFilter setValue={setValue} />
+            <MovieCardList cards={movies} setCards={setMovies} />
         </>
     )
 }
+
+
+export default RedMovie
