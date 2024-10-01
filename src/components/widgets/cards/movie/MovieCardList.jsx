@@ -14,7 +14,7 @@ import { usePlayerContext } from '../../../../context/usePlayerContext'
 export function MovieCardList({ cards, setCards }) {
 
     // const [cards, setCards] = useState(list || [])
-    const { isOpen, onClose } = usePlayerContext()
+    const { isOpen, onClose, handleOnPause  } = usePlayerContext()
 
     const handlePlay = (id) => {
         cards.forEach((card) => {
@@ -76,7 +76,7 @@ export function MovieCardList({ cards, setCards }) {
                                     }}>
                                         <Player onPlay={() => {
                                             if (isOpen) {
-                                                onClose()
+                                                handleOnPause()
                                             }
                                         }}>
                                             <source src="https://yandex.ru/video/preview/11747625689222203345" />

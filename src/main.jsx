@@ -6,6 +6,7 @@ import '@mantine/core/styles.css';
 import 'react-h5-audio-player/lib/styles.css';
 import './player.css';
 import 'video-react/dist/video-react.css';
+import '@mantine/spotlight/styles.css';
 import './custom.video.css';
 import './index.css'
 import { Skeleton } from '@mantine/core';

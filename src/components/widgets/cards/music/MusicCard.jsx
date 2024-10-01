@@ -28,6 +28,8 @@ const LinkStyled = styled(Link)`
 
 export function MusicCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
 
+    const { isPlayPlayer, isOpen } = usePlayerContext()
+
     return (
         <>
             <Card
@@ -62,7 +64,7 @@ export function MusicCard({ src, title, subtitle, index, isPlay, handle, id, cat
                     justifyContent: 'space-between'
                 }}>
 
-                    <LinkStyled to={`/${category}/album/${id}`}>
+                    <LinkStyled target={(isPlayPlayer || isOpen) && '_target'} to={`/${category}/album/${id}`}>
                         {title}
                     </LinkStyled >
 

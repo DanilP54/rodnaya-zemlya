@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import { useLocation } from "react-router-dom";
 import { useLayoutEffect } from "react"
@@ -174,6 +174,8 @@ export function NavigationMenu() {
 
     const location = useLocation()
 
+    console.log(location.pat)
+
     const [buttonIsSelected, setButtonsSelected] = useState(false)
 
     useLayoutEffect(() => {
@@ -185,28 +187,30 @@ export function NavigationMenu() {
                     setButtonsSelected(true)
                     setButtons(s => [...s])
                 }
+
             })
         })
 
-        const handleBodyClick = (e) => {
-            if (e.target.closest('#nav') === null) {
+        // const handleBodyClick = (e) => {
+        //     if (e.target.closest('#nav') === null) {
 
-                buttons.forEach(button => {
-                    if (!button.isSelected) {
-                        button.isActive = false
-                    }
-                })
-            }
-        }
+        //         buttons.forEach(button => {
+        //             if (!button.isSelected) {
+        //                 button.isActive = false
+        //             }
+        //         })
+        //     }
+        // }
 
-        document.body.addEventListener('pointerdown', handleBodyClick)
+        // document.body.addEventListener('pointerdown', handleBodyClick)
 
-        return () => {
+        // return () => {
 
-            setButtonsSelected(false)
-            document.body.removeEventListener('pointerdown', handleBodyClick)
-        }
+        //     setButtonsSelected(false)
+        //     document.body.removeEventListener('pointerdown', handleBodyClick)
+        // }
     }, [])
+
 
     const handleButtonClick = (index) => {
 

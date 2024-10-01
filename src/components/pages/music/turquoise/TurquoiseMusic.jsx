@@ -35,7 +35,7 @@ const turquoiseMusic = [
 export default function TurquoiseMusic() {
     const [value, setValue] = useState([])
     const [albums, setAlbums] = useState(turquoiseMusic || [])
-    console.log(albums)
+   
 
     useEffect(() => {
         if (!value.length) return setAlbums(turquoiseMusic || [])

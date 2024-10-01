@@ -27,9 +27,9 @@ const movieList = [
 function TurquoiseMovie() {
 
     const [value, setValue] = useState([])
-    console.log(value)
+
     const [movies, setMovies] = useState(movieList || [])
-    console.log(movies)
+
 
     useEffect(() => {
         if (!value.length) return setMovies(movieList || [])
