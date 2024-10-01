@@ -92,7 +92,7 @@ export function TurquoiseSection({ color }) {
     const handleOnPlayBook = () => {
         setIsPlayBook(true)
         onPlayTrack({
-            id: 100,
+            id: 102,
             title: "Аудиокнига Зверский Детектив - Глава 1: Такие дела",
             trackSrc: audioBook,
             imageSrc: ''
@@ -103,7 +103,7 @@ export function TurquoiseSection({ color }) {
         if (isOpen) {
             const id = getCurrentTrackId()
 
-            if (id === 100) {
+            if (id === 102) {
                 setIsPlayBook(true)
             }
         }

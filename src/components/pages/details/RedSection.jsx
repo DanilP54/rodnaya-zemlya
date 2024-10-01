@@ -92,7 +92,7 @@ export function RedSection({ color }) {
     const handleOnPlayBook = () => {
         setIsPlayBook(true)
         onPlayTrack({
-            id: 101,
+            id: 100,
             title: "Аудиокнига Зверский Детектив - Глава 1: Такие дела",
             trackSrc: audioBook,
             imageSrc: ''

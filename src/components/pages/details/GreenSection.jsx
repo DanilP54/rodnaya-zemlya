@@ -103,7 +103,7 @@ export function GreenSection({ color }) {
         if (isOpen) {
             const id = getCurrentTrackId()
 
-            if (id === 100) {
+            if (id === 101) {
                 setIsPlayBook(true)
             }
         }
