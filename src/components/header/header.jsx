@@ -5,7 +5,7 @@ import { Tooltip } from '@mantine/core';
 import { Spotlight, spotlight } from '@mantine/spotlight';
 
 function IconSearch() {
-    return <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+    return <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
 }
 
 function ThemeButton() {
@@ -89,7 +89,6 @@ export function Header() {
 
                     <div className={style.input_box}>
                         <button
-
                             onClick={spotlight.open}
                             style={{
                                 cursor: 'pointer',
@@ -100,16 +99,23 @@ export function Header() {
                                 outline: 'none',
                                 borderRadius: '4px',
                                 gap: '20px',
-                                padding: '10px',
+                                padding: '10px 15px',
                                 color: 'gray',
                                 width: '300px',
                                 height: '37px',
 
                             }}>
-                            <IconSearch />
                             <span style={{
-                                fontSize: '15px',
+                                fontSize: '14px',
+                                fontWeight: '400',
                             }}>Search</span>
+                            <div style={{
+                                marginLeft: 'auto',
+                                display: 'flex',
+                                alignItems: 'center'
+                            }}>
+                                <IconSearch />
+                            </div>
                         </button>
                         <Spotlight
                             actions={actions}
