@@ -4,7 +4,7 @@ import Book from "../../../../public/book.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { usePlayerContext } from "../../../context/usePlayerContext";
-import audioBook from '../../../../public/audio-books/green-book.mp3'
+import audioBook from '../../../../public/audio-books/srochno.mp3'
 import linkBook from '../../../../public/book.pdf'
 
 
@@ -93,7 +93,7 @@ export function GreenSection({ color }) {
         setIsPlayBook(true)
         onPlayTrack({
             id: 101,
-            title: "Аудиокнига Зверский Детектив - Глава 1: Такие дела",
+            title: "Аудиокнига Зверский Детектив - Глава 1: СРОЧНО",
             trackSrc: audioBook,
             imageSrc: ''
         })
