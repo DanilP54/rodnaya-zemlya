@@ -1,8 +1,10 @@
 import style from './header.module.css';
+import { rem } from '@mantine/core';
 import LogoImage from '../../../public/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Tooltip } from '@mantine/core';
 import { Spotlight, spotlight } from '@mantine/spotlight';
+import image from '../../../public/voloka-list.png'
 
 function IconSearch() {
     return <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
@@ -23,32 +25,54 @@ function ThemeButton() {
     )
 }
 
-const actions = [
-    {
-        id: 'movie',
-        label: 'Фильмы',
-        //   description: 'Get to home page',
-        onClick: () => console.log('Home'),
-        //   leftSection: <IconHome style={{ width: rem(24), height: rem(24) }} stroke={1.5} />,
-    },
-    {
-        id: 'music',
-        label: 'Музыка',
-        //   description: 'Get full information about current system status',
-        onClick: () => console.log('Dashboard'),
-        //   leftSection: <IconDashboard style={{ width: rem(24), height: rem(24) }} stroke={1.5} />,
-    },
-    {
-        id: 'lit',
-        label: 'Литература',
-        //   description: 'Visit documentation to lean more about all features',
-        onClick: () => console.log('Documentation'),
-        //   leftSection: <IconFileText style={{ width: rem(24), height: rem(24) }} stroke={1.5} />,
-    },
-];
+
 
 
 export function Header() {
+
+    const navigate = useNavigate();
+
+    const actions = [
+        {
+            id: 'movie',
+            label: 'Фильмы',
+            //   description: 'Get to home page',
+            onClick: () => console.log('Home'),
+            //   leftSection: <IconHome style={{ width: rem(24), height: rem(24) }} stroke={1.5} />,
+        },
+        {
+            group: 'Movie',
+            actions: [
+                {
+                    id: '1',
+                    label: 'Список Волока',
+                    description: 'Режиссер: Никита Волок',
+                    onClick: () => {
+                        navigate('/green/movie/1')
+
+                    },
+                    leftSection: <img src={image} alt="" width={'70px'} height={'70px'} />,
+                }
+            ]
+
+        },
+        {
+            id: 'lit',
+            label: 'Литература',
+            //   description: 'Visit documentation to lean more about all features',
+            onClick: () => console.log('Documentation'),
+            //   leftSection: <IconFileText style={{ width: rem(24), height: rem(24) }} stroke={1.5} />,
+        },
+    ];
+
+
+
+
+
+
+
+
+
     return (
         <div className={style.header_wrapper}>
             <header className={style.header}>
@@ -118,6 +142,7 @@ export function Header() {
                             </div>
                         </button>
                         <Spotlight
+                            limit={1}
                             actions={actions}
                             nothingFound="Nothing found..."
                             highlightQuery
@@ -125,6 +150,7 @@ export function Header() {
                                 leftSection: <IconSearch />,
                                 placeholder: 'Search...',
                             }}
+
                         />
                     </div>
 
