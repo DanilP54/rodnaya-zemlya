@@ -14,7 +14,7 @@ body {
   margin: 0 auto;
   max-width: 1900px;
   min-height: 100svh;
-  min-width: calc(100% - 16px);
+  min-width: calc(100% - 17px);
   /* height: 2000px; */
   /* background-color: rgb(33, 31, 31); */
 }
