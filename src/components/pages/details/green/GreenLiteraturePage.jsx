@@ -3,9 +3,6 @@ import LeftArrow from '../../../../../public/left-arrow.svg'
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useLayoutEffect } from "react";
-import { AlbumSection } from "../AlbumSection";
-import { TurquoiseSection } from "../TurquoiseSection.jsx";
-import { RedSection } from "../RedSection.jsx";
 import { GreenSection } from "../GreenSection.jsx";
 import { useThemeContext } from '../../../../context/ThemeContext.jsx';
 
@@ -47,6 +44,7 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
+transition: background-color 0.4s ease;
         background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
         width: 70%;
         height: 100%;

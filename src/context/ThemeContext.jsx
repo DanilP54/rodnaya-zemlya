@@ -17,10 +17,12 @@ export function useThemeContext() {
 }
 
 
+
 export function ThemeProvider({ children, storageKey = 'rz-ui-theme', defaultTheme = 'light' }) {
 
 
     const [theme, setTheme] = useState(window.localStorage.getItem(storageKey) || defaultTheme)
+
 
 
     useEffect(() => {
@@ -29,15 +31,18 @@ export function ThemeProvider({ children, storageKey = 'rz-ui-theme', defaultThe
 
         const updateTheme = (e) => {
             const newSystemTheme = e.matches ? 'dark' : 'light'
-
             return newSystemTheme === 'dark' ? setTheme('dark') : setTheme('light')
         }
 
 
+
+
         systemThemeMediaQuery.addEventListener("change", updateTheme)
 
-        return () => systemThemeMediaQuery.removeEventListener("change", updateTheme)
+        return () => {
 
+            systemThemeMediaQuery.removeEventListener("change", updateTheme)
+        }
     }, [theme])
 
 
@@ -45,6 +50,7 @@ export function ThemeProvider({ children, storageKey = 'rz-ui-theme', defaultThe
     const value = {
         theme,
         setTheme(theme) {
+            document.body.classList.add('transition')
             window.localStorage.setItem(storageKey, theme)
             setTheme(theme)
         }

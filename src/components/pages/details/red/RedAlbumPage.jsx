@@ -44,7 +44,8 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
-         background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
+        transition: background-color 0.4s ease;
+        background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
         width: 70%;
         height: 100%;
         margin: 0 auto;

@@ -44,6 +44,7 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
+        transition: background-color 0.4s ease;
         background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
         width: 70%;
         height: 100%;
@@ -55,7 +56,7 @@ const ContentBox = styled.div`
 export function TurquoiseAlbumPage() {
 
     const { pathname } = useLocation()
-    const {theme} = useThemeContext()
+    const { theme } = useThemeContext()
 
     useLayoutEffect(() => {
         if (pathname) {

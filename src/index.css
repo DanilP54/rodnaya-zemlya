@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: background-color 0.4s ease;
+
 }
 
 #root {
@@ -12,13 +12,15 @@
 }
 
 
-
 body {
   margin: 0 auto;
   max-width: 1900px;
   min-height: 100svh;
   min-width: calc(100% - 15px);
+}
 
+.transition {
+  transition: background-color 0.4s ease;
 }
 
 .custom__skeleton {
@@ -27,7 +29,6 @@ body {
 }
 
 .dark__theme {
-  /* transition: background-color 0.3s ease; */
   color: white;
   background-color: rgba(0, 0, 0, 0.977);
   --scrollbar-bg: #202020;

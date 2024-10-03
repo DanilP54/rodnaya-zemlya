@@ -6,6 +6,7 @@ import { useLayoutEffect, useState } from "react";
 import { bookData } from './dataBook';
 import { useFullscreen } from "@mantine/hooks";
 import { useThemeContext } from "../../../context/ThemeContext.jsx";
+import { ThemeButton } from "../../header/header.jsx";
 
 function FullScreenIcon({ fullscreen }) {
     return (
@@ -49,6 +50,7 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
+transition: background-color 0.4s ease;
     background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
     width: 70%;
     height: 100%;
@@ -227,6 +229,10 @@ export function ReaderPage({ color, href }) {
                                     }}>
                                     <FullScreenIcon fullscreen={fullscreen} />
                                 </div>
+                                {
+                                    fullscreen && <ThemeButton />
+                                }
+
                             </div>
                             <span style={{
                                 color: 'gray'

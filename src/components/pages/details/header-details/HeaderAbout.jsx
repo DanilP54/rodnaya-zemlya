@@ -1,11 +1,9 @@
 import style from './header.module.css'
 import { Link } from 'react-router-dom'
-
 import WhiteLogo from '../../../../../public/logo/rz_white.png'
 import BlackLogo from '../../../../../public/logo/rz_black_cut.png'
 import { useThemeContext } from '../../../../context/ThemeContext';
 import { Spotlight, spotlight } from '@mantine/spotlight';
-import image from '../../../../../public/voloka-list.png'
 import { ThemeButton } from '../../../header/header';
 
 
@@ -14,12 +12,6 @@ function IconSearch({ color }) {
     return <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill='none' stroke={color} stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
 }
 export function HeaderDetails({ color }) {
-
-    const { theme } = useThemeContext()
-
-
-
-
 
 
 
