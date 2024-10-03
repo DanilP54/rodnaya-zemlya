@@ -41,7 +41,7 @@ const SectionBox = styled.section`
 
     & p {
         font-weight: 400;
-        color: rgba(0,0,0, .7);
+        color: inherit;
     }
 
     & .player {
@@ -116,7 +116,7 @@ align-items: center;
 
 `
 
-export function AlbumSection({ color }) {
+export function AlbumSection({ color, theme }) {
 
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
 

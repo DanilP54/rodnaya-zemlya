@@ -1,5 +1,5 @@
 import { TurquoiseFiltersMusic } from "../../../widgets/turquoise/TurquoiseFiltersMusic";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 
 import track1 from '../../../../../public/turqu-music/1.mp3'
 import track2 from '../../../../../public/turqu-music/2.mp3'
@@ -9,7 +9,8 @@ import track5 from '../../../../../public/turqu-music/5.mp3'
 import track6 from '../../../../../public/turqu-music/6.mp3'
 import track7 from '../../../../../public/turqu-music/7.mp3'
 import track8 from '../../../../../public/turqu-music/8.mp3'
-import { TurquoiseMusicCardList } from "../../../widgets/cards/music/TurquoiseMusicCardList";
+const TurquoiseMusicCardList = lazy(() => import("../../../widgets/cards/music/TurquoiseMusicCardList"));
+import { Loading } from "../../../../main";
 
 const turquoiseMusic = [
     { "id": 53, "title": "Violator by Depeche Mode", "src": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&h=400&q=60", "genre": "Electronic", isPlay: false, category: 'turquoise', trackSrc: track1 },
@@ -35,7 +36,7 @@ const turquoiseMusic = [
 export default function TurquoiseMusic() {
     const [value, setValue] = useState([])
     const [albums, setAlbums] = useState(turquoiseMusic || [])
-   
+
 
     useEffect(() => {
         if (!value.length) return setAlbums(turquoiseMusic || [])
@@ -49,7 +50,9 @@ export default function TurquoiseMusic() {
     return (
         <>
             <TurquoiseFiltersMusic setValue={setValue} />
-            <TurquoiseMusicCardList cards={albums} setCards={setAlbums} />
+            <Suspense fallback={<Loading />}>
+                <TurquoiseMusicCardList cards={albums} setCards={setAlbums} />
+            </Suspense>
         </>
     )
 }

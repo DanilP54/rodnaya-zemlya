@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useLayoutEffect, useState } from "react";
 import { bookData } from './dataBook';
 import { useFullscreen } from "@mantine/hooks";
+import { useThemeContext } from "../../../context/ThemeContext.jsx";
 
 function FullScreenIcon({ fullscreen }) {
     return (
@@ -38,7 +39,7 @@ const DetailsPageWrapper = styled.div`
 `
 
 const HeaderBox = styled.div`
-    //background-color: #00CED1; 
+  
 `
 
 const MainBox = styled.main`
@@ -48,7 +49,7 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
-    background-color: white;
+    background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
     width: 70%;
     height: 100%;
     display: flex;
@@ -56,12 +57,7 @@ const ContentBox = styled.div`
     margin: 0px auto;
     padding-top: ${props => props.fullscreen ? '' : '20px'};
     display: flex;
-    /* padding: 20px; */
-    /* font-size: ${props => props.fontSize};
-    font-weight: ${props => props.isBold ? 'bold' : 'normal'}; */
 `
-
-// ${props => props.isBold ? 'rgba(250, 244, 211, 1)' : ''}
 
 const ControlPanel = styled.div`
     display: flex;
@@ -70,8 +66,7 @@ const ControlPanel = styled.div`
     align-items: center;
     width: inherit;
     position: fixed;
-    /* border: 1px solid red; */
-    background-color: white;
+    background-color: ${props => props.theme === 'light' ? 'white' : '#161616'}; 
 
 `
 
@@ -84,14 +79,13 @@ const Select = styled.select`
 const Button = styled.button`
     width: 30px;
     font-weight: bold;
-    /* height: 20px; */
     outline: none;
     border: .2px solid black;
     border-radius: 3px;
     padding: 0;
     background-color: ${props => props.isBold ? 'rgba(250, 244, 211, 1)' : ''};
     box-shadow: ${props => props.isBold ? '0px 0px 2px #171716' : ''};
-    /* margin-left: 10px; */
+
 `
 
 const Pagination = styled.div`
@@ -99,16 +93,17 @@ const Pagination = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: white;
+    background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
     width: 70%;
     margin: 0px auto;
 `;
 
 const PageButton = styled.button`
     padding: 5px 10px;
+    font-size: 16px;
     border: none;
     background-color: transparent;
-    color: black;
+    color: inherit;
     cursor: pointer;
     &:hover {
         background-color: rgba(0, 0, 0, 0.1);
@@ -125,7 +120,7 @@ const ChapterTitle = styled.h2`
 
 const PageIndicator = styled.span`
     font-size: 16px;
-    color: black;
+    color: inherit;
 `;
 
 export function ReaderPage({ color, href }) {
@@ -133,6 +128,8 @@ export function ReaderPage({ color, href }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [fontSize, setFontSize] = useState('16px');
     const [isBold, setIsBold] = useState(false);
+
+    const { theme } = useThemeContext()
 
 
     const { toggle, fullscreen } = useFullscreen()
@@ -149,7 +146,7 @@ export function ReaderPage({ color, href }) {
         window.scrollTo(0, 0);
     };
 
-    const handleChangePageButton = () => { }
+
 
     const handleFontSizeChange = (e) => {
         setFontSize(e.target.value);
@@ -185,8 +182,8 @@ export function ReaderPage({ color, href }) {
                     </HeaderBox>
                 }
                 <MainBox>
-                    <ContentBox fullscreen={fullscreen} fontSize={fontSize} isBold={isBold}>
-                        <ControlPanel fullscreen={fullscreen}>
+                    <ContentBox theme={theme} fullscreen={fullscreen} fontSize={fontSize} isBold={isBold}>
+                        <ControlPanel theme={theme} fullscreen={fullscreen}>
                             <div
                                 style={{
                                     display: 'flex',
@@ -249,7 +246,7 @@ export function ReaderPage({ color, href }) {
                         }} dangerouslySetInnerHTML={{ __html: currentPageContent }}>
                         </div>
 
-                        <Pagination>
+                        <Pagination theme={theme}>
                             <PageButton onClick={goToPreviousPage} disabled={currentPage === 1}>←</PageButton>
                             <PageIndicator>{currentPage}/{bookData.pages.length}</PageIndicator>
                             <PageButton onClick={goToNextPage} disabled={currentPage === bookData.pages.length}>→</PageButton>

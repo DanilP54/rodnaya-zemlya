@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ReadIcon from '../../../../../public/read.svg';
 import X from '../../../../../public/x.svg'
 import styled from 'styled-components';
+import { useThemeContext } from '../../../../context/ThemeContext';
 
 
 const LinkStyled = styled(Link)`
@@ -24,7 +25,7 @@ const LinkStyled = styled(Link)`
 
 export function LiteratureCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
 
-
+    const { theme } = useThemeContext()
     return (
         <>
             <Card
@@ -33,6 +34,9 @@ export function LiteratureCard({ src, title, subtitle, index, isPlay, handle, id
                 radius=""
                 href="#"
                 target="_blank"
+                style={{
+                    backgroundColor: 'transparent'
+                }}
             >
                 <Card.Section>
                     <LinkStyled to={`/${category}/literature/${id}`}>
@@ -60,7 +64,9 @@ export function LiteratureCard({ src, title, subtitle, index, isPlay, handle, id
                     justifyContent: 'space-between'
                 }}>
 
-                    <LinkStyled to={`/${category}/literature/${id}`}>
+                    <LinkStyled style={{
+                        color: theme === 'light' ? 'black' : 'white',
+                    }} to={`/${category}/literature/${id}`}>
                         {title}
                     </LinkStyled>
 

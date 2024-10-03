@@ -3,6 +3,8 @@ import classes from './secondary.image.module.css'
 import { Link } from 'react-router-dom';
 import PlayIcon from '../../../../../public/play.svg';
 import styled from 'styled-components';
+import { useThemeContext } from '../../../../context/ThemeContext';
+
 
 const LinkStyled = styled(Link)`
 
@@ -22,6 +24,7 @@ const LinkStyled = styled(Link)`
 
 export function MovieCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
 
+    const { theme } = useThemeContext()
 
     return (
         <>
@@ -31,6 +34,9 @@ export function MovieCard({ src, title, subtitle, index, isPlay, handle, id, cat
                 radius=""
                 href="#"
                 target="_blank"
+                style={{
+                    backgroundColor: 'transparent',
+                }}
             >
                 <Card.Section >
                     <div className={classes.image_box}>
@@ -50,7 +56,9 @@ export function MovieCard({ src, title, subtitle, index, isPlay, handle, id, cat
 
                 </Card.Section>
 
-                <LinkStyled to={`/${category}/movie/${id}`}>
+                <LinkStyled style={{
+                    color: theme === 'dark' ? 'white' : 'black'
+                }} to={`/${category}/movie/${id}`}>
                     {title}
                 </LinkStyled >
 

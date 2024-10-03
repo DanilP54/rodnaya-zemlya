@@ -1,6 +1,12 @@
+
+.card {
+    background-color: black;
+}
+
 .image_box {
     position: relative;
     z-index: 1;
+
 
 }
 

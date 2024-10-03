@@ -40,16 +40,16 @@ const MiniPlayerStyled = styled.div`
         gap: 10px;
 
         & .number {
-            color: gray;
+            color: inherit;
         }
 
         & .title {
-            color: #7e7ef7;
+            color: inherit;
             font-size: 14px;
         }
 
         & .time {
-            color: gray;
+            color: inherit;
         }
     }
 `

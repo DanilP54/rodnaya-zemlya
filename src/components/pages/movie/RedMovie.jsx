@@ -1,7 +1,8 @@
+import { Loading } from "../../../main";
 import { RedFilter } from "../../widgets/red/RedFilters";
-import { useState, useEffect } from "react";
-import Film1 from '../../../../public/Film1.jpg'
-import { MovieCardList } from "../../widgets/cards/movie/MovieCardList";
+import { useState, useEffect, lazy, Suspense } from "react";
+
+const MovieCardList = lazy(() => import('../../widgets/cards/movie/MovieCardList'))
 
 const movieList = [
     { "id": 1, "title": "Inception", "src": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg", "genre": "Sci-Fi", isPlay: false, category: "red" },
@@ -39,7 +40,9 @@ function RedMovie() {
     return (
         <>
             <RedFilter setValue={setValue} />
-            <MovieCardList cards={movies} setCards={setMovies} />
+            <Suspense fallback={<Loading />}>
+                <MovieCardList cards={movies} setCards={setMovies} />
+            </Suspense>
         </>
     )
 }

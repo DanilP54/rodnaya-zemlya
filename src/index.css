@@ -14,7 +14,39 @@ body {
   margin: 0 auto;
   max-width: 1900px;
   min-height: 100svh;
-  min-width: calc(100% - 17px);
-  /* height: 2000px; */
-  /* background-color: rgb(33, 31, 31); */
+  min-width: calc(100% - 15px);
+}
+
+.dark__theme {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.977);
+  --scrollbar-bg: #202020;
+  --scrollbar-thumb: #555;
+}
+
+.light__theme {
+  color: black;
+  background-color: rgb(255, 255, 255);
+  --scrollbar-bg: #f1f1f1;
+    --scrollbar-thumb: #676767;
+}
+
+/* Общие стили для скролла */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: var(--scrollbar-bg) var(--scrollbar-thumb);
+}
+
+/* Для Webkit-браузеров (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border: 3px solid var(--scrollbar-bg);
 }

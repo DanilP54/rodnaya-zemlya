@@ -67,6 +67,7 @@ export function CardFilmsList(list) {
                     cards.map((c, index) => {
                         return (
                             <div key={c.id} style={{
+                               
                                 display: 'flex', flexWrap: 'wrap', gap: '10px',
                             }}>
                                 <CardFilms key={c.id} src={c.src} title={c.title} subtitle={c.genre} isPlay={c.isPlay} index={index} id={c.id} handle={() => handlePlay(c.id)} />

@@ -1,6 +1,8 @@
-import { LiteratureCardList } from "../../../widgets/cards/literature/LiteratureCardList.jsx";
+import { useState, useEffect, lazy, Suspense } from "react";
+const LiteratureCardList = lazy(() => import("../../../widgets/cards/literature/LiteratureCardList.jsx"));
 import { GreenFiltersLiterature } from "../../../widgets/green/GreenFiltersLiterature.jsx";
-import { useState, useEffect } from "react";
+import { Loading } from "../../../../main.jsx";
+
 
 const greenBooks = [
     {
@@ -191,7 +193,9 @@ export default function GreenLiterature() {
     return (
         <>
             <GreenFiltersLiterature setValue={setValue} />
-            <LiteratureCardList cards={books} setCards={setBooks} />
+            <Suspense fallback={<Loading />}>
+                <LiteratureCardList cards={books} setCards={setBooks} />
+            </Suspense>
 
         </>
     )

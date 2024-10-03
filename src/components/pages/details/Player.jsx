@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FaPlay } from "react-icons/fa";
+
 import { FaPause } from "react-icons/fa6";
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { TbPlayerTrackPrevFilled } from "react-icons/tb";
 import VolumeControl from "./VolumeControl";
 import styles from './player.module.css';
+import { useThemeContext } from "../../../context/ThemeContext";
+
 
 function PlayIcon() {
     return <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" class="icon icon-tabler icons-tabler-filled icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" /></svg>
@@ -17,6 +19,8 @@ export const Player = ({ songs, currentSongIndex, setCurrentSongIndex }) => {
     const [duration, setDuration] = useState(4200);
     const [volume, setVolume] = useState(0.5); // Default volume
     const [muted, setMuted] = useState(false);
+
+    const { theme } = useThemeContext()
 
     useEffect(() => {
         if (isPlaying) {
@@ -89,7 +93,10 @@ export const Player = ({ songs, currentSongIndex, setCurrentSongIndex }) => {
                 </div>
             </div>
             <div className={styles.music_player}>
-                <div className={styles.play_box}>
+                <div
+
+                    className={styles.play_box}
+                >
                     <button onClick={() => setIsPlaying(!isPlaying)}>
                         {isPlaying ? <FaPause color="white" size={20} /> : <PlayIcon />}
                     </button>
@@ -107,10 +114,10 @@ export const Player = ({ songs, currentSongIndex, setCurrentSongIndex }) => {
                 </div>
                 <div className={styles.controls}>
                     <button disabled onClick={() => SkipSong(false)}>
-                        <TbPlayerTrackPrevFilled size={18} />
+                        <TbPlayerTrackPrevFilled color={theme === 'light' ? 'black' : 'white'} size={18} />
                     </button>
                     <button onClick={() => SkipSong(true)}>
-                        <TbPlayerTrackNextFilled size={18} />
+                        <TbPlayerTrackNextFilled color={theme === 'light' ? 'black' : 'white'} size={18} />
                     </button>
                 </div>
                 <div>

@@ -31,7 +31,7 @@ const SectionBox = styled.section`
     & p {
         font-size: 24px;
         font-weight: 500;
-        color: rgba(0, 0, 0, .6);
+        color: inherit;
     }
 `
 const AsideBox = styled.aside`

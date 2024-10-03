@@ -4,7 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useLayoutEffect } from "react";
 import { AlbumSection } from "../AlbumSection";
-import {TurquoiseSection} from "../TurquoiseSection.jsx";
+import { TurquoiseSection } from "../TurquoiseSection.jsx";
+import { useThemeContext } from '../../../../context/ThemeContext.jsx';
 
 
 const ArrowLeft = styled(Link)`
@@ -44,7 +45,7 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
-        background-color: white;
+        background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
         width: 70%;
         height: 100%;
         margin: 0 auto;
@@ -54,6 +55,8 @@ const ContentBox = styled.div`
 export function TurquoiseLiteraturePage() {
 
     const { pathname } = useLocation()
+
+    const { theme } = useThemeContext()
 
     useLayoutEffect(() => {
         if (pathname) {
@@ -68,7 +71,7 @@ export function TurquoiseLiteraturePage() {
                     <HeaderDetails color={'#00CED1'} />
                 </HeaderBox>
                 <MainBox>
-                    <ContentBox>
+                    <ContentBox theme={theme}>
                         <TurquoiseSection color={'#00CED1'} />
                     </ContentBox>
                     <ArrowLeft to={'/turquoise-literature'} preventScrollReset={true}>

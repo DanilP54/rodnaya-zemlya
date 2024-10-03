@@ -1,9 +1,10 @@
 import { HeaderDetails } from '../header-details/HeaderAbout';
 import LeftArrow from '../../../../../public/left-arrow.svg'
 import { Link, useLocation } from "react-router-dom";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { useLayoutEffect } from "react";
 import { MovieSection } from "../MovieSection";
+import { useThemeContext } from '../../../../context/ThemeContext';
 
 
 
@@ -44,7 +45,7 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
-        background-color: white;
+        background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
         width: 70%;
         height: 100%;
         margin: 0 auto;
@@ -54,6 +55,8 @@ const ContentBox = styled.div`
 export function RedMoviePage() {
 
     const { pathname } = useLocation()
+
+    const { theme } = useThemeContext()
 
     useLayoutEffect(() => {
         if (pathname) {
@@ -65,11 +68,11 @@ export function RedMoviePage() {
         <>
             <DetailsPageWrapper>
                 <HeaderBox>
-                    <HeaderDetails color={'#CD5C5C'}  />
+                    <HeaderDetails color={'#CD5C5C'} />
                 </HeaderBox>
                 <MainBox>
-                    <ContentBox>
-                        <MovieSection  />
+                    <ContentBox theme={theme}>
+                        <MovieSection />
                     </ContentBox>
                     <ArrowLeft to={'/red-movie'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />

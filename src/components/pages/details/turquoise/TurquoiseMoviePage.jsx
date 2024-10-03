@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useLayoutEffect } from "react";
 import { MovieSection } from "../MovieSection";
+import { useThemeContext } from '../../../../context/ThemeContext';
 
 
 
@@ -44,7 +45,7 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
-        background-color: white;
+        background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
         width: 70%;
         height: 100%;
         margin: 0 auto;
@@ -54,6 +55,8 @@ const ContentBox = styled.div`
 export function TurquoiseMoviePage() {
 
     const { pathname } = useLocation()
+
+    const { theme } = useThemeContext()
 
     useLayoutEffect(() => {
         if (pathname) {
@@ -65,10 +68,10 @@ export function TurquoiseMoviePage() {
         <>
             <DetailsPageWrapper>
                 <HeaderBox>
-                    <HeaderDetails color={'#00CED1'}  />
+                    <HeaderDetails color={'#00CED1'} />
                 </HeaderBox>
                 <MainBox>
-                    <ContentBox>
+                    <ContentBox theme={theme}>
                         <MovieSection />
                     </ContentBox>
                     <ArrowLeft to={'/turquoise-movie'} preventScrollReset={true}>

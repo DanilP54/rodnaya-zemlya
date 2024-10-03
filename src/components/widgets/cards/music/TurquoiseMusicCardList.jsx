@@ -6,7 +6,7 @@ import { usePlayerContext } from '../../../../context/usePlayerContext';
 
 
 
-export function TurquoiseMusicCardList({ cards, setCards }) {
+export default function TurquoiseMusicCardList({ cards, setCards }) {
 
     // const [cards, setCards] = useState(list || [])
     console.log(cards)

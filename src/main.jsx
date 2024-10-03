@@ -9,7 +9,7 @@ import 'video-react/dist/video-react.css';
 import '@mantine/spotlight/styles.css';
 import './custom.video.css';
 import './index.css'
-import { Skeleton } from '@mantine/core';
+import { Skeleton, useMantineTheme } from '@mantine/core';
 import { MantineProvider } from '@mantine/core';
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -23,23 +23,24 @@ import { RedAlbumPage } from './components/pages/details/red/RedAlbumPage.jsx'
 import { GreenMoviePage } from './components/pages/details/green/GreenMoviePage.jsx'
 import { GreenAlbumPage } from './components/pages/details/green/GreenAlbumPage.jsx'
 
-const RedMovie = lazy(() => import('./components/pages/movie/RedMovie.jsx'))
-const TurquoiseMovie = lazy(() => import('./components/pages/movie/TurquoiseMovie.jsx'))
-const GreenMovie = lazy(() => import('./components/pages/movie/GreenMovie.jsx'))
+import RedMovie from './components/pages/movie/RedMovie.jsx'
+import TurquoiseMovie from './components/pages/movie/TurquoiseMovie.jsx'
+import GreenMovie from './components/pages/movie/GreenMovie.jsx'
 
-const GreenMusic = lazy(() => import('./components/pages/music/green/GreenMusic.jsx'))
-const RedMusic = lazy(() => import('./components/pages/music/red/RedMusic.jsx'))
-const TurquoiseMusic = lazy(() => import('./components/pages/music/turquoise/TurquoiseMusic.jsx'))
+import GreenMusic from './components/pages/music/green/GreenMusic.jsx'
+import RedMusic from './components/pages/music/red/RedMusic.jsx'
+import TurquoiseMusic from './components/pages/music/turquoise/TurquoiseMusic.jsx'
 
-const GreenLiterature = lazy(() => import('./components/pages/literature/green/GreenLiterature.jsx'))
-const RedLiterature = lazy(() => import('./components/pages/literature/red/RedLiterature.jsx'))
-const TurquoiseLiterature = lazy(() => import('./components/pages/literature/turquoise/TurquoiseLiterature.jsx'))
+import GreenLiterature from './components/pages/literature/green/GreenLiterature.jsx'
+import RedLiterature from './components/pages/literature/red/RedLiterature.jsx'
+import TurquoiseLiterature from './components/pages/literature/turquoise/TurquoiseLiterature.jsx'
 
 import { TurquoiseLiteraturePage } from "./components/pages/details/turquoise/TurquoiseLiteraturePage.jsx";
 import { ReaderPage } from "./components/pages/literature/Reader.jsx";
 import { RedLiteraturePage } from "./components/pages/details/red/RedLiteraturePage.jsx";
 import { GreenLiteraturePage } from "./components/pages/details/green/GreenLiteraturePage.jsx";
 import { PlayerProvider } from './context/PlayerProvider.jsx';
+import { ThemeProvider, useThemeContext } from './context/ThemeContext.jsx';
 
 
 function Unknow() {
@@ -49,6 +50,11 @@ function Unknow() {
 }
 
 function SkeletonCard() {
+
+    const { theme } = useThemeContext()
+
+
+
     return (
         <div style={{
             display: 'flex',
@@ -65,7 +71,7 @@ function SkeletonCard() {
     );
 }
 
-const Loading = () => {
+export const Loading = () => {
     return <div style={{
         display: 'flex',
         marginTop: '50px',
@@ -100,31 +106,31 @@ const routers = [
                 element: <Recommendation />
             },
             {
-                path: 'turquoise-movie', element: <Suspense fallback={<Loading />}><TurquoiseMovie /></Suspense>,
+                path: 'turquoise-movie', element: <TurquoiseMovie />,
             },
             {
-                path: 'green-movie', element: <Suspense fallback={<Loading />}><GreenMovie /></Suspense>
+                path: 'green-movie', element: <GreenMovie />
             },
             {
-                path: 'red-movie', element: <Suspense fallback={<Loading />}><RedMovie /></Suspense>
+                path: 'red-movie', element: <RedMovie />
             },
             {
-                path: 'turquoise-music', element: <Suspense fallback={<Loading />}><TurquoiseMusic /></Suspense>,
+                path: 'turquoise-music', element: <TurquoiseMusic />
             },
             {
-                path: 'green-music', element: <Suspense fallback={<Loading />}><GreenMusic /></Suspense>
+                path: 'green-music', element: <GreenMusic />
             },
             {
-                path: 'red-music', element: <Suspense fallback={<Loading />}><RedMusic /></Suspense>
+                path: 'red-music', element: <RedMusic />
             },
             {
-                path: 'turquoise-literature', element: <Suspense fallback={<Loading />}><TurquoiseLiterature /></Suspense>
+                path: 'turquoise-literature', element: <TurquoiseLiterature />
             },
             {
-                path: 'green-literature', element: <Suspense fallback={<Loading />}><GreenLiterature /></Suspense>
+                path: 'green-literature', element: <GreenLiterature />
             },
             {
-                path: 'red-literature', element: <Suspense fallback={<Loading />}><RedLiterature /></Suspense>
+                path: 'red-literature', element: <RedLiterature />
             },
             {
                 path: 'turquoise-arts', element: <Unknow />
@@ -206,9 +212,11 @@ createRoot(document.getElementById('root')).render(
     <>
         <MantineProvider>
             <StrictMode>
-                <PlayerProvider>
-                    <AppRouters />
-                </PlayerProvider>
+                <ThemeProvider>
+                    <PlayerProvider>
+                        <AppRouters />
+                    </PlayerProvider>
+                </ThemeProvider>
             </StrictMode>
         </MantineProvider>
     </>

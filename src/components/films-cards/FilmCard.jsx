@@ -5,10 +5,12 @@ import PlayIcon from '../../../public/play.svg';
 import PlayPausedIcon from '../../../public/player.paused.svg';
 import { useState } from 'react';
 import X from '../../../public/x.svg'
+import { useThemeContext } from '../../context/ThemeContext';
 
 
 export function CardFilms({ src, title, subtitle, index, isPlay, handle, id, category }) {
 
+    const { theme } = useThemeContext()
 
     return (
         <>
@@ -18,8 +20,10 @@ export function CardFilms({ src, title, subtitle, index, isPlay, handle, id, cat
                 radius=""
                 href="#"
                 target="_blank"
+                className={classes.card}
+
             >
-                <Card.Section >
+                <Card.Section className={classes.card} >
                     <div className={classes.image_box}>
                         <Image
                             onClick={handle}
@@ -39,6 +43,7 @@ export function CardFilms({ src, title, subtitle, index, isPlay, handle, id, cat
 
                 <Link component={Link} to={`/turquoise/movie/${id}`}
                     style={{
+                        color: 'inherit',
                         width: '200px',
                         padding: 0,
                         fontWeight: '500',

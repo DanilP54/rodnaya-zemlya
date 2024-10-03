@@ -1,7 +1,10 @@
-import { MovieCardList } from "../../widgets/cards/movie/MovieCardList";
+// import { MovieCardList } from "../../widgets/cards/movie/MovieCardList";
+
 import { TurquoiseFiltersMovie } from "../../widgets/turquoise/TurquoiseFiltersMovie";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { useEffect } from "react";
+import { Loading } from "../../../main";
+const MovieCardList = lazy(() => import("../../widgets/cards/movie/MovieCardList"))
 
 const movieList = [
     { "id": 1, "title": "Inception", "src": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg", "genre": "Sci-Fi", isPlay: false, category: "turquoise" },
@@ -46,7 +49,9 @@ function TurquoiseMovie() {
     return (
         <>
             <TurquoiseFiltersMovie setValue={setValue} />
-            <MovieCardList cards={movies} setCards={setMovies} />
+            <Suspense fallback={<Loading />}>
+                <MovieCardList cards={movies} setCards={setMovies} />
+            </Suspense>
         </>
     )
 }

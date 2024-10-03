@@ -4,9 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useLayoutEffect } from "react";
 import { AlbumSection } from "../AlbumSection";
-import {TurquoiseSection} from "../TurquoiseSection.jsx";
-import {RedSection} from "../RedSection.jsx";
-import {GreenSection} from "../GreenSection.jsx";
+import { TurquoiseSection } from "../TurquoiseSection.jsx";
+import { RedSection } from "../RedSection.jsx";
+import { GreenSection } from "../GreenSection.jsx";
+import { useThemeContext } from '../../../../context/ThemeContext.jsx';
 
 
 const ArrowLeft = styled(Link)`
@@ -46,7 +47,7 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
-        background-color: white;
+        background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
         width: 70%;
         height: 100%;
         margin: 0 auto;
@@ -56,6 +57,8 @@ const ContentBox = styled.div`
 export function GreenLiteraturePage() {
 
     const { pathname } = useLocation()
+
+    const { theme } = useThemeContext()
 
     useLayoutEffect(() => {
         if (pathname) {
@@ -70,7 +73,7 @@ export function GreenLiteraturePage() {
                     <HeaderDetails color={'#00FA9A'} />
                 </HeaderBox>
                 <MainBox>
-                    <ContentBox>
+                    <ContentBox theme={theme}>
                         <GreenSection color={'#00FA9A'} />
                     </ContentBox>
                     <ArrowLeft to={'/green-literature'} preventScrollReset={true}>

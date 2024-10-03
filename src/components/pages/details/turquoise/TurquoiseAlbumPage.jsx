@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useLayoutEffect } from "react";
 import { AlbumSection } from "../AlbumSection";
+import { useThemeContext } from '../../../../context/ThemeContext';
 
 
 const ArrowLeft = styled(Link)`
@@ -43,7 +44,7 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
-        background-color: white;
+        background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
         width: 70%;
         height: 100%;
         margin: 0 auto;
@@ -54,6 +55,7 @@ const ContentBox = styled.div`
 export function TurquoiseAlbumPage() {
 
     const { pathname } = useLocation()
+    const {theme} = useThemeContext()
 
     useLayoutEffect(() => {
         if (pathname) {
@@ -68,8 +70,8 @@ export function TurquoiseAlbumPage() {
                     <HeaderDetails color={'#00CED1'} />
                 </HeaderBox>
                 <MainBox>
-                    <ContentBox>
-                        <AlbumSection color={'#00CED1'} />
+                    <ContentBox theme={theme}>
+                        <AlbumSection theme={theme} color={'#00CED1'} />
                     </ContentBox>
                     <ArrowLeft to={'/turquoise-music'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />

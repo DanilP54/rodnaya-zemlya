@@ -1,7 +1,5 @@
 import { MovieCard } from './MovieCard'
-
 import { Player } from "video-react"
-import { useState } from "react"
 
 import {
     ModalHeader,
@@ -11,10 +9,10 @@ import {
 import { usePlayerContext } from '../../../../context/usePlayerContext'
 
 
-export function MovieCardList({ cards, setCards }) {
+export default function MovieCardList({ cards, setCards }) {
 
     // const [cards, setCards] = useState(list || [])
-    const { isOpen, onClose, handleOnPause  } = usePlayerContext()
+    const { isOpen, onClose, handleOnPause } = usePlayerContext()
 
     const handlePlay = (id) => {
         cards.forEach((card) => {
@@ -94,9 +92,3 @@ export function MovieCardList({ cards, setCards }) {
         </div>
     )
 }
-
-// {
-
-//
-
-// }

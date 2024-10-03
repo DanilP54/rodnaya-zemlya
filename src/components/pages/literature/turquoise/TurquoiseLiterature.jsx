@@ -1,6 +1,7 @@
+import { useState, useEffect, lazy, Suspense } from "react";
+const LiteratureCardList = lazy(() => import("../../../widgets/cards/literature/LiteratureCardList.jsx"));
+import { Loading } from "../../../../main.jsx";
 import { TurquoiseFiltersLiterature } from "../../../widgets/turquoise/TurquoiseFiltersLiterature.jsx";
-import { LiteratureCardList } from "../../../widgets/cards/literature/LiteratureCardList.jsx";
-import { useState, useEffect } from "react";
 
 const booksList = [
     {
@@ -190,7 +191,9 @@ export default function TurquoiseLiterature() {
     return (
         <>
             <TurquoiseFiltersLiterature setValue={setValue} />
-            <LiteratureCardList cards={books} setCards={setBooks} />
+            <Suspense fallback={<Loading />}>
+                <LiteratureCardList cards={books} setCards={setBooks} />
+            </Suspense>
 
         </>
     )

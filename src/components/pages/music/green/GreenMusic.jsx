@@ -1,5 +1,5 @@
 import { GreenFilterMusic } from "../../../widgets/green/GreenFiltersMusic";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 
 import Card6 from '../../../../../public/Card6.jpg'
 import Card8 from '../../../../../public/Card8.jpg'
@@ -20,7 +20,8 @@ import track4 from '../../../../../public/green-music/4.mp3'
 import track5 from '../../../../../public/green-music/5.mp3'
 import track6 from '../../../../../public/green-music/6.mp3'
 import track7 from '../../../../../public/green-music/7.mp3'
-import { GreenMusicCardList } from "../../../widgets/cards/music/GreenMusicCardList";
+import { Loading } from "../../../../main";
+const GreenMusicCardList = lazy(() => import("../../../widgets/cards/music/GreenMusicCardList"));
 
 const greenMusic = [
     { "id": 27, "title": "Nobody Loves You Moreby Kim Deal", "src": Card6, "genre": "Electronic", isPlay: false, category: 'green', trackSrc: track1 },
@@ -65,11 +66,13 @@ export default function GreenMusic() {
         })
         setAlbums(filtered)
     }, [value])
-    
+
     return (
         <>
             <GreenFilterMusic setValue={setValue} />
-            <GreenMusicCardList cards={albums} setCards={setAlbums} />
+            <Suspense fallback={<Loading />}>
+                <GreenMusicCardList cards={albums} setCards={setAlbums} />
+            </Suspense>
         </>
     )
 }

@@ -1,6 +1,8 @@
-import { LiteratureCardList } from "../../../widgets/cards/literature/LiteratureCardList.jsx";
+import { useState, useEffect, lazy, Suspense } from "react";
+const LiteratureCardList = lazy(() => import("../../../widgets/cards/literature/LiteratureCardList.jsx"));
 import { RedFiltersLiterature } from "../../../widgets/red/RedFiltersLiterature.jsx";
-import { useState, useEffect } from "react";
+import { Loading } from "../../../../main.jsx";
+
 
 const booksList = [
     {
@@ -191,7 +193,9 @@ export default function RedLiterature() {
     return (
         <>
             <RedFiltersLiterature setValue={setValue} />
-            <LiteratureCardList cards={books} setCards={setBooks} />
+            <Suspense fallback={<Loading />}>
+                <LiteratureCardList cards={books} setCards={setBooks} />
+            </Suspense>
         </>
     )
 }

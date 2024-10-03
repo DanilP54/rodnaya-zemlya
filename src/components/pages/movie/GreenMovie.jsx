@@ -1,7 +1,9 @@
 import { GreenFilter } from "../../widgets/green/GreenFilters";
-import { useState, useEffect } from "react";
-import Film1 from '../../../../public/Film1.jpg'
-import { MovieCardList } from "../../widgets/cards/movie/MovieCardList";
+import { useState, useEffect, Suspense } from "react";
+import { lazy } from "react";
+import { Loading } from "../../../main";
+
+const MovieCardList = lazy(() => import('../../widgets/cards/movie/MovieCardList'))
 
 const movieList = [
     { "id": 1, "title": "Inception", "src": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg", "genre": "Sci-Fi", isPlay: false, category: "green" },
@@ -41,7 +43,10 @@ export default function GreenMovie() {
     return (
         <>
             <GreenFilter setValue={setValue} />
-            <MovieCardList cards={movies} setCards={setMovies} />
+            <Suspense fallback={<Loading />}>
+                <MovieCardList cards={movies} setCards={setMovies} />
+            </Suspense>
+
 
         </>
     )

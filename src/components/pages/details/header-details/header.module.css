@@ -31,7 +31,7 @@
 }
 
 .auth_link {
-    color: black;
+    color: inherit;
     font-weight: 700;
 }
 
@@ -44,7 +44,7 @@
 
 .lang_link {
     text-decoration: none;
-    color: black;
+    color: inherit;
     font-weight: 700;
     font-size: var(--link-font-size);
 }

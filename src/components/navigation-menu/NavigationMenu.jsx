@@ -134,7 +134,7 @@ const buttonsList = [
 const ButtonStyled = styled.button`
     cursor: pointer;
     height: 40px;
-    width: ${props => props.buttonIsSelected ? '80px' : '250px'};
+    width: 128px;
     border: none;
     margin: 0;
     padding: 0;
@@ -173,8 +173,6 @@ export function NavigationMenu() {
     const [buttons, setButtons] = useState(buttonsList)
 
     const location = useLocation()
-
-    console.log(location.pat)
 
     const [buttonIsSelected, setButtonsSelected] = useState(false)
 
@@ -270,7 +268,7 @@ export function NavigationMenu() {
 
                                 button.isActive &&
 
-                                <nav style={{ display: 'flex', width: `${buttonIsSelected ? 'calc(100% - 80px)' : 'calc(100% - 250px)'} `, backgroundColor: button.color }}>
+                                <nav style={{ display: 'flex', width:  'calc(100% - 128px)', backgroundColor: button.color }}>
 
                                     <ul id="link_list" style={{
                                         display: 'flex',

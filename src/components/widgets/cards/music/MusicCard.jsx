@@ -2,11 +2,10 @@ import { Card, Image, Text } from '@mantine/core';
 import classes from './secondary.image.module.css'
 import { Link } from 'react-router-dom';
 import PlayIcon from '../../../../../public/play.svg';
-import X from '../../../../../public/x.svg'
 import styled from 'styled-components';
-import { BiPause } from 'react-icons/bi';
 import { usePlayerContext } from '../../../../context/usePlayerContext';
 import PausedIcon from '../../../../../public/paused.svg'
+import { useThemeContext } from '../../../../context/ThemeContext';
 
 
 
@@ -26,9 +25,11 @@ const LinkStyled = styled(Link)`
 `
 
 
-export function MusicCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
+export function MusicCard({ src, title, subtitle, isPlay, handle, id, category }) {
 
     const { isPlayPlayer, isOpen } = usePlayerContext()
+
+    const { theme } = useThemeContext()
 
     return (
         <>
@@ -38,6 +39,9 @@ export function MusicCard({ src, title, subtitle, index, isPlay, handle, id, cat
                 radius=""
                 href="#"
                 target="_blank"
+                style={{
+                    backgroundColor: 'transparent'
+                }}
             >
                 <Card.Section >
                     <div className={classes.image_box}>
@@ -64,7 +68,9 @@ export function MusicCard({ src, title, subtitle, index, isPlay, handle, id, cat
                     justifyContent: 'space-between'
                 }}>
 
-                    <LinkStyled target={(isPlayPlayer || isOpen) && '_target'} to={`/${category}/album/${id}`}>
+                    <LinkStyled style={{
+                        color: theme === 'light' ? 'black' : 'white',
+                    }} target={(isPlayPlayer || isOpen) && '_target'} to={`/${category}/album/${id}`}>
                         {title}
                     </LinkStyled >
 

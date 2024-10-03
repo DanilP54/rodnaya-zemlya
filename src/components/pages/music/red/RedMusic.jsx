@@ -1,5 +1,5 @@
 import { RedFilterMusic } from "../../../widgets/red/RedFiltersMusic";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import Card6 from '../../../../../public/Card6.jpg'
 import Card8 from '../../../../../public/Card8.jpg'
 import Card9 from '../../../../../public/Card9.jpg'
@@ -18,7 +18,8 @@ import track4 from '../../../../../public/red-music/4.mp3'
 import track5 from '../../../../../public/red-music/5.mp3'
 import track6 from '../../../../../public/red-music/6.mp3'
 import track7 from '../../../../../public/red-music/7.mp3'
-import { RedMusicCardList } from "../../../widgets/cards/music/RedMusicCardList";
+import { Loading } from "../../../../main";
+const RedMusicCardList = lazy(() => import("../../../widgets/cards/music/RedMusicCardList"));
 
 const redMusic = [
     { "id": 1, "title": "Nobody Loves You Moreby Kim Deal", "src": Card6, "genre": "Electronic", isPlay: false, category: 'red', trackSrc: track1 },
@@ -68,7 +69,9 @@ export default function RedMusic() {
     return (
         <>
             <RedFilterMusic setValue={setValue} />
-            <RedMusicCardList cards={albums} setCards={setAlbums} />
+            <Suspense fallback={<Loading />}>
+                <RedMusicCardList cards={albums} setCards={setAlbums} />
+            </Suspense>
         </>
     )
 }

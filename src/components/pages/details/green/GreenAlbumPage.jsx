@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useLayoutEffect } from "react";
 import { AlbumSection } from "../AlbumSection";
+import { useThemeContext } from '../../../../context/ThemeContext';
 
 
 const ArrowLeft = styled(Link)`
@@ -43,7 +44,7 @@ const MainBox = styled.main`
 `
 
 const ContentBox = styled.div`
-        background-color: white;
+        background-color: ${props => props.theme === 'light' ? 'white' : '#161616'};
         width: 70%;
         height: 100%;
         margin: 0 auto;
@@ -55,6 +56,8 @@ export function GreenAlbumPage() {
 
     const { pathname } = useLocation()
 
+    const { theme } = useThemeContext()
+
     useLayoutEffect(() => {
         if (pathname) {
             window.scrollTo(0, 0)
@@ -65,10 +68,10 @@ export function GreenAlbumPage() {
         <>
             <DetailsPageWrapper>
                 <HeaderBox>
-                    <HeaderDetails color={'#00FA9A'}  />
+                    <HeaderDetails color={'#00FA9A'} />
                 </HeaderBox>
                 <MainBox>
-                    <ContentBox>
+                    <ContentBox theme={theme}>
                         <AlbumSection color={'#00FA9A'} />
                     </ContentBox>
                     <ArrowLeft to={'/green-music'} preventScrollReset={true}>

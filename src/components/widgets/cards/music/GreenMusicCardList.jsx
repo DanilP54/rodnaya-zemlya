@@ -6,7 +6,7 @@ import { usePlayerContext } from '../../../../context/usePlayerContext';
 
 
 
-export function GreenMusicCardList({ cards, setCards }) {
+export default function GreenMusicCardList({ cards, setCards }) {
 
     // const [cards, setCards] = useState(list || [])
     const { onPlayTrack, isOpen, handleOnPause, getCurrentTrackId, handleOnPlay, isPlayPlayer } = usePlayerContext()

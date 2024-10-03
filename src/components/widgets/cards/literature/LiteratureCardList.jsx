@@ -3,7 +3,7 @@ import { useState } from "react"
 import Close from '../../../../../public/close.svg'
 
 
-export function LiteratureCardList({ cards, setCards }) {
+export default function LiteratureCardList({ cards, setCards }) {
 
     // const [cards, setCards] = useState(list || [])
 
