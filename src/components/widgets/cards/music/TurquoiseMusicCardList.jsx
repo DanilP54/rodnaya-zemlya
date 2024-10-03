@@ -1,7 +1,7 @@
 import { MusicCard } from './MusicCard';
 import { useEffect, useState } from "react";
 import { usePlayerContext } from '../../../../context/usePlayerContext';
-
+import { Skeleton } from '@mantine/core';
 
 
 

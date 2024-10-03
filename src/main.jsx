@@ -60,10 +60,11 @@ function SkeletonCard() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            backgroundColor: 'transparent'
         }}>
-            <Skeleton height={'200px'} width={'232px'} />
-            <Skeleton height={'28px'} width={'232px'} mt={'xs'} />
-            <Skeleton height={8} mt={'xs'} width={'100px'} style={{
+            <Skeleton className={`${theme === 'light' ? '' : 'custom__skeleton'}`} height={'200px'} width={'232px'} />
+            <Skeleton className={`${theme === 'light' ? '' : 'custom__skeleton'}`} height={'28px'} width={'232px'} mt={'xs'} />
+            <Skeleton className={`${theme === 'light' ? '' : 'custom__skeleton'}`} height={8} mt={'xs'} width={'100px'} style={{
                 alignSelf: 'flex-start'
             }} />
 
