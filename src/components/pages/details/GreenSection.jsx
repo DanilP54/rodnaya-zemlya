@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { useState } from "react"
-import Book from "../../../../public/book.jpg";
+import Book from "../../../../public/sanya.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { usePlayerContext } from "../../../context/usePlayerContext";

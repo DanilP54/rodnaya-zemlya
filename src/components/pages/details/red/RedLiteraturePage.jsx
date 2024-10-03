@@ -3,8 +3,6 @@ import LeftArrow from '../../../../../public/left-arrow.svg'
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useLayoutEffect } from "react";
-import { AlbumSection } from "../AlbumSection";
-import { TurquoiseSection } from "../TurquoiseSection.jsx";
 import { RedSection } from "../RedSection.jsx";
 import { useThemeContext } from '../../../../context/ThemeContext.jsx';
 
