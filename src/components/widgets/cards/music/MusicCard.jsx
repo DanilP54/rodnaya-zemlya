@@ -70,7 +70,7 @@ export function MusicCard({ src, title, subtitle, isPlay, handle, id, category }
 
                     <LinkStyled style={{
                         color: theme === 'light' ? 'black' : 'white',
-                    }} target={(isPlayPlayer || isOpen) && '_target'} to={`/${category}/album/${id}`}>
+                    }} to={`/${category}/album/${id}`}>
                         {title}
                     </LinkStyled >
 

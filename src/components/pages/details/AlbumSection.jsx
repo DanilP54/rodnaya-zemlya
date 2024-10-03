@@ -134,14 +134,8 @@ export function AlbumSection({ color, theme }) {
                 </div>
             </SectionBox>
             <AsideBox>
-                <AlbumCard>
-                    {/* <span style={{
-                        backgroundColor: color
-                    }} className="title">The Fragile</span> */}
+                <AlbumCard>   
                     <img src={Card6} alt="" />
-                    {/* <span style={{
-                        backgroundColor: color
-                    }} className="subtitle">Studio Album by Nine Inch Nails</span> */}
                 </AlbumCard>
                 <div className="album_details">
                     <div className="item">
