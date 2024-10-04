@@ -145,7 +145,7 @@ export function GreenSection({ color }) {
             </AsideBox>
             <SectionBox>
                 <h1>Вестсайдская история на Чеканах</h1>
-                <p>West Side Story12+</p>
+                <p>West Side Story 12+</p>
                 <div style={{
                     marginTop: '25px',
                     height: '200px'
