@@ -48,7 +48,7 @@ const buttonsList = [
         id: 1,
         color: '#CD5C5C',
         name: 'red',
-        hover: '#d67070',
+        // hover: '#d67070',
         isActive: false,
         isSelected: false,
         menu: [
@@ -74,7 +74,7 @@ const buttonsList = [
     }, {
         id: 2,
         color: '#00FA9A',
-        hover: '#38fcb1',
+        // hover: '#38fcb1',
         name: 'green',
         isActive: false,
         isSelected: false,
@@ -103,7 +103,7 @@ const buttonsList = [
         id: 3,
         color: '#00CED1',
         isActive: false,
-        hover: '#18e1e4',
+        // hover: '#18e1e4',
         name: 'turquoise',
         isSelected: false,
         menu: [

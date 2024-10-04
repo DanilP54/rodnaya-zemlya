@@ -10,7 +10,6 @@ import linkBook from '../../../../public/book.pdf'
 
 const LiteratureSectionWrapper = styled.div`
     display: grid;
-    /* height: 100%; */
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
     padding: 120px 50px 60px;
