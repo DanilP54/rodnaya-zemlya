@@ -74,7 +74,7 @@ export default function StartPage() {
                         <Link style={{
                             fontWeight: 'bold',
                             color: theme === 'light' ? 'black' : 'white',
-                        }} to={'/stream'}>трансляция</Link>
+                        }} to={'#'}>трансляция</Link>
                         </div>
                     </div>
                 </main>
