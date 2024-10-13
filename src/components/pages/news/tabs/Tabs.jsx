@@ -16,7 +16,7 @@ export default function TabsComponents() {
                     color: 'white',
                     backgroundColor: 'transparent'
                 }} >
-                    Наша Лента
+                    Наша лента
                 </Tabs.Tab>
                 <Tabs.Tab value="your news" style={{
                     fontSize: '17px',
@@ -24,7 +24,7 @@ export default function TabsComponents() {
                     color: 'white',
                     backgroundColor: 'transparent'
                 }}  >
-                    Ваша Лента
+                    Ваша лента
                 </Tabs.Tab>
             </Tabs.List>
 
