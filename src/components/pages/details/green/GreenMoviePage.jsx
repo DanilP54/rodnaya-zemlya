@@ -75,7 +75,7 @@ export function GreenMoviePage() {
                     <ContentBox theme={theme}>
                         <MovieSection />
                     </ContentBox>
-                    <ArrowLeft to={'/green-movie'} preventScrollReset={true}>
+                    <ArrowLeft to={'/app/green-movie'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />
                     </ArrowLeft>
                 </MainBox>

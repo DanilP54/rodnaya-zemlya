@@ -1,6 +1,7 @@
 import { Card, Image, Text } from '@mantine/core';
 import classes from './secondary.image.module.css'
 import { Link } from 'react-router-dom';
+
 import PlayIcon from '../../../../../public/play.svg';
 import styled from 'styled-components';
 import { usePlayerContext } from '../../../../context/usePlayerContext';
@@ -25,7 +26,7 @@ const LinkStyled = styled(Link)`
 `
 
 
-export function MusicCard({ src, title, subtitle, isPlay, handle, id, category }) {
+export function MusicCard({ src, title, subtitle, band, isPlay, handle, id, category }) {
 
     const { isPlayPlayer, isOpen } = usePlayerContext()
 
@@ -62,7 +63,6 @@ export function MusicCard({ src, title, subtitle, isPlay, handle, id, category }
                 </Card.Section>
                 <div style={{
                     height: '100%',
-                    gap: '10px',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between'
@@ -70,14 +70,12 @@ export function MusicCard({ src, title, subtitle, isPlay, handle, id, category }
 
                     <LinkStyled style={{
                         color: theme === 'light' ? 'black' : 'white',
-                    }} to={`/${category}/album/${id}`}>
+                    }} to={`/app/${category}/a/${id}`}>
                         {title}
                     </LinkStyled >
 
+                    <Text mt={'xs'} size="sm" c="dimmed">{band}</Text>
 
-                    <Text mt="" c="dimmed" size="sm">
-                        {subtitle}
-                    </Text>
                 </div>
             </Card >
         </>

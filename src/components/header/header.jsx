@@ -63,7 +63,7 @@ export function Header() {
         <div className={style.header_wrapper}>
             <header className={style.header}>
                 <div>
-                    <Link to='#'>
+                    <Link to='/'>
                         <img src={theme === 'light' ? BlackLogo : WhiteLogo} alt="logo" className={style.logo} />
                     </Link>
                 </div>

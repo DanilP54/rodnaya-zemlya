@@ -1,15 +1,18 @@
 import { lazy, StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+
+
+
 import 'semantic-ui-css/semantic.min.css'
 import '@mantine/core/styles.css';
 import 'react-h5-audio-player/lib/styles.css';
 import './player.css';
 import 'video-react/dist/video-react.css';
 import '@mantine/spotlight/styles.css';
+import '@mantine/carousel/styles.css';
 import './custom.video.css';
 import './index.css'
-import { Skeleton, useMantineTheme } from '@mantine/core';
+import { Loader, Skeleton, useMantineTheme } from '@mantine/core';
 import { MantineProvider } from '@mantine/core';
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -41,7 +44,18 @@ import { RedLiteraturePage } from "./components/pages/details/red/RedLiteratureP
 import { GreenLiteraturePage } from "./components/pages/details/green/GreenLiteraturePage.jsx";
 import { PlayerProvider } from './context/PlayerProvider.jsx';
 import { ThemeProvider, useThemeContext } from './context/ThemeContext.jsx';
+import StartPage from "./startPage.jsx";
+import TurquoiseArt from './components/pages/arts/TurquoiseArt.jsx';
+import ArtSection from './components/pages/ArtSection.jsx';
+import ArtDetailsSection from './components/pages/ArtDetails.jsx';
+import { imagesOne } from './data/imageOne.js';
+import { imagesTwo } from './data/imageTwo.js';
+import { imagesThree } from './data/imageThree.js';
+import RedArt from './components/pages/arts/RedArt.jsx';
+import GreenArt from './components/pages/arts/GreenArt.jsx';
+import ArtPage from './components/pages/details/turquoise/ArtPage.jsx';
 
+const App = lazy(() => import('./App.jsx'))
 
 function Unknow() {
     return (
@@ -54,7 +68,6 @@ function SkeletonCard() {
     const { theme } = useThemeContext()
 
 
-
     return (
         <div style={{
             display: 'flex',
@@ -63,10 +76,12 @@ function SkeletonCard() {
             backgroundColor: 'transparent'
         }}>
             <Skeleton className={`${theme === 'light' ? '' : 'custom__skeleton'}`} height={'200px'} width={'232px'} />
-            <Skeleton className={`${theme === 'light' ? '' : 'custom__skeleton'}`} height={'28px'} width={'232px'} mt={'xs'} />
-            <Skeleton className={`${theme === 'light' ? '' : 'custom__skeleton'}`} height={8} mt={'xs'} width={'100px'} style={{
-                alignSelf: 'flex-start'
-            }} />
+            <Skeleton className={`${theme === 'light' ? '' : 'custom__skeleton'}`} height={'28px'} width={'232px'}
+                mt={'xs'} />
+            <Skeleton className={`${theme === 'light' ? '' : 'custom__skeleton'}`} height={8} mt={'xs'} width={'100px'}
+                style={{
+                    alignSelf: 'flex-start'
+                }} />
 
         </div>
     );
@@ -87,9 +102,9 @@ export const Loading = () => {
 
         }}>
             {
-                Array.from({ length: 12 }).map(skeletonCard => {
+                Array.from({ length: 12 }).map((skeletonCard, index) => {
                     return (
-                        <SkeletonCard />
+                        <SkeletonCard key={index} />
                     )
                 })
             }
@@ -100,107 +115,218 @@ export const Loading = () => {
 const routers = [
     {
         path: '/',
-        element: <App />,
+        element: <StartPage />,
+    },
+    {
+        path: '/app',
+        element: <Suspense fallback={<div style={{
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+        }}><Loader size={'xl'} color='gray' /></div>}><App /></Suspense>,
         children: [
             {
                 index: true,
                 element: <Recommendation />
             },
+
+            // TURQUOISE MOVIE -------------------------------
             {
                 path: 'turquoise-movie', element: <TurquoiseMovie />,
             },
             {
+                path: 'turquoise/m/:id',
+                element: <TurquoiseMoviePage />
+            },
+
+            // GREEN MOVIE -------------------------------
+
+            {
                 path: 'green-movie', element: <GreenMovie />
             },
+            {
+                path: 'green/m/:id',
+                element: <GreenMoviePage />
+            },
+
+            // RED MOVIE -------------------------------
+
             {
                 path: 'red-movie', element: <RedMovie />
             },
             {
+                path: 'red/m/:id',
+                element: <RedMoviePage />
+            },
+
+            // TURQUOISE MUSIC -------------------------------
+
+            {
                 path: 'turquoise-music', element: <TurquoiseMusic />
             },
+            {
+                path: 'turquoise/a/:id',
+                element: <TurquoiseAlbumPage />
+            },
+
+            // GREEN MUSIC -------------------------------
+
             {
                 path: 'green-music', element: <GreenMusic />
             },
             {
+                path: 'green/a/:id',
+                element: <GreenAlbumPage />
+            },
+
+            // RED MUSIC -------------------------------
+
+            {
                 path: 'red-music', element: <RedMusic />
             },
+            {
+                path: 'red/a/:id',
+                element: <RedAlbumPage />
+            },
+
+
+            // TURQUOISE LITERATURE -------------------------------
+
             {
                 path: 'turquoise-literature', element: <TurquoiseLiterature />
             },
             {
+                path: 'turquoise/l/:id',
+                element: <TurquoiseLiteraturePage />,
+            },
+            {
+                path: 'turquoise/l/:id/r/:id',
+                element: <ReaderPage color={'#00CED1'} href={`/app/turquoise/l/1`} />
+            },
+
+            // GREEN LITERATURE -------------------------------
+
+
+            {
                 path: 'green-literature', element: <GreenLiterature />
             },
+            {
+                path: 'green/l/:id',
+                element: <GreenLiteraturePage />
+            },
+            {
+                path: 'green/l/:id/r/:id',
+                element: <ReaderPage color={'#00FA9A'} href={`/app/green/l/1`} />
+            },
+
+            // RED LITERATURE -------------------------------
+
             {
                 path: 'red-literature', element: <RedLiterature />
             },
             {
-                path: 'turquoise-arts', element: <Unknow />
+                path: 'red/l/:id',
+                element: <RedLiteraturePage />
             },
             {
-                path: 'red-arts', element: <Unknow />
+                path: 'red/l/:id/r/:id',
+                element: <ReaderPage color={'#CD5C5C'} href={`/app/red/l/1`} />
+            },
+
+
+
+            // TURQUOISE ART -------------------------------
+
+
+            {
+                path: 'turquoise-art', element: <TurquoiseArt />
             },
             {
-                path: 'green-arts', element: <Unknow />
+                path: 'turquoise/art/:id', element: <ArtPage color={'#00CED1'} category={'turquoise'} />,
+                children: [
+                    {
+                        index: true,
+                        element: <ArtSection category={'turquoise'} />
+                    },
+                    {
+                        path: 'details/henrietta-moraes',
+                        element: <ArtDetailsSection author={'Камиль Фурнье'} title={'Henrietta Moraes'} count={'8'} data={imagesOne} />
+                    },
+                    {
+                        path: 'details/merchandise',
+                        element: <ArtDetailsSection author={'Камиль Фурнье'} title={'Merchandise'} count={'15'} data={imagesTwo} />
+                    },
+                    {
+                        path: 'details/design',
+                        element: <ArtDetailsSection author={'Камиль Фурнье'} title={'Design'} count={'5'} data={imagesThree} />
+                    }
+
+                ]
             },
-        ],
-    },
 
-    {
-        path: 'turquoise/album/:id',
-        element: <TurquoiseAlbumPage />
-    },
-    {
-        path: 'turquoise/literature/:id',
-        element: <TurquoiseLiteraturePage />
-    },
-    {
-        path: 'turquoise/literature/reader/:id',
-        element: <ReaderPage color={'#00CED1'} href={`/turquoise/literature/${1}`} />
-    },
-    {
-        path: 'red/album/:id',
-        element:
-            <RedAlbumPage />
-    },
-    {
-        path: 'red/literature/:id',
-        element: <RedLiteraturePage />
-    },
-    {
-        path: 'red/literature/reader/:id',
-        element: <ReaderPage color={'#CD5C5C'} href={`/red/literature/${1}`} />
-    },
-    {
-        path: 'green/literature/:id',
-        element: <GreenLiteraturePage />
-    },
-    {
-        path: 'green/literature/reader/:id',
-        element: <ReaderPage color={'#00FA9A'} href={`/green/literature/${1}`} />
-    },
-    {
-        path: 'green/album/:id',
-        element:
-            <GreenAlbumPage />
-    },
-    {
-        path: 'turquoise/movie/:id',
-        element:
-            <TurquoiseMoviePage />
-    }
-    ,
-    {
-        path: 'red/movie/:id',
-        element:
-            <RedMoviePage />
-    },
-    {
-        path: 'green/movie/:id',
-        element:
-            <GreenMoviePage />
-    }
-    ,
 
+
+            // RED ART --------------------------------
+
+            {
+                path: 'red-art', element: <RedArt />
+            },
+            {
+                path: 'red/art/:id', element: <ArtPage color={'#CD5C5C'} category={'red'} />,
+                children: [
+                    {
+                        index: true,
+                        element: <ArtSection category={'red'} />
+                    },
+                    {
+                        path: 'details/henrietta-moraes',
+                        element: <ArtDetailsSection author={'Камиль Фурнье'} title={'Henrietta Moraes'} count={'8'} data={imagesOne} />
+                    },
+                    {
+                        path: 'details/merchandise',
+                        element: <ArtDetailsSection author={'Камиль Фурнье'} title={'Merchandise'} count={'15'} data={imagesTwo} />
+                    },
+                    {
+                        path: 'details/design',
+                        element: <ArtDetailsSection author={'Камиль Фурнье'} title={'Design'} count={'5'} data={imagesThree} />
+                    }
+
+                ]
+            },
+
+
+
+            // GREEN ART -------------------------------
+
+
+            {
+                path: 'green-art', element: <GreenArt />
+            },
+            {
+                path: 'green/art/:id', element: <ArtPage color={'#00FA9A'} category={'green'} />,
+                children: [
+                    {
+                        index: true,
+                        element: <ArtSection category={'green'} />
+                    },
+                    {
+                        path: 'details/henrietta-moraes',
+                        element: <ArtDetailsSection author={'Камиль Фурнье'} title={'Henrietta Moraes'} count={'8'} data={imagesOne} />
+                    },
+                    {
+                        path: 'details/merchandise',
+                        element: <ArtDetailsSection author={'Камиль Фурнье'} title={'Merchandise'} count={'15'} data={imagesTwo} />
+                    },
+                    {
+                        path: 'details/design',
+                        element: <ArtDetailsSection author={'Камиль Фурнье'} title={'Design'} count={'5'} data={imagesThree} />
+                    }
+
+                ]
+            },
+        ]
+    },
 ]
 
 

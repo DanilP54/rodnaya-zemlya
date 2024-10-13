@@ -74,7 +74,7 @@ export function TurquoiseAlbumPage() {
                     <ContentBox theme={theme}>
                         <AlbumSection theme={theme} color={'#00CED1'} />
                     </ContentBox>
-                    <ArrowLeft to={'/turquoise-music'} preventScrollReset={true}>
+                    <ArrowLeft to={'/app/turquoise-music'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />
                     </ArrowLeft>
                 </MainBox>

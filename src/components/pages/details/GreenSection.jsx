@@ -163,7 +163,7 @@ export function GreenSection({ color }) {
                         alignItems: 'center',
                         gap: '10px'
                     }}>
-                        <Link to={`/green/literature/reader/${1}`}>
+                        <Link to={`/app/green/l/1/r/${1}`}>
                             <button style={{
                                 width: '130px',
                                 padding: '3px 10px'

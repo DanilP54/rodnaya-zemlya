@@ -50,9 +50,12 @@ export default function MovieCardList({ cards, setCards }) {
                     cards.map((c, index) => {
                         return (
                             <div key={c.id} style={{
-                                display: 'flex', flexWrap: 'wrap', gap: '10px',
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                                gap: '10px',
+                                columnGap: '10px',
                             }}>
-                                <MovieCard key={c.id} src={c.src} title={c.title} subtitle={c.genre} isPlay={c.isPlay} category={c.category} index={index} id={c.id} handle={() => handlePlay(c.id)} />
+                                <MovieCard key={c.id} src={c.src} title={c.title} nameRu={c.nameRu} subtitle={c.genre} isPlay={c.isPlay} category={c.category} index={index} id={c.id} handle={() => handlePlay(c.id)} />
 
                                 <Modal
                                     style={{
@@ -62,12 +65,12 @@ export default function MovieCardList({ cards, setCards }) {
                                     open={c.isPlay}
                                 // trigger={<img className={styles.play_icon} src={iconSrc} alt="play icon" />}
                                 >
-                                    <ModalHeader style={{
+                                    {/* <ModalHeader style={{
                                         backgroundColor: 'black',
                                         color: 'white'
                                     }}>
-                                        {c.title}
-                                    </ModalHeader>
+                                        {c.nameRu}
+                                    </ModalHeader> */}
                                     <ModalContent style={{
                                         backgroundColor: 'transparent',
                                         padding: 0,

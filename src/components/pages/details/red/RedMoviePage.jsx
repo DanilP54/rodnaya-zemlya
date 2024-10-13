@@ -75,7 +75,7 @@ export function RedMoviePage() {
                     <ContentBox theme={theme}>
                         <MovieSection />
                     </ContentBox>
-                    <ArrowLeft to={'/red-movie'} preventScrollReset={true}>
+                    <ArrowLeft to={'/app/red-movie'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />
                     </ArrowLeft>
                 </MainBox>

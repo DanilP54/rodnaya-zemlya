@@ -1,6 +1,6 @@
 import { HeaderDetails } from '../header-details/HeaderAbout';
 import LeftArrow from '../../../../../public/left-arrow.svg'
-import { Link, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useLayoutEffect } from "react";
 import { AlbumSection } from "../AlbumSection";
@@ -56,7 +56,7 @@ const ContentBox = styled.div`
 export function TurquoiseLiteraturePage() {
 
     const { pathname } = useLocation()
-
+    console.log(pathname)
     const { theme } = useThemeContext()
 
     useLayoutEffect(() => {
@@ -75,7 +75,7 @@ export function TurquoiseLiteraturePage() {
                     <ContentBox theme={theme}>
                         <TurquoiseSection color={'#00CED1'} />
                     </ContentBox>
-                    <ArrowLeft to={'/turquoise-literature'} preventScrollReset={true}>
+                    <ArrowLeft to={'/app/turquoise-literature'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />
                     </ArrowLeft>
                 </MainBox>

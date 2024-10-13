@@ -8,27 +8,28 @@ import { useThemeContext } from '../../../../context/ThemeContext';
 
 const LinkStyled = styled(Link)`
 
-        width: 200px;
-        padding: 0;
-        font-weight: 500;
-        color: black;
-        margin-top: 14px;
+    width: 200px;
+    padding: 0;
+    font-weight: 500;
+    color: black;
+    margin-top: 14px;
 
-        &:hover {
-            color: gray
-        }
-            
+    &:hover {
+        color: gray
+    }
+
 
 `
 
 
-export function MovieCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
+export function MovieCard({ src, title, nameRu, subtitle, handle, id, category }) {
 
     const { theme } = useThemeContext()
 
     return (
         <>
             <Card
+
                 w='232px'
                 padding=""
                 radius=""
@@ -38,7 +39,7 @@ export function MovieCard({ src, title, subtitle, index, isPlay, handle, id, cat
                     backgroundColor: 'transparent',
                 }}
             >
-                <Card.Section >
+                <Card.Section>
                     <div className={classes.image_box}>
                         <Image
                             onClick={handle}
@@ -58,13 +59,14 @@ export function MovieCard({ src, title, subtitle, index, isPlay, handle, id, cat
 
                 <LinkStyled style={{
                     color: theme === 'dark' ? 'white' : 'black'
-                }} to={`/${category}/movie/${id}`}>
-                    {title}
-                </LinkStyled >
+                }}
+                    // to={`/${category}/movie/${id}`}
+                    to={`/app/${category}/m/${id}`}
+                >
+                    {nameRu}
+                </LinkStyled>
 
-                <Text mt="xs" c="dimmed" size="sm">
-                    {subtitle}
-                </Text>
+                <Text mt={'xs'} size="sm" c="dimmed">{title}</Text>
             </Card>
         </>
     )

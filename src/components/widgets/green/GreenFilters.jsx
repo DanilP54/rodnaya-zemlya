@@ -13,121 +13,76 @@ function IconX() {
 const primaryColor = '#00FA9A'
 const secondaryColor = '#d1f8e9'
 
-function CustomChip({ title, color, checkedGenre, selectedGenres, setSelectedGenres }) {
 
-    const [checked, setChecked] = useState(false);
+export function GreenFilter({ setValue, value }) {
 
 
-    const handleClick = () => {
-        if (checked) {
-            setChecked(false)
-        } else {
-            setChecked(true)
-        }
-    };
-
-    return (
-        <Chip
-            value={title}
-            checked={checked}
-            onClick={handleClick}
-            style={{
-                fontWeight: 'bold',
-                border: 'none',
-                outline: 'none',
-                backgroundColor: 'transparent',
-                padding: '0 0 0 0'
-            }}
-            icon={<IconX />}
-        color={checked ? color : ''}
-            radius={'xs'}
-            size="md"
-            variant={checked ? 'light' : 'none'}
-
-        >
-            {title}
-        </Chip >
-
-    );
-}
-
-function ChipGenre({ title, genre, color }) {
-    const [checked, setChecked] = useState(false);
-
-    return (
-        <Chip
-            value={title}
-            checked={checked}
-            onChange={() => {
-                genre.setCheckedGenre((v) => !v)
-                setChecked((v) => !v)
-            }}
-            style={{
-                fontWeight: 'bold',
-                border: 'none',
-                outline: 'none',
-                backgroundColor: 'transparent',
-                padding: '0 0 0 0'
-            }}
-            icon={<IconX />}
-            color={checked ? color : ''}
-            radius={'xs'}
-            size="md"
-            variant={checked ? 'light' : 'none'}
-        >
-            {title}
-        </Chip>
-
-    );
-}
-
-function ChipRecommendations({ title, genre, color }) {
-    const [checked, setChecked] = useState(false);
-
-    return (
-        <Chip
-            value={title}
-            checked={checked}
-            onChange={() => {
-                genre.setCheckedRecc((v) => !v)
-                setChecked((v) => !v)
-            }}
-            style={{
-                fontWeight: 'bold',
-                border: 'none',
-                outline: 'none',
-                backgroundColor: 'transparent',
-                padding: '0 0 0 0'
-            }}
-            icon={<IconX />}
-            color={checked ? color : ''}
-            radius={'xs'}
-            size="md"
-            variant={checked ? 'light' : 'none'}
-        >
-            {title}
-        </Chip>
-
-    );
-}
-export function GreenFilter({ setValue }) {
-
-    const [checkedGenre, setCheckedGenre] = useState(false);
-    const [checkedRecc, setCheckedRecc] = useState(false);
-
-    useEffect(() => {
-        if (!checkedGenre) {
-            setValue([])
-        }
-    }, [checkedGenre])
+    const [checkedCom, setCheckedCom] = useState(false);
+    const [checkedNotCom, setCheckedNotCom] = useState(false);
 
     return (
         <div style={{ display: 'flex', justifyContent: 'space-between', marginLeft: '128px', padding: '10px 68px', borderLeft: `6px solid ${primaryColor}`, borderBottom: `6px solid ${primaryColor}`, borderRight: `6px solid ${primaryColor}`, borderBottom: `6px solid ${primaryColor}`, backgroundColor: secondaryColor }}>
             <div style={{ width: '100%' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div style={{ display: 'flex', gap: '10px' }}>
-                        <ChipGenre title={'По жанру'} genre={{ checkedGenre, setCheckedGenre }} color={primaryColor} />
-                        <ChipRecommendations title={'По рекомендациям'} genre={{ checkedRecc, setCheckedRecc }} color={primaryColor} />
+                    <div>
+                        <Chip.Group onChange={setValue} value={value}>
+                            <Group gap={'10px'} align="center">
+                                <Chip
+                                    value='Коммерческое'
+                                    checked={checkedCom}
+                                    onClick={(e) => {
+                                        if (e.target.value === value) {
+                                            setValue(null)
+                                        }
+
+                                        if (checkedNotCom) setCheckedNotCom(false)
+                                        setCheckedCom((v) => !v)
+
+                                    }}
+                                    style={{
+                                        fontWeight: 'bold',
+                                        border: 'none',
+                                        outline: 'none',
+                                        backgroundColor: 'transparent',
+                                        padding: '0 0 0 0'
+                                    }}
+                                    // icon={<IconX />}
+                                    color={checkedCom ? primaryColor : ''}
+                                    radius={'xs'}
+                                    size="md"
+                                    variant={checkedCom ? 'light' : 'none'}
+                                >
+                                    Коммерческое
+                                </Chip>
+                                <Chip
+                                    value='Некоммерческое'
+                                    checked={checkedNotCom}
+                                    onClick={(e) => {
+                                        if (e.target.value === value) {
+                                            setValue(null)
+                                        }
+
+                                        if (checkedCom) setCheckedCom(false)
+                                        setCheckedNotCom((v) => !v)
+
+                                    }}
+                                    style={{
+                                        fontWeight: 'bold',
+                                        border: 'none',
+                                        outline: 'none',
+                                        backgroundColor: 'transparent',
+                                        padding: '0 0 0 0'
+                                    }}
+                                    // icon={<IconX />}
+                                    color={checkedNotCom ? primaryColor : ''}
+                                    radius={'xs'}
+                                    size="md"
+                                    variant={checkedNotCom ? 'light' : 'none'}
+                                >
+                                    Некоммерческое
+                                </Chip>
+                            </Group>
+                        </Chip.Group>
                     </div>
                     <div style={{
                         width: '300px'
@@ -135,17 +90,6 @@ export function GreenFilter({ setValue }) {
                         <Input fluid icon='search' placeholder='Add a genre, location or tag' />
                     </div>
                 </div>
-
-                {
-                    checkedGenre && <Chip.Group onChange={setValue} multiple><Group gap={'10px'} mt={'10px'} align="center">
-                        <CustomChip title={'Crime'} color={primaryColor} checkedGenre={checkedGenre} />
-                        <CustomChip title={'Drama'} color={primaryColor} checkedGenre={checkedGenre} />
-                        <CustomChip title={'Thriller'} color={primaryColor} checkedGenre={checkedGenre} />
-                        <CustomChip title={'Sci-Fi'} color={primaryColor} checkedGenre={checkedGenre} />
-                        <CustomChip title={'Action'} color={primaryColor} checkedGenre={checkedGenre} />
-                    </Group>   </Chip.Group>
-                }
-
 
             </div>
 

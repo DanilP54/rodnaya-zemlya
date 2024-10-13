@@ -54,19 +54,19 @@ const buttonsList = [
         menu: [
             {
                 name: 'Фильмы',
-                path: '/red-movie'
+                path: '/app/red-movie'
             },
             {
                 name: 'Музыка',
-                path: '/red-music'
+                path: '/app/red-music'
             },
             {
                 name: 'Живопись',
-                path: '/red-arts'
+                path: '/app/red-art'
             },
             {
                 name: 'Литература',
-                path: '/red-literature'
+                path: '/app/red-literature'
             }
 
         ]
@@ -81,19 +81,19 @@ const buttonsList = [
         menu: [
             {
                 name: 'Фильмы',
-                path: '/green-movie'
+                path: '/app/green-movie'
             },
             {
                 name: 'Музыка',
-                path: '/green-music'
+                path: '/app/green-music'
             },
             {
                 name: 'Живопись',
-                path: '/green-arts'
+                path: '/app/green-art'
             },
             {
                 name: 'Литература',
-                path: '/green-literature'
+                path: '/app/green-literature'
             }
 
         ]
@@ -109,19 +109,19 @@ const buttonsList = [
         menu: [
             {
                 name: 'Фильмы',
-                path: '/turquoise-movie'
+                path: '/app/turquoise-movie'
             },
             {
                 name: 'Музыка',
-                path: '/turquoise-music'
+                path: '/app/turquoise-music'
             },
             {
                 name: 'Живопись',
-                path: '/turquoise-arts'
+                path: '/app/turquoise-art'
             },
             {
                 name: 'Литература',
-                path: '/turquoise-literature'
+                path: '/app/turquoise-literature'
             }
 
         ]
@@ -202,11 +202,21 @@ export function NavigationMenu() {
 
         // document.body.addEventListener('pointerdown', handleBodyClick)
 
-        // return () => {
+        return () => {
+            buttons.forEach(button => {
 
-        //     setButtonsSelected(false)
-        //     document.body.removeEventListener('pointerdown', handleBodyClick)
-        // }
+
+                button.isSelected = false
+                button.isActive = false
+                setButtonsSelected(false)
+                setButtons(s => [...s])
+
+
+
+            })
+            //     setButtonsSelected(false)
+            //     document.body.removeEventListener('pointerdown', handleBodyClick)
+        }
     }, [])
 
 
@@ -268,7 +278,7 @@ export function NavigationMenu() {
 
                                 button.isActive &&
 
-                                <nav style={{ display: 'flex', width:  'calc(100% - 128px)', backgroundColor: button.color }}>
+                                <nav style={{ display: 'flex', width: 'calc(100% - 128px)', backgroundColor: button.color }}>
 
                                     <ul id="link_list" style={{
                                         display: 'flex',

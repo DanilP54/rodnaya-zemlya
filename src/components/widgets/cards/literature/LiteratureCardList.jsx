@@ -28,7 +28,7 @@ export default function LiteratureCardList({ cards, setCards }) {
                             <div style={{
                                 display: 'flex', flexWrap: 'wrap', gap: '10px',
                             }}>
-                                <LiteratureCard key={c.id} src={c.src} title={c.title} subtitle={c.genre}
+                                <LiteratureCard key={c.id} src={c.src} nameRu={c.nameRu} title={c.title} subtitle={c.genre}
                                     isPlay={c.isPlay}
                                     index={index} id={c.id} category={c.category}
                                 />

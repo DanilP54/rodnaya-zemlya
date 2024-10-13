@@ -75,7 +75,7 @@ export function TurquoiseMoviePage() {
                     <ContentBox theme={theme}>
                         <MovieSection />
                     </ContentBox>
-                    <ArrowLeft to={'/turquoise-movie'} preventScrollReset={true}>
+                    <ArrowLeft to={'/app/turquoise-movie'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />
                     </ArrowLeft>
                 </MainBox>

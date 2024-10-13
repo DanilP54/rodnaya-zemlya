@@ -173,7 +173,7 @@ export function RedSection({ color }) {
                         alignItems: 'center',
                         gap: '10px'
                     }}>
-                        <Link to={`/red/literature/reader/${1}`}>
+                        <Link to={`/app/red/l/1/r/${1}`}>
                             <button style={{
                                 width: '130px',
                                 padding: '3px 10px'

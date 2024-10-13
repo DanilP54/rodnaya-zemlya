@@ -74,7 +74,7 @@ export function RedLiteraturePage() {
                     <ContentBox theme={theme}>
                         <RedSection color={'#CD5C5C'} />
                     </ContentBox>
-                    <ArrowLeft to={'/red-literature'} preventScrollReset={true}>
+                    <ArrowLeft to={'/app/red-literature'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />
                     </ArrowLeft>
                 </MainBox>

@@ -75,7 +75,7 @@ export function GreenAlbumPage() {
                     <ContentBox theme={theme}>
                         <AlbumSection color={'#00FA9A'} />
                     </ContentBox>
-                    <ArrowLeft to={'/green-music'} preventScrollReset={true}>
+                    <ArrowLeft to={'/app/green-music'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />
                     </ArrowLeft>
                 </MainBox>

@@ -74,7 +74,7 @@ export function GreenLiteraturePage() {
                     <ContentBox theme={theme}>
                         <GreenSection color={'#00FA9A'} />
                     </ContentBox>
-                    <ArrowLeft to={'/green-literature'} preventScrollReset={true}>
+                    <ArrowLeft to={'/app/green-literature'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />
                     </ArrowLeft>
                 </MainBox>

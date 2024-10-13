@@ -75,7 +75,7 @@ export function RedAlbumPage() {
                     <ContentBox theme={theme}>
                         <AlbumSection color={'#CD5C5C'} />
                     </ContentBox>
-                    <ArrowLeft to={'/red-music'} preventScrollReset={true}>
+                    <ArrowLeft to={'/app/red-music'} preventScrollReset={true}>
                         <img src={LeftArrow} alt="icon" />
                     </ArrowLeft>
                 </MainBox>

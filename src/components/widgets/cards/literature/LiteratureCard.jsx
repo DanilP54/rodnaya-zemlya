@@ -23,7 +23,7 @@ const LinkStyled = styled(Link)`
 `
 
 
-export function LiteratureCard({ src, title, subtitle, index, isPlay, handle, id, category }) {
+export function LiteratureCard({ src, title, nameRu, subtitle, index, isPlay, handle, id, category }) {
 
     const { theme } = useThemeContext()
     return (
@@ -39,7 +39,7 @@ export function LiteratureCard({ src, title, subtitle, index, isPlay, handle, id
                 }}
             >
                 <Card.Section>
-                    <LinkStyled to={`/${category}/literature/${id}`}>
+                    <LinkStyled to={`/app/${category}/l/${id}`}>
                         <div className={classes.image_box}>
                             <Image
                                 onClick={handle}
@@ -58,7 +58,6 @@ export function LiteratureCard({ src, title, subtitle, index, isPlay, handle, id
                 </Card.Section>
                 <div style={{
                     height: '100%',
-                    gap: '10px',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between'
@@ -66,14 +65,12 @@ export function LiteratureCard({ src, title, subtitle, index, isPlay, handle, id
 
                     <LinkStyled style={{
                         color: theme === 'light' ? 'black' : 'white',
-                    }} to={`/${category}/literature/${id}`}>
-                        {title}
+                    }} to={`/app/${category}/l/r/${id}`}>
+                        {nameRu}
                     </LinkStyled>
 
+                    <Text mt={'xs'} size="sm" c="dimmed">{title}</Text>
 
-                    <Text mt="" c="dimmed" size="sm">
-                        {subtitle}
-                    </Text>
                 </div>
             </Card>
         </>
