@@ -1,9 +1,7 @@
 import { Avatar, Button, Text, Menu } from "@mantine/core";
 import { useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { HeartIcon } from "@radix-ui/react-icons";
-import { HeartFilledIcon } from "@radix-ui/react-icons";
-
+\
 
 
 function LikeIcon({ like }) {
