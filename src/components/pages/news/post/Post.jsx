@@ -1,7 +1,7 @@
 import { Avatar, Button, Text, Menu } from "@mantine/core";
 import { useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
-\
+
 
 
 function LikeIcon({ like }) {
