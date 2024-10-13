@@ -1,5 +1,5 @@
-import { Divider, Tabs, Text } from '@mantine/core';
-import { Link } from 'react-router-dom';
+import { Tabs, Text } from '@mantine/core';
+
 import Post from '../post/Post';
 import AuthButtons from '../../../header/AuthButtons';
 export default function TabsComponents() {
