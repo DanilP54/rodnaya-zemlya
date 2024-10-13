@@ -55,6 +55,9 @@ import RedArt from './components/pages/arts/RedArt.jsx';
 import GreenArt from './components/pages/arts/GreenArt.jsx';
 import ArtPage from './components/pages/details/turquoise/ArtPage.jsx';
 
+
+const RootNews = lazy(() => import('./components/pages/news/RootNews.jsx'))
+
 const App = lazy(() => import('./App.jsx'))
 
 function Unknow() {
@@ -327,6 +330,16 @@ const routers = [
             },
         ]
     },
+
+    {
+        path: '/news',
+        element: <Suspense fallback={<div style={{
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+        }}><Loader size={'xl'} color='gray' /></div>}><RootNews /></Suspense>
+    }
 ]
 
 
