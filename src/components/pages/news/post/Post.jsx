@@ -21,7 +21,7 @@ function SharedIcon() {
     return <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-share-3"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7z" /></svg>
 }
 
-export default function Post() {
+export default function Post({src}) {
 
     const [like, setLike] = useState(false)
     const [open, setOpen] = useState(false)
@@ -47,7 +47,7 @@ export default function Post() {
                         alignItems: 'center'
                     }}>
                         <div>
-                            <Avatar size={'lg'} src='https://api.dicebear.com/9.x/dylan/svg?seed=Eliza' />
+                            <Avatar size={'lg'} src={src}/>
                         </div>
                         <div>
                             <Text fw={600} size={'17px'} c={'white'}>krasimir</Text>

@@ -10,7 +10,7 @@ export default function RootNews() {
             <div style={{
                 display: 'flex',
                 height: '100%',
-                backgroundColor: 'rgba(4, 56, 86, 0.707)'
+                backgroundColor: 'rgba(4, 56, 86, 0.438)'
             }}>
                 <div style={{
                     width: '460px',

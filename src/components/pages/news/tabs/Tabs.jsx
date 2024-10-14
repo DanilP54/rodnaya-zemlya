@@ -36,11 +36,11 @@ export default function TabsComponents() {
                 flexDirection: 'column',
                 gap: '30px'
             }} value="our news">
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+                <Post src={'https://api.dicebear.com/9.x/dylan/svg?seed=Eliza'} />
+                <Post src={'https://api.dicebear.com/9.x/dylan/svg?seed=Christian'} />
+                <Post src={'https://api.dicebear.com/9.x/dylan/svg?seed=Destiny'} />
+                <Post src={'https://api.dicebear.com/9.x/identicon/svg?seed=George'} />
+                <Post src={'https://api.dicebear.com/9.x/miniavs/svg?seed=Christian'} />
             </Tabs.Panel>
 
             <Tabs.Panel style={{
