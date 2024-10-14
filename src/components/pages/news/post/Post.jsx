@@ -21,7 +21,7 @@ function SharedIcon() {
     return <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-share-3"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7z" /></svg>
 }
 
-export default function Post({src}) {
+export default function Post({ src }) {
 
     const [like, setLike] = useState(false)
     const [open, setOpen] = useState(false)
@@ -47,11 +47,15 @@ export default function Post({src}) {
                         alignItems: 'center'
                     }}>
                         <div>
-                            <Avatar size={'lg'} src={src}/>
+                            <Avatar size={'lg'} src={src} />
                         </div>
-                        <div>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '5px'
+                        }}>
                             <Text fw={600} size={'17px'} c={'white'}>krasimir</Text>
-
+                            <Text fw={600} size={'14px'} c={'gray'} >3 Октября 2024 г.</Text>
                         </div>
                     </div>
 
@@ -72,6 +76,27 @@ export default function Post({src}) {
                     </Menu>
 
                 </div>
+                <div style={{
+                    marginTop: '10px',
+                    width: '20%',
+                    height: '15px',
+                    backgroundColor: 'rgba(0,0,0, .3)',
+                    borderRadius: '10px',
+                }}></div>
+                <div style={{
+                    marginTop: '10px',
+                    width: '70%',
+                    height: '10px',
+                    backgroundColor: 'rgba(0,0,0, .3)',
+                    borderRadius: '10px',
+                }}></div>
+                <div style={{
+                    marginTop: '10px',
+                    width: '70%',
+                    height: '10px',
+                    backgroundColor: 'rgba(0,0,0, .3)',
+                    borderRadius: '10px',
+                }}></div>
                 <div style={{
                     height: '300px',
                     marginTop: '10px',
