@@ -256,7 +256,7 @@ export default function PostDetails({ src, setTabs }) {
                     padding: '10px',
                     borderRadius: '10px'
                 }}>
-                    <Text fw={600} size={'16px'} c={'lime'}>Зарегестрируйтесь, что бы оставлять комментарии</Text>
+                    <Text fw={600} size={'16px'} c={'lime'}>Зарегистрируйтесь, что бы оставлять комментарии</Text>
                 </div>
             </div >
         </>

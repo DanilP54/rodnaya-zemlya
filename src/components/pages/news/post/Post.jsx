@@ -122,7 +122,10 @@ export default function Post({ src, setTabs }) {
                     </div>
                     <div style={{
                         cursor: 'pointer',
-                    }}>
+
+                    }}
+                    onClick={() => setTabs(false)}
+                    >
                         <CommentIcon />
                     </div>
                     <div style={{
