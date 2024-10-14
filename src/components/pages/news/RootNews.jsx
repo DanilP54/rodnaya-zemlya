@@ -2,6 +2,9 @@ import AuthButtons from "../../header/AuthButtons";
 import { Input } from "@mantine/core";
 import { MenuNews } from "./MenuNews";
 import TabsComponents from "./tabs/Tabs";
+import classes from './root.module.css';
+import { useThemeContext } from "../../../context/ThemeContext";
+import { useLayoutEffect } from "react";
 
 
 function IconAt() {
@@ -9,19 +12,19 @@ function IconAt() {
 }
 
 export default function RootNews() {
+
+    const { theme } = useThemeContext()
+
+    // useLayoutEffect(() => {
+    //     if (document.body.classList.contains('dark__theme')) return
+    //     document.body.classList.add('dark__theme')
+    // }, [])
+
+    console.log(theme)
     return (
         <>
-            <div style={{
-                display: 'flex',
-                height: '100%',
-                backgroundColor: 'rgba(4, 56, 86, 0.438)'
-            }}>
-                <div style={{
-                    width: '460px',
-                    height: '100%',
-                    borderRight: '1px solid rgba(0,0,0, .2)',
-                    padding: '20px'
-                }}>
+            <div className={classes.wrap_news}>
+                <div className={classes.menu_box}>
                     <MenuNews />
                 </div>
                 <div style={{

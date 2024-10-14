@@ -31,7 +31,7 @@ export function MenuNews() {
                 <img style={{
                     width: '100px',
                     aspectRatio: 1
-                }} src={theme === 'light' ? BlackLogo : WhiteLogo} alt="logo" />
+                }} src={WhiteLogo} alt="logo" />
             </Link>
             <div style={{
                 display: 'flex',
