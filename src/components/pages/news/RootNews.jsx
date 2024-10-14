@@ -1,6 +1,5 @@
 import AuthButtons from "../../header/AuthButtons";
 import { Input } from "@mantine/core";
-// import SearchInput from "../../header/SearchInput";
 import { MenuNews } from "./MenuNews";
 import TabsComponents from "./tabs/Tabs";
 
@@ -48,7 +47,6 @@ export default function RootNews() {
                             backgroundColor: '#333'
                         }}>
                             <Input variant='unstyled' color="blue" bg={'#333'} leftSection={<IconAt size={16} />} placeholder="Поиск" />
-                            {/* <SearchInput width='200px' /> */}
                         </div>
                         <div style={{
                             color: 'white'
