@@ -1,6 +1,7 @@
 import { Avatar, Button, Text, Menu, Divider } from "@mantine/core";
 import { useState } from "react";
 import { BsArrowLeft, BsThreeDotsVertical } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 
 
@@ -44,15 +45,40 @@ export default function PostDetails({ src, setTabs }) {
                 boxShadow: '0px 0px 5px 3px rgba(0, 0, 0, 0.205)'
             }}>
                 <div style={{
-                    padding: '10px',
-                    cursor: 'pointer',
-                }}
-                    onClick={() => setTabs(true)}
-                >
-                    <BsArrowLeft color="white" onClick={null} size={20} strokeWidth={2} />
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }}>
+                    <div style={{
+                        padding: '10px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}
+                        onClick={() => setTabs(true)}
+                    >
+                        <BsArrowLeft color="white" onClick={null} size={20} strokeWidth={2} />
+                    </div>
+                    <Menu trigger="hover" openDelay={100} shadow="md" width={150}>
+                        <Menu.Target>
+                            <Button variant="transparent"><BsThreeDotsVertical size={20} color="white" /></Button>
+                        </Menu.Target>
+
+                        <Menu.Dropdown>
+                            <Menu.Item >
+                                Report
+                            </Menu.Item>
+                            {/* <Menu.Divider /> */}
+                            <Menu.Item>
+                                Not interesting
+                            </Menu.Item>
+                        </Menu.Dropdown>
+                    </Menu>
+
                 </div>
                 <div style={{
-                    marginTop: '10px',
+                    marginTop: '20px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
@@ -77,25 +103,10 @@ export default function PostDetails({ src, setTabs }) {
                         </div>
                     </div>
 
-                    <Menu trigger="hover" openDelay={100} shadow="md" width={150}>
-                        <Menu.Target>
-                            <Button variant="transparent"><BsThreeDotsVertical size={20} color="white" /></Button>
-                        </Menu.Target>
-
-                        <Menu.Dropdown>
-                            <Menu.Item >
-                                Report
-                            </Menu.Item>
-                            {/* <Menu.Divider /> */}
-                            <Menu.Item>
-                                Not interesting
-                            </Menu.Item>
-                        </Menu.Dropdown>
-                    </Menu>
 
                 </div>
                 <div style={{
-                    marginTop: '10px',
+                    marginTop: '20px',
                     width: '20%',
                     height: '15px',
                     backgroundColor: 'rgba(0,0,0, .3)',
@@ -135,11 +146,6 @@ export default function PostDetails({ src, setTabs }) {
                     }} onClick={() => setLike(s => !s)}>
                         <LikeIcon like={like} />
                     </div>
-                    {/* <div style={{
-                        cursor: 'pointer',
-                    }}>
-                        <CommentIcon />
-                    </div> */}
                     <div style={{
                         cursor: 'pointer',
                     }}>
@@ -167,6 +173,7 @@ export default function PostDetails({ src, setTabs }) {
                         </div>
 
                     </div>
+
                     <div style={{
                         marginTop: '20px',
                         paddingLeft: '2px'
@@ -181,7 +188,6 @@ export default function PostDetails({ src, setTabs }) {
                         <LikePostIcon />
                     </div>
                 </div>
-
                 <div style={{
                     marginTop: '20px',
 
@@ -256,7 +262,7 @@ export default function PostDetails({ src, setTabs }) {
                     padding: '10px',
                     borderRadius: '10px'
                 }}>
-                    <Text fw={600} size={'16px'} c={'lime'}>Зарегистрируйтесь, что бы оставлять комментарии</Text>
+                    <Text fw={600} size={'16px'} c={'lime'}> <Link to={'#'}>Зарегистрируйтесь</Link>, что бы оставлять комментарии</Text>
                 </div>
             </div >
         </>
