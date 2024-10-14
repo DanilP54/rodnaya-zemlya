@@ -1,0 +1,49 @@
+.tabsList {
+    background-color: transparent;
+    height: 60px;
+}
+
+.tab {
+    font-size: 17px;
+    font-weight: 500;
+    color: white;
+    background-color: transparent;
+}
+
+.m_576c9d4::before {
+    color: aqua;
+    background-color: tomato;
+    border-color: blue;
+    --tab-border-color: red
+}
+
+.panel {
+    height: calc(100vh - 60px);
+    overflow: auto;
+    padding: 10px;
+    gap: 30px;
+}
+
+.panel_two {
+    height: calc(100vh - 60px);
+    overflow: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.authContainer {
+    color: white;
+    box-shadow: 0 0 3px 5px rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, .2);
+    padding: 20px;
+    border-radius: 5px;
+    display: 'flex';
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

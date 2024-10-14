@@ -62,3 +62,29 @@ html {
   background-color: var(--scrollbar-thumb);
   border: 3px solid var(--scrollbar-bg);
 }
+
+.m_576c9d4::before {
+  border-color: #11504e;
+  border-width: 1px;
+
+
+}
+
+.mantine-Tabs-root {
+  --tabs-color: : black;
+
+
+}
+
+.m_539e827b:where([data-active]) {
+  --tabs-color: rgb(9, 116, 9);
+}
+
+.mantine-Tabs-list {
+  outline: none;
+  --tabs-color: : yellow;
+}
+
+.mantine-Tabs-tabLabel {
+  color: rgb(224, 224, 224);
+}
