@@ -4,7 +4,8 @@ import { MenuNews } from "./MenuNews";
 import TabsComponents from "./tabs/Tabs";
 import classes from './root.module.css';
 import { useThemeContext } from "../../../context/ThemeContext";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
+import PostDetails from "./post/PostDetails";
 
 
 function IconAt() {
@@ -15,11 +16,7 @@ export default function RootNews() {
 
     const { theme } = useThemeContext()
 
-    // useLayoutEffect(() => {
-    //     if (document.body.classList.contains('dark__theme')) return
-    //     document.body.classList.add('dark__theme')
-    // }, [])
-
+    const [tabs, setTabs] = useState(true)
     console.log(theme)
     return (
         <>
@@ -28,9 +25,12 @@ export default function RootNews() {
                     <MenuNews />
                 </div>
                 <div style={{
-                    flex: '1 1 0'
+                    flex: '1 1 0',
+                    overflow: 'auto'
                 }}>
-                    <TabsComponents />
+                    {
+                        tabs ? <TabsComponents setTabs={setTabs} /> : <PostDetails setTabs={setTabs} src={'https://api.dicebear.com/9.x/dylan/svg?seed=Eliza'} />
+                    }
                 </div>
                 <div style={{
                     width: '460px',
@@ -52,8 +52,8 @@ export default function RootNews() {
                             borderRadius: '5px'
                         }}>
                             <Input style={{
-                                
-                            }}  variant='unstyled' color="blue" bg={'#333'} leftSection={<IconAt size={16} />} placeholder="Поиск" />
+
+                            }} variant='unstyled' color="blue" bg={'#333'} leftSection={<IconAt size={16} />} placeholder="Поиск" />
                         </div>
                         <div style={{
                             color: 'white'

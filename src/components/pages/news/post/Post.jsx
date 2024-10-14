@@ -4,7 +4,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 
 
 
-function LikeIcon({ like }) {
+function LikeIcon({ like, setTabs }) {
 
     if (like) {
         return <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="red" class="icon icon-tabler icons-tabler-filled icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" /></svg>
@@ -21,7 +21,7 @@ function SharedIcon() {
     return <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-share-3"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7z" /></svg>
 }
 
-export default function Post({ src }) {
+export default function Post({ src, setTabs }) {
 
     const [like, setLike] = useState(false)
     const [open, setOpen] = useState(false)
@@ -77,33 +77,36 @@ export default function Post({ src }) {
 
                 </div>
                 <div style={{
-                    marginTop: '10px',
-                    width: '20%',
-                    height: '15px',
-                    backgroundColor: 'rgba(0,0,0, .3)',
-                    borderRadius: '10px',
-                }}></div>
-                <div style={{
-                    marginTop: '10px',
-                    width: '70%',
-                    height: '10px',
-                    backgroundColor: 'rgba(0,0,0, .3)',
-                    borderRadius: '10px',
-                }}></div>
-                <div style={{
-                    marginTop: '10px',
-                    width: '70%',
-                    height: '10px',
-                    backgroundColor: 'rgba(0,0,0, .3)',
-                    borderRadius: '10px',
-                }}></div>
-                <div style={{
-                    height: '300px',
-                    marginTop: '10px',
-                    backgroundColor: 'rgba(0,0,0, .3)',
-                    borderRadius: '10px',
-                }}>
-
+                    cursor: 'pointer'
+                }} onClick={() => setTabs(false)}>
+                    <div style={{
+                        marginTop: '10px',
+                        width: '20%',
+                        height: '15px',
+                        backgroundColor: 'rgba(0,0,0, .3)',
+                        borderRadius: '10px',
+                    }}></div>
+                    <div style={{
+                        marginTop: '10px',
+                        width: '70%',
+                        height: '10px',
+                        backgroundColor: 'rgba(0,0,0, .3)',
+                        borderRadius: '10px',
+                    }}></div>
+                    <div style={{
+                        marginTop: '10px',
+                        width: '70%',
+                        height: '10px',
+                        backgroundColor: 'rgba(0,0,0, .3)',
+                        borderRadius: '10px',
+                    }}></div>
+                    <div style={{
+                        height: '300px',
+                        marginTop: '10px',
+                        backgroundColor: 'rgba(0,0,0, .3)',
+                        borderRadius: '10px',
+                    }}>
+                    </div>
                 </div>
                 <div style={{
                     display: 'flex',

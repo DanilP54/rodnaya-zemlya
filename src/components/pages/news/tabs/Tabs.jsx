@@ -2,7 +2,7 @@ import { Tabs, Text } from '@mantine/core';
 
 import Post from '../post/Post';
 import AuthButtons from '../../../header/AuthButtons';
-export default function TabsComponents() {
+export default function TabsComponents({ setTabs }) {
 
 
     return (
@@ -36,11 +36,11 @@ export default function TabsComponents() {
                 flexDirection: 'column',
                 gap: '30px'
             }} value="our news">
-                <Post src={'https://api.dicebear.com/9.x/dylan/svg?seed=Eliza'} />
-                <Post src={'https://api.dicebear.com/9.x/dylan/svg?seed=Christian'} />
-                <Post src={'https://api.dicebear.com/9.x/dylan/svg?seed=Destiny'} />
-                <Post src={'https://api.dicebear.com/9.x/identicon/svg?seed=George'} />
-                <Post src={'https://api.dicebear.com/9.x/miniavs/svg?seed=Christian'} />
+                <Post setTabs={setTabs} src={'https://api.dicebear.com/9.x/dylan/svg?seed=Eliza'} />
+                <Post setTabs={setTabs} src={'https://api.dicebear.com/9.x/dylan/svg?seed=Christian'} />
+                <Post setTabs={setTabs} src={'https://api.dicebear.com/9.x/dylan/svg?seed=Destiny'} />
+                <Post setTabs={setTabs} src={'https://api.dicebear.com/9.x/identicon/svg?seed=George'} />
+                <Post setTabs={setTabs} src={'https://api.dicebear.com/9.x/miniavs/svg?seed=Christian'} />
             </Tabs.Panel>
 
             <Tabs.Panel style={{
