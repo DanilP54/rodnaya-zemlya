@@ -47,9 +47,13 @@ export default function RootNews() {
 
                         <div style={{
                             width: '200px',
-                            backgroundColor: '#333'
+                            backgroundColor: '#333',
+                            overflow: 'hidden',
+                            borderRadius: '5px'
                         }}>
-                            <Input variant='unstyled' color="blue" bg={'#333'} leftSection={<IconAt size={16} />} placeholder="Поиск" />
+                            <Input style={{
+                                
+                            }}  variant='unstyled' color="blue" bg={'#333'} leftSection={<IconAt size={16} />} placeholder="Поиск" />
                         </div>
                         <div style={{
                             color: 'white'
