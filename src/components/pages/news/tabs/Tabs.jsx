@@ -61,7 +61,7 @@ export default function TabsComponents() {
                     <div style={{
                         marginTop: '10px',
                     }}>
-                        
+
                         <AuthButtons />
                     </div>
                 </div>

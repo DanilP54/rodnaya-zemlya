@@ -30,7 +30,9 @@ export default function Post() {
         <>
             <div style={{
                 // height: '400px',
-                // border: '1px solid black'
+                padding: '10px',
+                borderRadius: '5px',
+                boxShadow: '0px 0px 5px 3px rgba(0, 0, 0, 0.205)'
             }}>
                 <div style={{
                     display: 'flex',
@@ -73,7 +75,8 @@ export default function Post() {
                 <div style={{
                     height: '300px',
                     marginTop: '10px',
-                    backgroundColor: 'blue'
+                    backgroundColor: 'rgba(0,0,0, .3)',
+                    borderRadius: '10px',
                 }}>
 
                 </div>
