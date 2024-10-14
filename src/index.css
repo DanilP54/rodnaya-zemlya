@@ -70,20 +70,17 @@ html {
 
 }
 
-.mantine-Tabs-root {
-  --tabs-color: : black;
-
-
+@media (hover: hover) {
+  .m_539e827b:hover:where(:not([data-active])) {
+      border-color: rgb(105, 105, 105);
+  }
 }
 
 .m_539e827b:where([data-active]) {
   --tabs-color: rgb(9, 116, 9);
 }
 
-.mantine-Tabs-list {
-  outline: none;
-  --tabs-color: : yellow;
-}
+
 
 .mantine-Tabs-tabLabel {
   color: rgb(224, 224, 224);
