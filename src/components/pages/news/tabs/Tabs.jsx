@@ -52,12 +52,13 @@ export default function TabsComponents() {
             }} value="your news">
                 <div style={{
                     color: 'white',
+                    boxShadow: '0 0 3px 5px rgba(0,0,0, .2)',
                     backgroundColor: 'rgba(0,0,0, .2)',
                     padding: '20px',
                     borderRadius: '5px'
                 }}>
                     <Text fw={500} size='lg' c={'cyan'}  >Хочешь мутить тут делишки свои?</Text>
-                    <Text fw={500} size='md' c={'indigo'}  >Тогда тебе надо зарегаться, братик, такие условия.</Text>
+                    <Text fw={500} size='md' c={'lime'}  >Тогда тебе надо зарегаться, братик, такие условия.</Text>
                     <div style={{
                         marginTop: '10px',
                     }}>
