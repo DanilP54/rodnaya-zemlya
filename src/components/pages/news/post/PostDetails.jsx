@@ -49,7 +49,7 @@ export default function PostDetails({ src, setTabs }) {
                 }}
                     onClick={() => setTabs(true)}
                 >
-                    <BsArrowLeft onClick={null} size={20} strokeWidth={2} />
+                    <BsArrowLeft color="white" onClick={null} size={20} strokeWidth={2} />
                 </div>
                 <div style={{
                     marginTop: '10px',

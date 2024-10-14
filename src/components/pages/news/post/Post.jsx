@@ -1,6 +1,7 @@
 import { Avatar, Button, Text, Menu } from "@mantine/core";
 import { useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import classes from './post.module.css';
 
 
 
@@ -59,7 +60,7 @@ export default function Post({ src, setTabs }) {
                         </div>
                     </div>
 
-                    <Menu trigger="hover" openDelay={100} shadow="md" width={150}>
+                    <Menu  trigger="hover" openDelay={100} shadow="md" width={150}>
                         <Menu.Target>
                             <Button variant="transparent"><BsThreeDotsVertical size={20} color="white" /></Button>
                         </Menu.Target>

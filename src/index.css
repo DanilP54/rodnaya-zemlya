@@ -72,7 +72,7 @@ html {
 
 @media (hover: hover) {
   .m_539e827b:hover:where(:not([data-active])) {
-      border-color: rgb(105, 105, 105);
+    border-color: rgb(105, 105, 105);
   }
 }
 
@@ -84,4 +84,32 @@ html {
 
 .mantine-Tabs-tabLabel {
   color: rgb(224, 224, 224);
+}
+
+
+.mantine-Menu-dropdown {
+  border-radius: 5px;
+  background-color: rgb(2, 20, 8);
+  color: white;
+  outline: none;
+  border: none;
+  padding: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.mantine-Menu-item {
+  background-color: transparent;
+}
+
+
+
+
+
+.mantine-Menu-itemLabel {
+  color: white;
+  font-weight: 600;
+}
+
+.mantine-Menu-itemLabel:hover {
+  color: rgb(195, 195, 195);
 }
