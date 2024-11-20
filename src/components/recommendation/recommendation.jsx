@@ -10,8 +10,6 @@ import {SecondaryImage} from './image/secondaryImage';
 import {useState} from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import {Link} from 'react-router-dom';
-import {NavigationMenu} from "../navigation-menu/NavigationMenu.jsx";
-import {Header} from '../header/header.jsx'
 
 export function Recommendation() {
 
@@ -21,7 +19,10 @@ export function Recommendation() {
     return (
         <>
             <div style={{marginTop: '20px'}}>
-                <Grid gutter={'none'} style={{padding: 0, width: '100%', height: 'calc(100vh - 42vh)'}}>
+                <Grid gutter={'none'} style={{padding: 0, width: '100%', 
+                    height: 'calc(100vh - 40vh)'
+                    // height: 'calc(100vh - 42vh)'
+                    }}>
                     <Grid.Col style={{
                         height: 'calc(100vh - 42vh)', padding: 0
                     }} span={8}>
