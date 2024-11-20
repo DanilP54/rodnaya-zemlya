@@ -1,9 +1,29 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useLayoutEffect } from "react";
 import styled from "styled-components";
 import { MenuNotification } from "./notification.jsx";
+
+const links = [
+  {
+    name: "Фильмы",
+    url: "movie",
+  },
+  {
+    name: "Музыка",
+    url: "music",
+  },
+  {
+    name: "Живопись",
+    url: "arts",
+  },
+  {
+    name: "Литература",
+    url: "literature",
+  },
+];
+
 
 const buttonsList = [
   {
@@ -99,7 +119,7 @@ const buttonsList = [
 ];
 
 let commonNotification = {
-  status: true,
+  status: false,
   color: null,
   text: null,
 };
@@ -134,31 +154,59 @@ const StyledNavLink = styled(NavLink)`
     background-color: ${(props) =>
       props.$isActive ? "white" : "rgba(0, 0, 0, 0.2)"};
   }
-`;
 
-const storage = [];
+  /* &: {
+      color: white; // Сохраняет цвет для посещенных ссылок
+  } */
+`;
 
 export function NavigationMenu() {
   const [notification, setNotification] = useState({
+    ...commonNotification,
     status: !localStorage.getItem("allVisible"),
-    color: null,
-    text: null,
   });
-
+  console.log(notification)
+  console.log(commonNotification)
   const [buttons, setButtons] = useState(buttonsList);
-
+  
   const location = useLocation();
-
+  
   const [buttonIsSelected, setButtonsSelected] = useState(false);
+  console.log(buttonIsSelected)
+
+  useEffect(() => {
+
+    buttons.forEach((button) => {
+      if (button.isSelected && !button.isVisible) {
+        button.isVisible = true;
+        commonNotification = {
+          status: !localStorage.getItem("allVisible"),
+          color: button.name,
+          text: button.textForNotification,
+        };
+        setNotification(commonNotification);
+      }
+    });
+
+    const allIsVisible = buttons.every((button) => button.isVisible);
+
+    if (allIsVisible) {
+      localStorage.setItem("allVisible", "true");
+    }
+
+    return () => {
+        // if(!buttonIsSelected) {
+        //     commonNotification = {
+        //         status: false,
+        //         color: null,
+        //         text: null
+        //     }
+          
+        // }
+    }
+  }, [buttons]);
 
   useLayoutEffect(() => {
-    let parce = [];
-
-    try {
-      parce = JSON.parse(localStorage.getItem("allVisible")) || [];
-    } catch (e) {
-      console.error("Failed to parse localStorage item", e);
-    }
 
     buttons.forEach((button) => {
       button.menu.forEach((link) => {
@@ -171,31 +219,6 @@ export function NavigationMenu() {
       });
     });
 
-    buttons.forEach((button) => {
-      button.menu.forEach((link) => {
-        if (link.path === location.pathname && parce.includes(button.name)) {
-          setNotification({
-            status: false,
-            color: button.name,
-            text: button.textForNotification,
-          });
-        } else if (
-          link.path === location.pathname &&
-          !parce.includes(button.name)
-        ) {
-          button.isVisible = true;
-          storage.push(button.name);
-          // console.log(storage);
-          localStorage.setItem("allVisible", JSON.stringify(storage));
-
-          setNotification({
-            status: true,
-            color: button.name,
-            text: button.textForNotification,
-          });
-        }
-      });
-    });
 
     return () => {
       buttons.forEach((button) => {
@@ -205,7 +228,7 @@ export function NavigationMenu() {
         setButtons((s) => [...s]);
       });
     };
-  }, [location.pathname]);
+  }, []);
 
   const handleButtonClick = (index) => {
     buttons.forEach((button) => {
@@ -221,7 +244,52 @@ export function NavigationMenu() {
     setButtons((s) => [...s]);
   };
 
+  const handleSelectButtonNav = (index, event) => {
+    buttons.forEach((button) => {
+      if (button.id !== index) {
+        button.isSelected = false;
+        button.isActive = false;
+      }
+
+      // if(button.id.name === button[index].name && !button.isVisible) {
+      //     button.isVisible = true
+      //     commonNotification = {
+      //         status: true,
+      //         color: button.name,
+      //         text: button.textForNotification
+      //     }
+      // }
+
+      if (button.id === index) {
+        if (!button.isNotification && !button.isVisible) {
+          button.isVisible = true;
+          commonNotification = {
+            status: true,
+            color: button.name,
+            text: button.textForNotification,
+          };
+        } else {
+          commonNotification = {
+            ...commonNotification,
+            color: button.name,
+            text: button.textForNotification,
+          };
+        }
+
+        button.isSelected = true;
+      }
+    });
+    setNotification(commonNotification);
+    setButtons((s) => [...s]);
+    setButtonsSelected(true);
+  };
+
   const changeCommonNotification = (s) => {
+
+    commonNotification = {
+      ...notification,
+      status: s,
+    };
     setNotification({
       ...notification,
       status: s,
@@ -232,7 +300,7 @@ export function NavigationMenu() {
     <div
       style={{
         marginTop: notification.status ? "60px" : "40px",
-        transition: "margin-top 0.4s",
+        transition: "margin-top 0.3s",
       }}
     >
       <div style={{ display: "flex", flexDirection: "column" }}>
@@ -269,6 +337,8 @@ export function NavigationMenu() {
                       display: "flex",
                       padding: "0 80px",
                       gap: "100px",
+                      // alignItems: 'center',
+                      // width: '100%'
                     }}
                   >
                     {button.menu.map((link, index) => {
@@ -286,6 +356,7 @@ export function NavigationMenu() {
                         >
                           <StyledNavLink
                             to={link.path}
+                            onClick={(e) => handleSelectButtonNav(button.id, e)}
                             $isActive={location.pathname === link.path}
                           >
                             {link.name}

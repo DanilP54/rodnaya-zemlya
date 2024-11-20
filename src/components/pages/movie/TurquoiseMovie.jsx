@@ -1,9 +1,7 @@
-import { Header } from '../../header/header.jsx'
 import { TurquoiseFiltersMovie } from "../../widgets/turquoise/TurquoiseFiltersMovie";
 import { lazy, Suspense, useState } from "react";
 import { useEffect } from "react";
 import { Loading } from "../../../main";
-import { NavigationMenu } from "../../navigation-menu/NavigationMenu.jsx";
 const MovieCardList = lazy(() => import("../../widgets/cards/movie/MovieCardList"))
 
 const movieList = [
@@ -49,10 +47,6 @@ function TurquoiseMovie() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <TurquoiseFiltersMovie setValue={setValue} value={value} />
             <Suspense fallback={<Loading />}>
                 <MovieCardList cards={movies} setCards={setMovies} />

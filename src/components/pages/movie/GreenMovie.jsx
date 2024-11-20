@@ -44,10 +44,6 @@ export default function GreenMovie() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <GreenFilter setValue={setValue} value={value} />
             <Suspense fallback={<Loading />}>
                 <MovieCardList cards={movies} setCards={setMovies} />

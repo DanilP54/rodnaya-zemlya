@@ -93,9 +93,7 @@ export default function GreenMusicCardList({ cards, setCards }) {
                 {
                     cards.map((c, index) => {
                         return (
-                            <div style={{
-                                display: 'flex', flexWrap: 'wrap', gap: '10px',
-                            }}>
+                            <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px',}}>
                                 <MusicCard key={c.id} src={c.src} band={c.band} title={c.title} subtitle={c.genre} isPlay={c.isPlay} index={index} id={c.id} category={c.category} handle={() => handlePlay(c.id)} />
                             </div>
                         )

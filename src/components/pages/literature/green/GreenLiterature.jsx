@@ -237,10 +237,6 @@ export default function GreenLiterature() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <GreenFiltersLiterature setValue={setValue} value={value} />
             <Suspense fallback={<Loading />}>
                 <LiteratureCardList cards={books} setCards={setBooks} />

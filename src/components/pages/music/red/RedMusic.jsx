@@ -23,7 +23,7 @@ import { Header } from "../../../header/header.jsx";
 import { NavigationMenu } from "../../../navigation-menu/NavigationMenu.jsx";
 const RedMusicCardList = lazy(() => import("../../../widgets/cards/music/RedMusicCardList"));
 
-const redMusic = [
+export const redMusic = [
     { "id": 1, "title": "Nobody Loves You More", "src": Card6, "genre": "Electronic", isPlay: false, category: 'red', trackSrc: track1, comer: true, artist: "Kim Deal", band: "The Breeders" },
     { "id": 3, "title": "Songs of Blood and Mire", "src": Card11, "genre": "Electronic", isPlay: false, category: 'red', trackSrc: track3, comer: true, artist: "SPECTRAL", band: "SPECTRAL" },
     { "id": 6, "title": "Lust For Gold", "src": Card8, "genre": "Electronic", isPlay: false, category: 'red', trackSrc: track6, comer: true, artist: "Starflyer 59", band: "Starflyer 59" },
@@ -71,10 +71,6 @@ export default function RedMusic() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <RedFilterMusic setValue={setValue} value={value} />
             <Suspense fallback={<Loading />}>
                 <RedMusicCardList cards={albums} setCards={setAlbums} />

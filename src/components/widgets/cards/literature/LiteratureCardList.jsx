@@ -1,19 +1,14 @@
 import { LiteratureCard } from "./LiteratureCard.jsx";
-import { useState } from "react"
-import Close from '../../../../../public/close.svg'
 
 
-export default function LiteratureCardList({ cards, setCards }) {
-
-    // const [cards, setCards] = useState(list || [])
-
+export default function LiteratureCardList({ cards, setCards, newsVariant = null }) {
 
     return (
         <div style={{
             display: 'flex',
-            marginTop: '50px',
-            marginLeft: '80px',
-            padding: '0 68px 70px 99px'
+            marginTop: newsVariant ? '20px' : '50px',
+            marginLeft: newsVariant ? 0 : '80px',
+            padding: newsVariant ? 0 :'0 68px 70px 99px'
         }}>
             <div style={{
                 display: 'flex',
@@ -28,7 +23,7 @@ export default function LiteratureCardList({ cards, setCards }) {
                             <div style={{
                                 display: 'flex', flexWrap: 'wrap', gap: '10px',
                             }}>
-                                <LiteratureCard key={c.id} src={c.src} nameRu={c.nameRu} title={c.title} subtitle={c.genre}
+                                <LiteratureCard newsVariant={newsVariant} key={c.id} src={c.src} nameRu={c.nameRu} title={c.title} subtitle={c.genre}
                                     isPlay={c.isPlay}
                                     index={index} id={c.id} category={c.category}
                                 />

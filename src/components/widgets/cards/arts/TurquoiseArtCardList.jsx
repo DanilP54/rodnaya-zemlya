@@ -6,15 +6,15 @@ import { usePlayerContext } from '../../../../context/usePlayerContext';
 
 
 
-export default function TurquoiseArtCardList({ cards, setCards }) {
+export default function TurquoiseArtCardList({ cards, setCards, newsVariant = null }) {
 
 
     return (
         <div style={{
             display: 'flex',
-            marginTop: '50px',
-            marginLeft: '80px',
-            padding: '0 68px 70px 99px'
+            marginTop: newsVariant ? '20px' : '50px',
+            marginLeft: newsVariant ? 0 : '80px',
+            padding: newsVariant ? 0 :'0 68px 70px 99px'
         }}>
             <div style={{
                 display: 'flex',
@@ -31,7 +31,7 @@ export default function TurquoiseArtCardList({ cards, setCards }) {
                                 flexWrap: 'wrap', 
                                 gap: '10px',
                             }}>
-                                <ArtCard  src={c.image} title={c.nameRu} subtitle={c.name} id={c.id} category={c.category} />
+                                <ArtCard newsVariant={newsVariant}  src={c.image} title={c.nameRu} subtitle={c.name} id={c.id} category={c.category} />
                             </div>
                         )
                     })

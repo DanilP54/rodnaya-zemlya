@@ -68,10 +68,6 @@ export default function GreenArt() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <FiltersArt setValue={setValue} value={value} primaryColor={'#00FA9A'} secondaryColor={'#d1f8e9'} />
             <Suspense fallback={<Loading />}>
                 <TurquoiseArtCardList cards={art} setCards={setArt} />

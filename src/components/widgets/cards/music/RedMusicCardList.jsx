@@ -6,9 +6,8 @@ import { usePlayerContext } from '../../../../context/usePlayerContext';
 
 
 
-export default function RedMusicCardList({ cards, setCards }) {
+export default function RedMusicCardList({ cards, setCards, newsVariant = null }) {
 
-    // const [cards, setCards] = useState(list || [])
     const { onPlayTrack, isOpen, handleOnPause, getCurrentTrackId, handleOnPlay, isPlayPlayer } = usePlayerContext()
 
     useEffect(() => {
@@ -85,9 +84,9 @@ export default function RedMusicCardList({ cards, setCards }) {
     return (
         <div style={{
             display: 'flex',
-            marginTop: '50px',
-            marginLeft: '80px',
-            padding: '0 68px 70px 99px'
+            marginTop: newsVariant ? '20px' : '50px',
+            marginLeft: newsVariant ? 0 : '80px',
+            padding: newsVariant ? 0 :'0 68px 70px 99px'
         }}>
             <div style={{
                 display: 'flex',
@@ -102,7 +101,7 @@ export default function RedMusicCardList({ cards, setCards }) {
                             <div style={{
                                 display: 'flex', flexWrap: 'wrap', gap: '10px',
                             }}>
-                                <MusicCard key={c.id} src={c.src} title={c.title} band={c.band} subtitle={c.genre} isPlay={c.isPlay} index={index} id={c.id} category={c.category} handle={() => handlePlay(c.id)} />
+                                <MusicCard newsVariant={newsVariant} key={c.id} src={c.src} title={c.title} band={c.band} subtitle={c.genre} isPlay={c.isPlay} index={index} id={c.id} category={c.category} handle={() => handlePlay(c.id)} />
                             </div>
                         )
                     })

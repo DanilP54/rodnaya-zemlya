@@ -29,7 +29,7 @@ export default function TabsComponents({ setTabs }) {
                     <Text fw={500} size='lg' c={'cyan'}>Хочешь мутить тут делишки свои?</Text>
                     <Text fw={500} size='md' c={'lime'}>Тогда тебе надо зарегаться, братик, такие условия.</Text>
                     <div style={{ marginTop: '10px' }}>
-                        <AuthButtons />
+                        {/* <AuthButtons /> */}
                     </div>
                 </div>
             </Tabs.Panel>

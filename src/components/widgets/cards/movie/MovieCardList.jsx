@@ -9,7 +9,7 @@ import {
 import { usePlayerContext } from '../../../../context/usePlayerContext'
 
 
-export default function MovieCardList({ cards, setCards }) {
+export default function MovieCardList({ cards, setCards, newsVariant = null }) {
 
     // const [cards, setCards] = useState(list || [])
     const { isOpen, onClose, handleOnPause } = usePlayerContext()
@@ -35,9 +35,9 @@ export default function MovieCardList({ cards, setCards }) {
     return (
         <div style={{
             display: 'flex',
-            marginTop: '50px',
-            marginLeft: '80px',
-            padding: '0 68px 70px 99px'
+            marginTop: newsVariant ? '20px' : '50px',
+            marginLeft: newsVariant ? 0 : '80px',
+            padding: newsVariant ? 0 :'0 68px 70px 99px'
         }}>
             <div style={{
                 display: 'flex',
@@ -55,7 +55,7 @@ export default function MovieCardList({ cards, setCards }) {
                                 gap: '10px',
                                 columnGap: '10px',
                             }}>
-                                <MovieCard key={c.id} src={c.src} title={c.title} nameRu={c.nameRu} subtitle={c.genre} isPlay={c.isPlay} category={c.category} index={index} id={c.id} handle={() => handlePlay(c.id)} />
+                                <MovieCard newsVariant={newsVariant} key={c.id} src={c.src} title={c.title} nameRu={c.nameRu} subtitle={c.genre} isPlay={c.isPlay} category={c.category} index={index} id={c.id} handle={() => handlePlay(c.id)} />
 
                                 <Modal
                                     style={{

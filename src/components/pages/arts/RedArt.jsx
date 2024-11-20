@@ -23,11 +23,9 @@ import src20 from '../../../../public/art/arts/52.jpg';
 
 const TurquoiseArtCardList = lazy(() => import("../../widgets/cards/arts/TurquoiseArtCardList.jsx"));
 import { Loading } from "../../../main.jsx";
-import { Header } from "../../header/header.jsx";
-import { NavigationMenu } from "../../navigation-menu/NavigationMenu.jsx";
 import { FiltersArt } from "../../widgets/turquoise/FiltersArt.jsx";
 
-const redArt = [
+export const redArt = [
     { id: 1, name: 'Alexandre Dupont', nameRu: 'Александр Дюпон', image: src1, category: 'red', comer: true },
     { id: 2, name: 'Sophie Martin', nameRu: 'София Мартин', image: src2, category: 'red', comer: false },
     { id: 3, name: 'Julien Lefevre', nameRu: 'Жюльен Лефевр', image: src3, category: 'red', comer: true },
@@ -68,10 +66,6 @@ export default function RedArt() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <FiltersArt setValue={setValue} value={value} primaryColor={'#CD5C5C'} secondaryColor={'#f0e2e2'} />
             <Suspense fallback={<Loading />}>
                 <TurquoiseArtCardList cards={art} setCards={setArt} />

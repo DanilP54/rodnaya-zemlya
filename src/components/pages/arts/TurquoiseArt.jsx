@@ -68,10 +68,6 @@ export default function TurquoiseArt() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <FiltersArt setValue={setValue} value={value} primaryColor={'#00CED1'} secondaryColor={'#E0FFFF'} />
             <Suspense fallback={<Loading />}>
                 <TurquoiseArtCardList cards={art} setCards={setArt} />

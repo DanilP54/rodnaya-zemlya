@@ -2,11 +2,10 @@ import { useState, useEffect, lazy, Suspense } from "react";
 const LiteratureCardList = lazy(() => import("../../../widgets/cards/literature/LiteratureCardList.jsx"));
 import { RedFiltersLiterature } from "../../../widgets/red/RedFiltersLiterature.jsx";
 import { Loading } from "../../../../main.jsx";
-import { Header } from "../../../header/header.jsx";
-import { NavigationMenu } from "../../../navigation-menu/NavigationMenu.jsx";
 
 
-const booksList = [
+
+export const booksList = [
     {
         "id": 1,
         "title": "George Orwell", // имя автора на английском
@@ -239,10 +238,6 @@ export default function RedLiterature() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <RedFiltersLiterature setValue={setValue} value={value} />
             <Suspense fallback={<Loading />}>
                 <LiteratureCardList cards={books} setCards={setBooks} />

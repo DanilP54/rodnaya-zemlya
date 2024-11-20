@@ -235,10 +235,6 @@ export default function TurquoiseLiterature() {
     }, [value])
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <TurquoiseFiltersLiterature setValue={setValue} value={value} />
             <Suspense fallback={<Loading />}>
                 <LiteratureCardList cards={books} setCards={setBooks} />

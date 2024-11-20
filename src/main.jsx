@@ -12,6 +12,7 @@ import '@mantine/spotlight/styles.css';
 import '@mantine/carousel/styles.css';
 import './custom.video.css';
 import './index.css'
+
 import { Loader, Skeleton, useMantineTheme } from '@mantine/core';
 import { MantineProvider } from '@mantine/core';
 
@@ -57,8 +58,8 @@ import ArtPage from './components/pages/details/turquoise/ArtPage.jsx';
 
 
 const RootNews = lazy(() => import('./components/pages/news/RootNews.jsx'))
-
-const App = lazy(() => import('./App.jsx'))
+import App from'./App.jsx'
+// const App = lazy(() => import('./App.jsx'))
 
 function Unknow() {
     return (

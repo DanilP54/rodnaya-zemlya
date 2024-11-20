@@ -66,7 +66,7 @@ export function MenuNews() {
                         <span style={{
                             color: 'white',
                             fontSize: '18px'
-                        }}>трансляция</span>
+                        }}>рз радио</span>
                     </div>
                 </Link>
             </div>

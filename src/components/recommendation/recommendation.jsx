@@ -20,10 +20,6 @@ export function Recommendation() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <div style={{marginTop: '20px'}}>
                 <Grid gutter={'none'} style={{padding: 0, width: '100%', height: 'calc(100vh - 42vh)'}}>
                     <Grid.Col style={{

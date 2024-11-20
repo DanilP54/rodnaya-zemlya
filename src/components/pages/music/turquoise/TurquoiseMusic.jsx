@@ -52,10 +52,6 @@ export default function TurquoiseMusic() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <TurquoiseFiltersMusic setValue={setValue} value={value} />
             <Suspense fallback={<Loading />}>
                 <TurquoiseMusicCardList cards={albums} setCards={setAlbums} />

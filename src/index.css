@@ -5,6 +5,24 @@
 
 }
 
+/* accardion */
+.mantine-Accordion-label {
+  color: rgb(203, 202, 202);
+  font-weight: bold;
+}
+
+.mantine-Accordion-control:hover {
+  background-color: rgba(55, 54, 54, 0.16);
+}
+
+.mantine-Accordion-item {
+  border-bottom: none;
+}
+
+.mantine-Accordion-chevron {
+  color: rgb(203, 202, 202);
+}
+
 #root {
   /* min-height: 100svh; */
   height: 100%;

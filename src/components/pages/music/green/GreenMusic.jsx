@@ -21,8 +21,7 @@ import track5 from '../../../../../public/green-music/5.mp3'
 import track6 from '../../../../../public/green-music/6.mp3'
 import track7 from '../../../../../public/green-music/7.mp3'
 import { Loading } from "../../../../main";
-import { Header } from "../../../header/header.jsx";
-import { NavigationMenu } from "../../../navigation-menu/NavigationMenu.jsx";
+
 const GreenMusicCardList = lazy(() => import("../../../widgets/cards/music/GreenMusicCardList"));
 
 const greenMusic = [
@@ -72,10 +71,6 @@ export default function GreenMusic() {
 
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <GreenFilterMusic setValue={setValue} value={value} />
             <Suspense fallback={<Loading />}>
                 <GreenMusicCardList cards={albums} setCards={setAlbums} />

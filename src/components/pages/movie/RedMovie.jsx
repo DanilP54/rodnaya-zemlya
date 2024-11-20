@@ -1,12 +1,10 @@
 import { Loading } from "../../../main";
 import { RedFilter } from "../../widgets/red/RedFilters";
 import { useState, useEffect, lazy, Suspense } from "react";
-import { Header } from "../../header/header.jsx";
-import { NavigationMenu } from "../../navigation-menu/NavigationMenu.jsx";
 
 const MovieCardList = lazy(() => import('../../widgets/cards/movie/MovieCardList'))
 
-const movieList = [
+export const movieList = [
     { "id": 1, "title": "Inception", "nameRu": "Начало", "src": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg", "genre": "Sci-Fi", isPlay: false, category: "red", comer: true },
     { "id": 2, "title": "The Shawshank Redemption", "nameRu": "Побег из Шоушенка", "src": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg", "genre": "Drama", isPlay: false, category: "red", comer: false },
     { "id": 3, "title": "The Dark Knight", "nameRu": "Темный рыцарь", "src": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg", "genre": "Action", isPlay: false, category: "red", comer: true },
@@ -42,10 +40,6 @@ function RedMovie() {
     }, [value])
     return (
         <>
-            <div>
-                <Header />
-                <NavigationMenu />
-            </div>
             <RedFilter setValue={setValue} value={value} />
             <Suspense fallback={<Loading />}>
                 <MovieCardList cards={movies} setCards={setMovies} />
