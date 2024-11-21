@@ -98,12 +98,6 @@ const buttonsList = [
   },
 ];
 
-let commonNotification = {
-  status: true,
-  color: null,
-  text: null,
-};
-
 const ButtonStyled = styled.button`
   cursor: pointer;
   height: 40px;
@@ -136,7 +130,6 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const storage = [];
 
 export function NavigationMenu() {
   const [notification, setNotification] = useState({
@@ -155,7 +148,8 @@ export function NavigationMenu() {
     let parce = [];
 
     try {
-      parce = JSON.parse(localStorage.getItem("allVisible")) || [];
+      const storedData = localStorage.getItem("allVisible");// Добавьте этот console.log
+      parce = JSON.parse(storedData) || []
     } catch (e) {
       console.error("Failed to parse localStorage item", e);
     }
@@ -184,9 +178,8 @@ export function NavigationMenu() {
           !parce.includes(button.name)
         ) {
           button.isVisible = true;
-          storage.push(button.name);
-          // console.log(storage);
-          localStorage.setItem("allVisible", JSON.stringify(storage));
+          parce.push(button.name);
+          localStorage.setItem("allVisible", JSON.stringify(parce));
 
           setNotification({
             status: true,

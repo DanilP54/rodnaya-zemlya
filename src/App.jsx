@@ -25,10 +25,8 @@ function getHeader(path) {
 }
 
 function App() {
-  const [state, setState] = useState();
-  const { pathname } = useLocation();
 
-  console.log(pathname);
+  const { pathname } = useLocation();
 
   return (
     <>
