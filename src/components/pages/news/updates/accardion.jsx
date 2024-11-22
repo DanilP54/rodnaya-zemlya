@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Accordion, rgba } from "@mantine/core";
+import React, { useState } from "react";
+import { Accordion} from "@mantine/core";
 import "./accardion.module.css";
 import classes from "./accardion.module.css";
 import RedMusicCardList from "../../../widgets/cards/music/RedMusicCardList";

@@ -10,7 +10,6 @@ const buttonsList = [
     id: 1,
     color: "#CD5C5C",
     name: "red",
-    // hover: '#d67070',
     isActive: false,
     isNotification: false,
     isVisible: false,
@@ -39,7 +38,6 @@ const buttonsList = [
   {
     id: 2,
     color: "#00FA9A",
-    // hover: '#38fcb1',
     name: "green",
     isActive: false,
     isSelected: false,
@@ -70,7 +68,6 @@ const buttonsList = [
     id: 3,
     color: "#00CED1",
     isActive: false,
-    // hover: '#18e1e4',
     name: "turquoise",
     isVisible: false,
     isNotification: false,
@@ -219,10 +216,13 @@ export function NavigationMenu() {
     });
   };
 
+
+  const isGreen = buttons[1].isSelected
+
   return (
     <div
       style={{
-        marginTop: notification.status ? "60px" : "40px",
+        marginTop: notification.status ?  (isGreen ? "80px" : "60px") : "40px",
         transition: "margin-top 0.4s",
       }}
     >
