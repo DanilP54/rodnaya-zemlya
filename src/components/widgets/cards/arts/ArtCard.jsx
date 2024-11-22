@@ -22,7 +22,7 @@ export function ArtCard({ src, title, subtitle, id, category, newsVariant }) {
   if (newsVariant) {
     return (
       <Card
-        w={"139px"}
+          w={"174px"}
         style={{
           backgroundColor: "transparent",
         }}

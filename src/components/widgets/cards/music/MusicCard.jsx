@@ -38,7 +38,7 @@ export function MusicCard({
   if (newsVariant) {
     return (
       <Card
-        w={"139px"}
+        w={"174px"}
         style={{
           backgroundColor: "transparent",
         }}

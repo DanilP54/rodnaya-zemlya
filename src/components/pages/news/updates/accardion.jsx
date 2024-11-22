@@ -74,31 +74,29 @@ export function UpdatesAccardion() {
   ));
 
   return (
+      <>
+        <div>
+          <h3 style={{
+            padding: '20px 0 10px 0',
+            color: "rgba(255, 255, 255, 0.7)",
+          }}>
+            Новинки
+          </h3>
+        </div>
     <div
       style={{
         overflow: "auto",
-        // border: "1px solid red",
-
         height: "600px",
-        marginTop: "20px",
       }}
     >
-    
-        <h3
-          style={{
-            color: "#b5b4b4",
-          }}
-        >
-          Новинки
-        </h3>
-
       <Accordion
-      mt={'md'}
+        mt={"xs"}
        
         className={classes}
       >
         {items}
       </Accordion>
     </div>
+      </>
   );
 }

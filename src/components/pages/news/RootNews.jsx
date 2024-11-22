@@ -57,7 +57,7 @@ export default function RootNews() {
         </div>
         <div
           style={{
-            width: "450px",
+            width: "380px",
             borderLeft: "1px solid rgba(0,0,0, .2)",
             height: "100%",
           }}
@@ -72,7 +72,7 @@ export default function RootNews() {
             <div style={{
               display: "flex",
               gap: "10px",
-              paddingRight: '30px',
+              paddingRight: '10px',
               height: '100%',
               justifyContent: "space-between",
               alignItems: "center",

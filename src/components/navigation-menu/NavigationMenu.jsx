@@ -168,7 +168,7 @@ export function NavigationMenu() {
       button.menu.forEach((link) => {
         if (link.path === location.pathname && parce.includes(button.name)) {
           setNotification({
-            status: notification.status === true ? true : false,
+            status: notification.status === true,
             color: button.name,
             text: button.textForNotification,
           });
