@@ -23,7 +23,7 @@ export const MenuNotification = ({ open, setOpen }) => {
           position: "absolute",
           zIndex: "999",
           top: open.status ? "10px" : "-300px",
-          left: "230px",
+          left: "160px",
           transition: "all 0.4s",
           borderRadius: "5px",
           border: `1px solid ${
@@ -35,7 +35,7 @@ export const MenuNotification = ({ open, setOpen }) => {
           }`,
           color: "#fff",
           padding: "10px",
-          width: "450px",
+          width: "380px",
           backgroundColor: "transparent",
         }}
       >
@@ -59,9 +59,10 @@ export const MenuNotification = ({ open, setOpen }) => {
         </div>
         <div
           style={{
+              // width: '200px',
             color: theme === "dark" ? "white" : "black",
             fontWeight: "bold",
-            fontSize: "14px",
+            fontSize: "13px",
           }}
         >
           {open.text ??
@@ -72,7 +73,7 @@ export const MenuNotification = ({ open, setOpen }) => {
             style={{
               position: "absolute",
               bottom: "-10px",
-              left: "20px",
+              left: "360px",
               marginLeft: "-15px",
               width: "0",
               height: "0",

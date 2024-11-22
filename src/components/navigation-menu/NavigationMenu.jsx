@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useLayoutEffect } from "react";
@@ -130,7 +130,6 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-
 export function NavigationMenu() {
   const [notification, setNotification] = useState({
     status: !localStorage.getItem("allVisible"),
@@ -169,7 +168,7 @@ export function NavigationMenu() {
       button.menu.forEach((link) => {
         if (link.path === location.pathname && parce.includes(button.name)) {
           setNotification({
-            status: false,
+            status: notification.status === true ? true : false,
             color: button.name,
             text: button.textForNotification,
           });
@@ -180,7 +179,6 @@ export function NavigationMenu() {
           button.isVisible = true;
           parce.push(button.name);
           localStorage.setItem("allVisible", JSON.stringify(parce));
-
           setNotification({
             status: true,
             color: button.name,
