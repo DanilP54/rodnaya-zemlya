@@ -218,11 +218,12 @@ export function NavigationMenu() {
 
 
   const isGreen = buttons[1].isSelected
+  const isTurquoise = buttons[2].isSelected
 
   return (
     <div
       style={{
-        marginTop: notification.status ?  (isGreen ? "80px" : "60px") : "40px",
+        marginTop: notification.status ?  (isGreen || isTurquoise  ? "80px" : "60px") : "40px",
         transition: "margin-top 0.4s",
       }}
     >
