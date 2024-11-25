@@ -23,55 +23,54 @@ import src20 from '../../../../public/art/arts/52.jpg';
 
 const TurquoiseArtCardList = lazy(() => import("../../widgets/cards/arts/TurquoiseArtCardList.jsx"));
 import { Loading } from "../../../main.jsx";
-import { Header } from "../../header/header.jsx";
-import { NavigationMenu } from "../../navigation-menu/NavigationMenu.jsx";
 import { FiltersArt } from "../../widgets/turquoise/FiltersArt.jsx";
+import { PRIMARY_GREEN, SECONDARY_GREEN } from "../../../constants.js";
 
 const greenArt = [
-    { id: 1, name: 'Alexandre Dupont', nameRu: 'Александр Дюпон', image: src1, category: 'green', comer: true },
-    { id: 2, name: 'Sophie Martin', nameRu: 'София Мартин', image: src2, category: 'green', comer: false },
-    { id: 3, name: 'Julien Lefevre', nameRu: 'Жюльен Лефевр', image: src3, category: 'green', comer: true },
-    { id: 4, name: 'Clara Dubois', nameRu: 'Клара Дюбо', image: src4, category: 'green', comer: false },
-    { id: 5, name: 'Maxime Bernard', nameRu: 'Максим Бернар', image: src5, category: 'green', comer: true },
-    { id: 6, name: 'Léa Moreau', nameRu: 'Лея Моро', image: src6, category: 'geren', comer: false },
-    { id: 7, name: 'Nicolas Girard', nameRu: 'Николя Жирар', image: src7, category: 'green', comer: true },
-    { id: 8, name: 'Emma Lefevre', nameRu: 'Эмма Лефевр', image: src8, category: 'green', comer: false },
-    { id: 9, name: 'Lucas Petit', nameRu: 'Лукас Пети', image: src9, category: 'green', comer: true },
-    { id: 10, name: 'Chloé Simon', nameRu: 'Хлоя Симон', image: src10, category: 'green', comer: false },
-    { id: 11, name: 'Antoine Roche', nameRu: 'Антуан Рош', image: src11, category: 'green', comer: true },
-    { id: 12, name: 'Camille Fournier', nameRu: 'Камиль Фурнье', image: src12, category: 'green', comer: false },
-    { id: 13, name: 'Juliette Lambert', nameRu: 'Жюльетта Ламбер', image: src13, category: 'green', comer: true },
-    { id: 14, name: 'Victor Lefevre', nameRu: 'Виктор Лефевр', image: src14, category: 'green', comer: false },
-    { id: 15, name: 'Alice Morel', nameRu: 'Алиса Море', image: src15, category: 'green', comer: true },
-    { id: 16, name: 'Pauline Gauthier', nameRu: 'Полина Готье', image: src16, category: 'green', comer: false },
-    { id: 17, name: 'Gabriel Martin', nameRu: 'Габриэль Мартин', image: src17, category: 'green', comer: true },
-    { id: 18, name: 'Inès Dubois', nameRu: 'Инесса Дюбо', image: src18, category: 'green', comer: false },
-    { id: 19, name: 'Théo Bernard', nameRu: 'Тео Бернар', image: src19, category: 'green', comer: true },
-    { id: 20, name: 'Lola Lefevre', nameRu: 'Лола Лефевр', image: src20, category: 'green', comer: false }
+  { id: 1, name: 'Alexandre Dupont', nameRu: 'Александр Дюпон', image: src1, category: 'green', comer: true },
+  { id: 2, name: 'Sophie Martin', nameRu: 'София Мартин', image: src2, category: 'green', comer: false },
+  { id: 3, name: 'Julien Lefevre', nameRu: 'Жюльен Лефевр', image: src3, category: 'green', comer: true },
+  { id: 4, name: 'Clara Dubois', nameRu: 'Клара Дюбо', image: src4, category: 'green', comer: false },
+  { id: 5, name: 'Maxime Bernard', nameRu: 'Максим Бернар', image: src5, category: 'green', comer: true },
+  { id: 6, name: 'Léa Moreau', nameRu: 'Лея Моро', image: src6, category: 'geren', comer: false },
+  { id: 7, name: 'Nicolas Girard', nameRu: 'Николя Жирар', image: src7, category: 'green', comer: true },
+  { id: 8, name: 'Emma Lefevre', nameRu: 'Эмма Лефевр', image: src8, category: 'green', comer: false },
+  { id: 9, name: 'Lucas Petit', nameRu: 'Лукас Пети', image: src9, category: 'green', comer: true },
+  { id: 10, name: 'Chloé Simon', nameRu: 'Хлоя Симон', image: src10, category: 'green', comer: false },
+  { id: 11, name: 'Antoine Roche', nameRu: 'Антуан Рош', image: src11, category: 'green', comer: true },
+  { id: 12, name: 'Camille Fournier', nameRu: 'Камиль Фурнье', image: src12, category: 'green', comer: false },
+  { id: 13, name: 'Juliette Lambert', nameRu: 'Жюльетта Ламбер', image: src13, category: 'green', comer: true },
+  { id: 14, name: 'Victor Lefevre', nameRu: 'Виктор Лефевр', image: src14, category: 'green', comer: false },
+  { id: 15, name: 'Alice Morel', nameRu: 'Алиса Море', image: src15, category: 'green', comer: true },
+  { id: 16, name: 'Pauline Gauthier', nameRu: 'Полина Готье', image: src16, category: 'green', comer: false },
+  { id: 17, name: 'Gabriel Martin', nameRu: 'Габриэль Мартин', image: src17, category: 'green', comer: true },
+  { id: 18, name: 'Inès Dubois', nameRu: 'Инесса Дюбо', image: src18, category: 'green', comer: false },
+  { id: 19, name: 'Théo Bernard', nameRu: 'Тео Бернар', image: src19, category: 'green', comer: true },
+  { id: 20, name: 'Lola Lefevre', nameRu: 'Лола Лефевр', image: src20, category: 'green', comer: false }
 ]
 
 export default function GreenArt() {
-    const [value, setValue] = useState(null)
-    const [art, setArt] = useState(greenArt || [])
+  const [value, setValue] = useState(null)
+  const [art, setArt] = useState(greenArt || [])
 
 
-    useEffect(() => {
+  useEffect(() => {
 
-        if (value === null) return setArt(greenArt || [])
+    if (value === null) return setArt(greenArt || [])
 
-        const filtered = greenArt.filter(item => {
-            if (value === 'Коммерческое') return item.comer === true
-            if (value === 'Некоммерческое') return item.comer === false
-        })
-        setArt(filtered)
-    }, [value])
+    const filtered = greenArt.filter(item => {
+      if (value === 'Коммерческое') return item.comer === true
+      if (value === 'Некоммерческое') return item.comer === false
+    })
+    setArt(filtered)
+  }, [value])
 
-    return (
-        <>
-            <FiltersArt setValue={setValue} value={value} primaryColor={'#00FA9A'} secondaryColor={'#d1f8e9'} />
-            <Suspense fallback={<Loading />}>
-                <TurquoiseArtCardList cards={art} setCards={setArt} />
-            </Suspense>
-        </>
-    )
+  return (
+    <>
+      <FiltersArt setValue={setValue} value={value} primaryColor={PRIMARY_GREEN} secondaryColor={SECONDARY_GREEN} />
+      <Suspense fallback={<Loading />}>
+        <TurquoiseArtCardList cards={art} setCards={setArt} />
+      </Suspense>
+    </>
+  )
 }

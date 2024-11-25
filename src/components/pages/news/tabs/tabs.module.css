@@ -38,7 +38,11 @@
 }
 
 .authContainer {
+    position: relative;
+    border-radius: 5px;
     color: inherit;
+    width: 400px;
+    text-align: center;
     background-color: rgba(0, 0, 0, .2);
     padding: 20px;
     display: 'flex';

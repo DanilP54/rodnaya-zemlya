@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useLayoutEffect } from "react";
 import { AlbumSection } from "../AlbumSection";
 import { useThemeContext } from '../../../../context/ThemeContext';
+import { PRIMARY_RED } from '../../../../constants';
 
 
 const ArrowLeft = styled(Link)`
@@ -21,7 +22,7 @@ const ArrowLeft = styled(Link)`
             img {
                 background-color: rgba(255,255,255, .2);
             }
-        
+
         }
 
     `
@@ -30,11 +31,11 @@ const DetailsPageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
-   
+
 `
 
 const HeaderBox = styled.div`
-      background-color: #CD5C5C; 
+      background-color: #CD5C5C;
 `
 
 const MainBox = styled.main`
@@ -55,31 +56,31 @@ const ContentBox = styled.div`
 
 export function RedAlbumPage() {
 
-    const { pathname } = useLocation()
+  const { pathname } = useLocation()
 
-    const { theme } = useThemeContext()
+  const { theme } = useThemeContext()
 
-    useLayoutEffect(() => {
-        if (pathname) {
-            window.scrollTo(0, 0)
-        }
-    }, [])
+  useLayoutEffect(() => {
+    if (pathname) {
+      window.scrollTo(0, 0)
+    }
+  }, [])
 
-    return (
-        <>
-            <DetailsPageWrapper>
-                <HeaderBox>
-                    <HeaderDetails color={'#CD5C5C'} />
-                </HeaderBox>
-                <MainBox>
-                    <ContentBox theme={theme}>
-                        <AlbumSection color={'#CD5C5C'} />
-                    </ContentBox>
-                    <ArrowLeft to={'/app/red-music'} preventScrollReset={true}>
-                        <img src={LeftArrow} alt="icon" />
-                    </ArrowLeft>
-                </MainBox>
-            </DetailsPageWrapper>
-        </>
-    )
+  return (
+    <>
+      <DetailsPageWrapper>
+        <HeaderBox>
+          <HeaderDetails color={PRIMARY_RED} />
+        </HeaderBox>
+        <MainBox>
+          <ContentBox theme={theme}>
+            <AlbumSection color={PRIMARY_RED} />
+          </ContentBox>
+          <ArrowLeft to={'/app/red-music'} preventScrollReset={true}>
+            <img src={LeftArrow} alt="icon" />
+          </ArrowLeft>
+        </MainBox>
+      </DetailsPageWrapper>
+    </>
+  )
 }

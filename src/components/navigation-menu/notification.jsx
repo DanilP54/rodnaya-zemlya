@@ -1,13 +1,13 @@
-import React, { useState } from "react";
 import { ImYelp } from "react-icons/im";
 import { useThemeContext } from "../../context/ThemeContext";
 import { Tooltip } from "@mantine/core";
+import { PRIMARY_GREEN, PRIMARY_RED, PRIMARY_TURQUOISE } from "../../constants";
 
 const getColor = (color) => {
   const colors = {
-    red: "#CD5C5C",
-    green: "#00FA9A",
-    turquoise: "#00CED1",
+    red: PRIMARY_RED,
+    green: PRIMARY_GREEN,
+    turquoise: PRIMARY_TURQUOISE,
   };
 
   return colors[color];
@@ -26,13 +26,12 @@ export const MenuNotification = ({ open, setOpen }) => {
           left: "160px",
           transition: "all 0.4s",
           borderRadius: "5px",
-          border: `1px solid ${
-            open.color
-              ? getColor(open.color)
-              : theme === "dark"
+          border: `1px solid ${open.color
+            ? getColor(open.color)
+            : theme === "dark"
               ? "white"
               : "black"
-          }`,
+            }`,
           color: "#fff",
           padding: "10px",
           width: "380px",
@@ -48,8 +47,8 @@ export const MenuNotification = ({ open, setOpen }) => {
             color: open.color
               ? open.color
               : theme === "dark"
-              ? "white"
-              : "black",
+                ? "white"
+                : "black",
             fontSize: "25px",
             fontWeight: "bold",
           }}
@@ -59,8 +58,8 @@ export const MenuNotification = ({ open, setOpen }) => {
         </div>
         <div
           style={{
-              // width: '200px',
-              textAlign: 'center',
+            // width: '200px',
+            textAlign: 'center',
             color: theme === "dark" ? "white" : "black",
             fontWeight: "bold",
             fontSize: "13px",
@@ -99,8 +98,8 @@ export const MenuNotification = ({ open, setOpen }) => {
               open.color
                 ? getColor(open.color)
                 : theme === "dark"
-                ? "white"
-                : "black"
+                  ? "white"
+                  : "black"
             }
             style={{
               cursor: "pointer",

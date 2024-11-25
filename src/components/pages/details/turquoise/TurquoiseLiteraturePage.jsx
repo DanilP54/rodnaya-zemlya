@@ -6,6 +6,7 @@ import { useLayoutEffect } from "react";
 import { AlbumSection } from "../AlbumSection";
 import { TurquoiseSection } from "../TurquoiseSection.jsx";
 import { useThemeContext } from '../../../../context/ThemeContext.jsx';
+import { PRIMARY_TURQUOISE } from '../../../../constants.js';
 
 
 const ArrowLeft = styled(Link)`
@@ -22,7 +23,7 @@ const ArrowLeft = styled(Link)`
             img {
                 background-color: rgba(255,255,255, .2);
             }
-        
+
         }
 
     `
@@ -31,11 +32,11 @@ const DetailsPageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
-   
+
 `
 
 const HeaderBox = styled.div`
-      background-color: #00CED1; 
+      background-color: #00CED1;
 `
 
 const MainBox = styled.main`
@@ -55,31 +56,31 @@ const ContentBox = styled.div`
 
 export function TurquoiseLiteraturePage() {
 
-    const { pathname } = useLocation()
-    console.log(pathname)
-    const { theme } = useThemeContext()
+  const { pathname } = useLocation()
+  console.log(pathname)
+  const { theme } = useThemeContext()
 
-    useLayoutEffect(() => {
-        if (pathname) {
-            window.scrollTo(0, 0)
-        }
-    }, [])
+  useLayoutEffect(() => {
+    if (pathname) {
+      window.scrollTo(0, 0)
+    }
+  }, [])
 
-    return (
-        <>
-            <DetailsPageWrapper>
-                <HeaderBox>
-                    <HeaderDetails color={'#00CED1'} />
-                </HeaderBox>
-                <MainBox>
-                    <ContentBox theme={theme}>
-                        <TurquoiseSection color={'#00CED1'} />
-                    </ContentBox>
-                    <ArrowLeft to={'/app/turquoise-literature'} preventScrollReset={true}>
-                        <img src={LeftArrow} alt="icon" />
-                    </ArrowLeft>
-                </MainBox>
-            </DetailsPageWrapper>
-        </>
-    )
+  return (
+    <>
+      <DetailsPageWrapper>
+        <HeaderBox>
+          <HeaderDetails color={PRIMARY_TURQUOISE} />
+        </HeaderBox>
+        <MainBox>
+          <ContentBox theme={theme}>
+            <TurquoiseSection color={PRIMARY_TURQUOISE} />
+          </ContentBox>
+          <ArrowLeft to={'/app/turquoise-literature'} preventScrollReset={true}>
+            <img src={LeftArrow} alt="icon" />
+          </ArrowLeft>
+        </MainBox>
+      </DetailsPageWrapper>
+    </>
+  )
 }

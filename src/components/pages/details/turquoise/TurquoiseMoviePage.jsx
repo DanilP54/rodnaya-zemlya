@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useLayoutEffect } from "react";
 import { MovieSection } from "../MovieSection";
 import { useThemeContext } from '../../../../context/ThemeContext';
+import { PRIMARY_TURQUOISE } from '../../../../constants';
 
 
 
@@ -22,7 +23,7 @@ const ArrowLeft = styled(Link)`
             img {
                 background-color: rgba(255,255,255, .2);
             }
-        
+
         }
 
     `
@@ -31,11 +32,11 @@ const DetailsPageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
-   
+
 `
 
 const HeaderBox = styled.div`
-      background-color: #00CED1; 
+      background-color: #00CED1;
 `
 
 const MainBox = styled.main`
@@ -55,31 +56,31 @@ transition: background-color 0.4s ease;
 
 export function TurquoiseMoviePage() {
 
-    const { pathname } = useLocation()
+  const { pathname } = useLocation()
 
-    const { theme } = useThemeContext()
+  const { theme } = useThemeContext()
 
-    useLayoutEffect(() => {
-        if (pathname) {
-            window.scrollTo(0, 0)
-        }
-    }, [])
+  useLayoutEffect(() => {
+    if (pathname) {
+      window.scrollTo(0, 0)
+    }
+  }, [])
 
-    return (
-        <>
-            <DetailsPageWrapper>
-                <HeaderBox>
-                    <HeaderDetails color={'#00CED1'} />
-                </HeaderBox>
-                <MainBox>
-                    <ContentBox theme={theme}>
-                        <MovieSection />
-                    </ContentBox>
-                    <ArrowLeft to={'/app/turquoise-movie'} preventScrollReset={true}>
-                        <img src={LeftArrow} alt="icon" />
-                    </ArrowLeft>
-                </MainBox>
-            </DetailsPageWrapper>
-        </>
-    )
+  return (
+    <>
+      <DetailsPageWrapper>
+        <HeaderBox>
+          <HeaderDetails color={PRIMARY_TURQUOISE} />
+        </HeaderBox>
+        <MainBox>
+          <ContentBox theme={theme}>
+            <MovieSection />
+          </ContentBox>
+          <ArrowLeft to={'/app/turquoise-movie'} preventScrollReset={true}>
+            <img src={LeftArrow} alt="icon" />
+          </ArrowLeft>
+        </MainBox>
+      </DetailsPageWrapper>
+    </>
+  )
 }
