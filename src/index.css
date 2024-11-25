@@ -27,8 +27,8 @@ body {
 
 
 .custom__skeleton {
-  --mantine-color-body: rgb(15, 15, 15);
-  --mantine-color-gray-3: rgb(17, 17, 17);
+  --mantine-color-body: rgb(41, 41, 41);
+  --mantine-color-gray-3: rgb(37, 36, 36);
 }
 
 .dark__theme {
