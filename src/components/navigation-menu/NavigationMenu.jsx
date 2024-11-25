@@ -8,7 +8,7 @@ import { MenuNotification } from "./notification.jsx";
 const buttonsList = [
   {
     id: 1,
-    color: "hsl(343, 100%, 39%)",
+    color: "hsl(0, 73%, 64%)",
     name: "red",
     isActive: false,
     isNotification: false,
