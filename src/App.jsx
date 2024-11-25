@@ -2,7 +2,6 @@ import { Outlet, useLocation } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/header/header";
 import { NavigationMenu } from "./components/navigation-menu/NavigationMenu";
-import { useState } from "react";
 
 function getHeader(path) {
   const pathes = {
@@ -37,6 +36,7 @@ function App() {
         </div>
       )}
       <Outlet />
+   
     </>
   );
 }

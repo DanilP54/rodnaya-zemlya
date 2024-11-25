@@ -1,0 +1,18 @@
+.subscribe {
+    background-color: rgba(128, 128, 128, 0.16);
+    padding: 8px;
+    margin-left: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+
+.subscribe p {
+    color: inherit;
+}
+
+
+.subscribe:hover {
+    background-color: rgba(128, 128, 128, 0.291);
+
+}

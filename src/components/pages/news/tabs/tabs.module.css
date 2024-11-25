@@ -5,8 +5,8 @@
 
 .tab {
     font-size: 17px;
-    font-weight: 500;
-    color: white;
+    font-weight: 900;
+    color: inherit;
     background-color: transparent;
 }
 
@@ -38,11 +38,9 @@
 }
 
 .authContainer {
-    color: white;
-    box-shadow: 0 0 3px 5px rgba(0, 0, 0, .2);
+    color: inherit;
     background-color: rgba(0, 0, 0, .2);
     padding: 20px;
-    border-radius: 5px;
     display: 'flex';
     flex-direction: column;
     display: flex;

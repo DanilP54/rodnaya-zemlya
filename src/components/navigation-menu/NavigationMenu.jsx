@@ -8,7 +8,7 @@ import { MenuNotification } from "./notification.jsx";
 const buttonsList = [
   {
     id: 1,
-    color: "#CD5C5C",
+    color: "hsl(343, 100%, 39%)",
     name: "red",
     isActive: false,
     isNotification: false,
@@ -37,7 +37,7 @@ const buttonsList = [
   },
   {
     id: 2,
-    color: "#00FA9A",
+    color: "hsl(145, 63%, 49%)",
     name: "green",
     isActive: false,
     isSelected: false,
@@ -66,7 +66,7 @@ const buttonsList = [
   },
   {
     id: 3,
-    color: "#00CED1",
+    color: "hsl(204, 70%, 53%)",
     isActive: false,
     name: "turquoise",
     isVisible: false,
@@ -123,7 +123,7 @@ const StyledNavLink = styled(NavLink)`
   &:hover {
     color: ${(props) => (props.$isActive ? "black" : "white")};
     background-color: ${(props) =>
-      props.$isActive ? "white" : "rgba(0, 0, 0, 0.2)"};
+    props.$isActive ? "white" : "rgba(0, 0, 0, 0.2)"};
   }
 `;
 
@@ -223,7 +223,7 @@ export function NavigationMenu() {
   return (
     <div
       style={{
-        marginTop: notification.status ?  (isGreen || isTurquoise  ? "80px" : "60px") : "40px",
+        marginTop: notification.status ? (isGreen || isTurquoise ? "80px" : "60px") : "40px",
         transition: "margin-top 0.4s",
       }}
     >

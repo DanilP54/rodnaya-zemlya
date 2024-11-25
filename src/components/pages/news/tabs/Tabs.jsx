@@ -2,7 +2,6 @@ import { Tabs, Text } from '@mantine/core';
 import styles from './tabs.module.css'; // Подключаем CSS модуль
 
 import Post from '../post/Post';
-import AuthButtons from '../../../header/AuthButtons';
 export default function TabsComponents({ setTabs }) {
 
     return (
@@ -26,10 +25,9 @@ export default function TabsComponents({ setTabs }) {
 
             <Tabs.Panel className={styles.panel_two} value="your news"> {/* Применяем класс из CSS модуля */}
                 <div className={styles.authContainer}>
-                    <Text fw={500} size='lg' c={'cyan'}>Хочешь мутить тут делишки свои?</Text>
-                    <Text fw={500} size='md' c={'lime'}>Тогда тебе надо зарегаться, братик, такие условия.</Text>
+                    <Text fw={500} size='lg'>Хочешь мутить тут делишки свои?</Text>
+                    <Text fw={500} size='md'>Тогда тебе надо зарегаться, братик, такие условия.</Text>
                     <div style={{ marginTop: '10px' }}>
-                        {/* <AuthButtons /> */}
                     </div>
                 </div>
             </Tabs.Panel>

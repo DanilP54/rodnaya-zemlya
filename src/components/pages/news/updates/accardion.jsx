@@ -78,7 +78,7 @@ export function UpdatesAccardion() {
         <div>
           <h3 style={{
             padding: '20px 0 10px 0',
-            color: "rgba(255, 255, 255, 0.7)",
+            color: "inherit",
           }}>
             Новинки
           </h3>

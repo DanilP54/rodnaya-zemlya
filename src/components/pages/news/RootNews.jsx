@@ -7,6 +7,8 @@ import { useThemeContext } from "../../../context/ThemeContext";
 import PostDetails from "./post/PostDetails";
 import { useState } from "react";
 import { UpdatesAccardion } from "./updates/accardion";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function IconAt() {
   return (
@@ -36,7 +38,10 @@ export default function RootNews() {
 
   return (
     <>
-      <div className={classes.wrap_news}>
+      <div style={{
+        transition: 'background-color .4s ease',
+        backgroundColor: theme === 'light' ? 'hsl(48, 89%, 95%)' : 'hsl(210, 29%, 29%)'
+      }} className={classes.wrap_news}>
         <div className={classes.menu_box}>
           <MenuNews />
         </div>
@@ -72,7 +77,7 @@ export default function RootNews() {
             <div style={{
               display: "flex",
               gap: "10px",
-              paddingRight: '10px',
+              // paddingRight: '10px',
               height: '100%',
               justifyContent: "space-between",
               alignItems: "center",
@@ -96,7 +101,7 @@ export default function RootNews() {
               </div>
               <div
                 style={{
-                  color: "white",
+                  color: "inherit",
                 }}
               >
                 <AuthButtons />
@@ -105,6 +110,7 @@ export default function RootNews() {
             <UpdatesAccardion />
           </div>
         </div>
+        <ToastContainer />
       </div>
     </>
   );

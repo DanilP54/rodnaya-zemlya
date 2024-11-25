@@ -3,14 +3,13 @@ import { useThemeContext } from "../../../context/ThemeContext"
 
 import WhiteLogo from '../../../../public/logo/rz_white.png'
 import BlackLogo from '../../../../public/logo/rz_black_cut.png'
+import { ThemeButton } from "../../header/header"
 
 function WebSiteIcon({ color }) {
-    return <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-align-box-left-top"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M9 13h-2" /><path d="M13 10h-6" /><path d="M11 7h-4" /></svg>
+    return <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-no-axes-gantt"><path d="M8 6h10"/><path d="M6 12h9"/><path d="M11 18h7"/></svg>
 }
-
-
 function TvIcon({ color }) {
-    return <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-device-tv-old"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M16 3l-4 4l-4 -4" /><path d="M15 7v13" /><path d="M18 15v.01" /><path d="M18 12v.01" /></svg>
+    return <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-radio"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg>
 }
 
 
@@ -27,16 +26,26 @@ export function MenuNews() {
             flexDirection: 'column',
             gap: '30px'
         }}>
+            <div style={{
+                display: 'flex',
+
+            }}>
             <Link to='/'>
                 <img style={{
                     width: '100px',
                     aspectRatio: 1
-                }} src={WhiteLogo} alt="logo" />
+                }} src={theme === 'light' ? BlackLogo : WhiteLogo} alt="logo" />
             </Link>
+            <div style={{
+                marginLeft: '200px'
+            }}>
+            <ThemeButton />
+            </div>
+            </div>
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '10px'
+                gap: '20px'
             }}>
                 <Link style={{
                     color: 'black'
@@ -46,15 +55,15 @@ export function MenuNews() {
                         alignItems: 'center',
                         gap: '20px'
                     }}>
-                        <WebSiteIcon color={'white'} />
+                        <WebSiteIcon color={theme === 'light' ? 'black' : 'white'} />
                         <span style={{
-                            color: 'white',
+                            color: theme === 'light' ? 'black' : 'white',
                             fontSize: '18px'
                         }}>рз</span>
                     </div>
                 </Link>
                 <Link style={{
-                    color: 'black',
+                    color: theme === 'light' ? 'black' : 'white',
                     // backgroundColor: 'rgba(0,0,0, .1)'
                 }} to='#'>
                     <div style={{
@@ -62,9 +71,9 @@ export function MenuNews() {
                         alignItems: 'center',
                         gap: '20px'
                     }}>
-                        <TvIcon color={'white'} />
+                        <TvIcon color={theme === 'light' ? 'black' : 'white'} />
                         <span style={{
-                            color: 'white',
+                            color: theme === 'light' ? 'black' : 'white',
                             fontSize: '18px'
                         }}>рз радио</span>
                     </div>

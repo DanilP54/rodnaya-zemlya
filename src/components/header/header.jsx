@@ -4,7 +4,6 @@ import BlackLogo from '../../../public/logo/rz_black_cut.png';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { Tooltip } from '@mantine/core';
-import { Spotlight, spotlight } from '@mantine/spotlight';
 import { useThemeContext } from '../../context/ThemeContext';
 import { useEffect } from 'react';
 import SearchInput from './SearchInput';
