@@ -152,3 +152,29 @@ html {
 .light__theme .mantine-Accordion-chevron {
   color: black;
 }
+
+
+.dark__theme .mantine-Spotlight-content {
+  color: white;
+  background-color: #101010;
+}
+
+.mantine-Spotlight-action:hover {
+  background-color: rgba(128, 128, 128, 0.074);
+}
+
+
+.dark__theme .mantine-Spotlight-search {
+  color: white
+}
+
+.light__theme .m_d49bb8ef:where([data-selected]) {
+  background-color: rgb(234, 232, 232);
+  color: black;
+}
+
+
+.dark__theme .m_d49bb8ef:where([data-selected]) {
+  background-color: rgb(57, 57, 57);
+}
+

@@ -19,8 +19,6 @@ import track5 from '../../../../../public/red-music/5.mp3'
 import track6 from '../../../../../public/red-music/6.mp3'
 import track7 from '../../../../../public/red-music/7.mp3'
 import { Loading } from "../../../../main";
-import { Header } from "../../../header/header.jsx";
-import { NavigationMenu } from "../../../navigation-menu/NavigationMenu.jsx";
 const RedMusicCardList = lazy(() => import("../../../widgets/cards/music/RedMusicCardList"));
 
 export const redMusic = [

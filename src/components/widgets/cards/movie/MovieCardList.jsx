@@ -2,7 +2,6 @@ import { MovieCard } from './MovieCard'
 import { Player } from "video-react"
 
 import {
-    ModalHeader,
     ModalContent,
     Modal,
 } from 'semantic-ui-react'

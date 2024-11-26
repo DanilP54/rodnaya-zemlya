@@ -2,6 +2,7 @@ import { ImYelp } from "react-icons/im";
 import { useThemeContext } from "../../context/ThemeContext";
 import { Tooltip } from "@mantine/core";
 import { PRIMARY_GREEN, PRIMARY_RED, PRIMARY_TURQUOISE } from "../../constants";
+import classes from './notification.module.css';
 
 const getColor = (color) => {
   const colors = {
@@ -19,23 +20,15 @@ export const MenuNotification = ({ open, setOpen }) => {
   return (
     <>
       <div
+        className={`${classes.wrap}`}
         style={{
-          position: "absolute",
-          zIndex: "999",
           top: open.status ? "10px" : "-300px",
-          left: "160px",
-          transition: "all 0.4s",
-          borderRadius: "5px",
           border: `1px solid ${open.color
             ? getColor(open.color)
             : theme === "dark"
               ? "white"
               : "black"
             }`,
-          color: "#fff",
-          padding: "10px",
-          width: "380px",
-          backgroundColor: "transparent",
         }}
       >
         <div
