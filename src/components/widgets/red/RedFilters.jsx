@@ -1,9 +1,9 @@
 
 import { Chip, Group } from "@mantine/core";
 import { useState } from "react";
-
-import { Input } from "semantic-ui-react";
+import {SearchBox} from '../../search/LocalSearch'
 import { PRIMARY_RED, SECONDARY_RED } from "../../../constants";
+import { redMovieList } from "../../../data/movie/red";
 
 const primaryColor = PRIMARY_RED
 const secondaryColor = SECONDARY_RED
@@ -81,7 +81,7 @@ export function RedFilter({ setValue, value }) {
           <div style={{
             width: '300px'
           }}>
-            <Input fluid icon='search' placeholder='Add a genre, location or tag' />
+            <SearchBox data={redMovieList} navigatePath={'/app/red/m/'} />
           </div>
         </div>
 

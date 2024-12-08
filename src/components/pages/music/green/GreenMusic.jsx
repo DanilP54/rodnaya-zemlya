@@ -24,7 +24,7 @@ import { Loading } from "../../../../main";
 
 const GreenMusicCardList = lazy(() => import("../../../widgets/cards/music/GreenMusicCardList"));
 
-const greenMusic = [
+export const greenMusic = [
     { "id": 27, "title": "Lemonade", "src": Card6, "genre": "Electronic", isPlay: false, category: 'green', trackSrc: track1, comer: true, artist: "Tears for Fears", band: " Beyoncé" },
     { "id": 33, "title": "Lose Yourself", "src": Card20, "genre": "Electronic", isPlay: false, category: 'green', trackSrc: track7, comer: true, artist: "Eminem", band: "Eminem" },
     { "id": 34, "title": "Love You Like a Love Song", "src": Card21, "genre": "Rock", isPlay: false, category: 'green', comer: false, artist: "Selena Gomez", band: "Selena Gomez & The Scene" },

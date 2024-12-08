@@ -1,0 +1,12 @@
+.button {
+    position: relative;
+}
+
+
+.button .icon {
+    position: absolute;
+    top: 5px;
+    color: white;
+    right: 9px;
+    cursor: pointer;
+}

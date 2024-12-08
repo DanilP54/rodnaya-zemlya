@@ -2,6 +2,10 @@ import { Outlet, useLocation } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/header/header";
 import { NavigationMenu } from "./components/navigation-menu/NavigationMenu";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FeedbackCircle } from "./components/FormCircle";
+
 
 function getHeader(path) {
   const pathes = {
@@ -36,7 +40,8 @@ function App() {
         </div>
       )}
       <Outlet />
-   
+      <FeedbackCircle />
+      <ToastContainer />
     </>
   );
 }

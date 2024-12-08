@@ -1,8 +1,9 @@
 import { Chip } from "@mantine/core";
 import { Group } from "@mantine/core";
 import { useState } from "react";
-import { Input } from "semantic-ui-react";
 import { PRIMARY_GREEN, SECONDARY_GREEN } from "../../../constants";
+import { SearchBox } from "../../search/LocalSearch";
+import { greenBooks } from "../../../data/literature/green";
 
 
 
@@ -86,7 +87,7 @@ export function GreenFiltersLiterature({ setValue, value }) {
           <div style={{
             width: '300px'
           }}>
-            <Input fluid icon='search' placeholder='Add a genre, location or tag' />
+            <SearchBox data={greenBooks} navigatePath={'/app/green/l/'} />
           </div>
         </div>
 

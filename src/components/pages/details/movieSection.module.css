@@ -1,0 +1,9 @@
+.addCollection {
+    background-color: rgb(20, 20, 20);
+    color: rgb(255, 251, 251);
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    /* display: none; */
+}

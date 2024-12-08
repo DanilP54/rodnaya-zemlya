@@ -3,12 +3,12 @@ import { Accordion} from "@mantine/core";
 import "./accardion.module.css";
 import classes from "./accardion.module.css";
 import RedMusicCardList from "../../../widgets/cards/music/RedMusicCardList";
-import { redMusic } from "../../music/red/RedMusic";
-import { movieList } from "../../movie/RedMovie";
+import { redMusic } from "../../../../data/music/red";
+import { redMovieList } from "../../../../data/movie/red";
 import MovieCardList from "../../../widgets/cards/movie/MovieCardList";
 import LiteratureCardList from "../../../widgets/cards/literature/LiteratureCardList";
-import { booksList } from "../../literature/red/RedLiterature";
-import { redArt } from "../../arts/RedArt";
+import { redBooksList } from "../../../../data/literature/red";
+import { redArt } from "../../../../data/art/red";
 import TurquoiseArtCardList from "../../../widgets/cards/arts/TurquoiseArtCardList";
 
 const groceries = [
@@ -39,13 +39,13 @@ function MusicBlock() {
 }
 
 function MoveBlock() {
-  const [data, setData] = useState(movieList);
+  const [data, setData] = useState(redMovieList);
 
   return <MovieCardList cards={data} setCards={setData} newsVariant={true} />;
 }
 
 function LitBlock() {
-  const [data, setData] = useState(booksList);
+  const [data, setData] = useState(redBooksList);
 
   return (
     <LiteratureCardList cards={data} setCards={setData} newsVariant={true} />

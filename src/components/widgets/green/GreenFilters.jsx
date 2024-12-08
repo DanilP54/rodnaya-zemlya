@@ -1,7 +1,9 @@
 import { Chip, Group } from "@mantine/core";
 import { useState } from "react";
-import { Input } from "semantic-ui-react";
+
 import { PRIMARY_GREEN, SECONDARY_GREEN } from "../../../constants";
+import { SearchBox } from "../../search/LocalSearch";
+import { greenMovieList } from "../../../data/movie/green";
 
 
 const primaryColor = PRIMARY_GREEN
@@ -80,7 +82,7 @@ export function GreenFilter({ setValue, value }) {
           <div style={{
             width: '300px'
           }}>
-            <Input fluid icon='search' placeholder='Add a genre, location or tag' />
+             <SearchBox data={greenMovieList} navigatePath={'/app/green/m/'} />
           </div>
         </div>
 

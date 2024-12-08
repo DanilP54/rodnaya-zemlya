@@ -8,7 +8,8 @@ import PostDetails from "./post/PostDetails";
 import { useState } from "react";
 import { UpdatesAccardion } from "./updates/accardion";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import SearchInput from "../../header/SearchInput";
 
 function IconAt() {
   return (
@@ -38,10 +39,14 @@ export default function RootNews() {
 
   return (
     <>
-      <div style={{
-        transition: 'background-color .4s ease',
-        backgroundColor: theme === 'light' ? 'hsl(48, 89%, 95%)' : 'hsl(210, 29%, 29%)'
-      }} className={classes.wrap_news}>
+      <div
+        style={{
+          transition: "background-color .4s ease",
+          backgroundColor:
+            theme === "light" ? "hsl(48, 89%, 95%)" : "hsl(210, 29%, 29%)",
+        }}
+        className={classes.wrap_news}
+      >
         <div className={classes.menu_box}>
           <MenuNews />
         </div>
@@ -74,31 +79,17 @@ export default function RootNews() {
               padding: "10px",
             }}
           >
-            <div style={{
-              display: "flex",
-              gap: "10px",
-              // paddingRight: '10px',
-              height: '100%',
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}>
-              <div
-                style={{
-                  width: "200px",
-                  backgroundColor: "#333",
-                  overflow: "hidden",
-                  borderRadius: "5px",
-                }}
-              >
-                <Input
-                  style={{}}
-                  variant="unstyled"
-                  color="blue"
-                  bg={"#333"}
-                  leftSection={<IconAt size={16} />}
-                  placeholder="Поиск"
-                />
-              </div>
+            <div
+              style={{
+                display: "flex",
+                gap: "5px",
+                paddingRight: '5px',
+                height: "100%",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+                <SearchInput width={"200px"} />
               <div
                 style={{
                   color: "inherit",

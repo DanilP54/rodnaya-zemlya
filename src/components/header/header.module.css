@@ -32,7 +32,7 @@
 
 .auth_link {
     color: inherit;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .lang_list {
@@ -47,10 +47,10 @@
 .lang_link {
     text-decoration: none;
     color: inherit;
-    font-weight: 700;
+    font-weight: 500;
     font-size: var(--link-font-size);
 }
 
 .input_box {
-    width: 25rem;
+    /* width: 25rem; */
 }

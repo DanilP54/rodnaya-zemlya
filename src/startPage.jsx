@@ -3,6 +3,7 @@ import WhiteLogo from '../public/logo/rz_white.png'
 import BlackLogo from '../public/logo/rz_black_cut.png'
 import { useThemeContext } from "./context/ThemeContext.jsx";
 import { Link } from "react-router-dom";
+
 export default function StartPage() {
 
 
@@ -77,6 +78,7 @@ export default function StartPage() {
                         }} to={'#'}>рз радио</Link>
                     </div>
                 </div>
+                
             </main>
             {/*</div>*/}
         </>

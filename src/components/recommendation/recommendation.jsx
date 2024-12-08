@@ -11,6 +11,7 @@ import {useState} from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import {Link} from 'react-router-dom';
 
+
 export function Recommendation() {
 
     const [isPlaying, setIsPlaying] = useState(false);
@@ -20,8 +21,8 @@ export function Recommendation() {
         <>
             <div style={{marginTop: '20px'}}>
                 <Grid gutter={'none'} style={{padding: 0, width: '100%', 
-                    height: 'calc(100vh - 40vh)'
-                    // height: 'calc(100vh - 42vh)'
+                    // height: 'calc(100vh - 40vh)'
+                    height: 'calc(100vh - 42vh)'
                     }}>
                     <Grid.Col style={{
                         height: 'calc(100vh - 42vh)', padding: 0

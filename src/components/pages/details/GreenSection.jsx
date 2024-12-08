@@ -1,214 +1,254 @@
-import styled from "styled-components"
-import { useState } from "react"
+import styled from "styled-components";
+import { useState } from "react";
 import Book from "../../../../public/sanya.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { usePlayerContext } from "../../../context/usePlayerContext";
-import audioBook from '../../../../public/audio-books/srochno.mp3'
-import linkBook from '../../../../public/book.pdf'
-
+import audioBook from "../../../../public/audio-books/srochno.mp3";
+import linkBook from "../../../../public/book.pdf";
+import { toast, Slide } from "react-toastify";
+import { Tooltip } from "@mantine/core";
+import { GiDoorWatcher } from "react-icons/gi";
 
 const LiteratureSectionWrapper = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr;
-    padding: 120px 50px 60px;
-`
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  padding: 120px 50px 60px;
+`;
 
 const SectionBox = styled.section`
-    display: flex;
-    flex-direction: column;
-    padding: 0 40px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px 20px 40px;
 
-    & h1 {
-        padding: 0;
-        margin: 0;
-        font-size: 35px;
-        font-weight: 700;
-    }
+  & h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 35px;
+    font-weight: 700;
+  }
 
-    & p {
-        font-size: 24px;
-        font-weight: 500;
-        color: inherit;
-    }
-`
+  & p {
+    font-size: 24px;
+    font-weight: 500;
+    color: inherit;
+  }
+`;
 const AsideBox = styled.aside`
+  display: flex;
+  height: min-content;
+  flex-direction: column;
+  /* background-color: rgb(242, 249, 249); */
+
+  & .movie_details {
+    margin-top: 30px;
     display: flex;
-    height: min-content;
     flex-direction: column;
-    /* background-color: rgb(242, 249, 249); */
+    align-items: stretch;
+  }
 
-    & .movie_details {
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
+  & .item {
+    display: flex;
+    gap: 40px;
+    /* padding-right: 15px; */
+
+    & .bold {
+      width: 50%;
+      font-weight: 700;
+      font-size: 12px;
     }
 
-    & .item {
-        display: flex;
-        gap: 40px;
-        /* padding-right: 15px; */
-
-        & .bold {
-
-            width: 50%;
-            font-weight: 700;
-            font-size: 12px;
-        }
-
-        & .descr {
-            font-size: 12px;
-            width: 50%;
-        }
+    & .descr {
+      font-size: 12px;
+      width: 50%;
     }
-`
+  }
+`;
 
 const AlbumCard = styled.div`
-    //margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    gap: 10px;
+  //margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 10px;
 
-    & img {
-        width: 90%;
-        height: 300px;
-    }
+  & img {
+    width: 90%;
+    height: 300px;
+  }
 
-    & span {
-        font-size: 11px;
-    }
-
-`
+  & span {
+    font-size: 11px;
+  }
+`;
 
 export function GreenSection({ color }) {
+  const [isPlayBook, setIsPlayBook] = useState(false);
+  const { onPlayTrack, isOpen, getCurrentTrackId } = usePlayerContext();
+  const [like, setLike] = useState(false);
 
-    const [isPlayBook, setIsPlayBook] = useState(false)
-    const { onPlayTrack, isOpen, getCurrentTrackId } = usePlayerContext()
+  const handleOnPlayBook = () => {
+    setIsPlayBook(true);
+    onPlayTrack({
+      id: 101,
+      title: "Аудиокнига Зверский Детектив - Глава 1: СРОЧНО",
+      trackSrc: audioBook,
+      imageSrc: "",
+    });
+  };
 
-    const handleOnPlayBook = () => {
-        setIsPlayBook(true)
-        onPlayTrack({
-            id: 101,
-            title: "Аудиокнига Зверский Детектив - Глава 1: СРОЧНО",
-            trackSrc: audioBook,
-            imageSrc: ''
-        })
+  const handleSave = () => {
+    if (true) {
+      return toast(
+        "Зарегестрируйтесь, пожалуйста, что бы добавить книгу в коллекцию",
+        {
+          transition: Slide,
+          position: "top-right",
+          theme: "dark",
+          hideProgressBar: true,
+        }
+      );
     }
 
-    useEffect(() => {
-        if (isOpen) {
-            const id = getCurrentTrackId()
+    setLike((s) => !s);
+  };
 
-            if (id === 101) {
-                setIsPlayBook(true)
-            }
-        }
-        if (!isOpen) {
-            setIsPlayBook(false)
-        }
-    }, [isOpen])
+  useEffect(() => {
+    if (isOpen) {
+      const id = getCurrentTrackId();
 
+      if (id === 101) {
+        setIsPlayBook(true);
+      }
+    }
+    if (!isOpen) {
+      setIsPlayBook(false);
+    }
+  }, [isOpen]);
 
-    return (
-        <LiteratureSectionWrapper>
-            <AsideBox>
-                <AlbumCard>
-                    <img src={Book} alt="" />
-                </AlbumCard>
-                <div className="movie_details">
-                    <div className="item">
-                        <span className="bold">Писатель:</span>
-                        <span className="descr">
-                            Никита Волок
-                        </span>
-                    </div>
-                    <div className="item">
-                        <span className="bold">Дата выхода:</span>
-                        <span className="descr">
-                            2 июня 1996 года
-                        </span>
-                    </div>
-                    <div className="item">
-                        <span className="bold">Страна:</span>
-                        <span className="descr">
-                            Молдова
-                        </span>
-                    </div>
-                    <div className="item">
-                        <span className="bold">Жанр:</span>
-                        <span className="descr">Биография</span>
-                    </div>
-                </div>
-            </AsideBox>
-            <SectionBox>
-                <h1>Вестсайдская история на Чеканах</h1>
-                <p>West Side Story 12+</p>
-                <div style={{
-                    marginTop: '25px',
-                    height: '200px'
-                }}>
-                   История о том как главный герой срочно едет на Чеканы, но зачем?
-                </div>
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '20px',
-                    marginTop: '30px'
-                }}>
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px'
-                    }}>
-                        <Link to={`/app/green/l/1/r/${1}`}>
-                            <button style={{
-                                width: '130px',
-                                padding: '3px 10px'
-                            }}>Читать
-                            </button>
-                        </Link>
-                        <span>онлайн(256 страниц)</span>
-                    </div>
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px'
-                    }}>
-                        <a
-                            href={linkBook}
-                            download='book.pdf'
-                            style={{
-                                color: 'black',
-                                textAlign: 'center',
-                                width: '130px',
-                                height: '30.9px',
-                                backgroundColor: '#F0F0F0',
-                                border: '1px solid gray',
-                                padding: '3px 10px'
-                            }}>Скачать
-                        </a>
-                        <span>pdf. файл</span>
-                    </div>
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px'
-                    }}>
-                        <button
-                            disabled={isPlayBook ? true : false}
-                            onClick={() => handleOnPlayBook()}
-                            style={{
-                                width: '130px',
-                                padding: '3px 10px'
-                            }}>Слушать
-                        </button>
-                        <span>аудиокнигу</span>
-                    </div>
-                </div>
-            </SectionBox>
-        </LiteratureSectionWrapper>
-    )
+  return (
+    <LiteratureSectionWrapper>
+      <AsideBox>
+        <AlbumCard>
+          <img src={Book} alt="" />
+        </AlbumCard>
+        <div className="movie_details">
+          <div className="item">
+            <span className="bold">Писатель:</span>
+            <span className="descr">Никита Волок</span>
+          </div>
+          <div className="item">
+            <span className="bold">Дата выхода:</span>
+            <span className="descr">2 июня 1996 года</span>
+          </div>
+          <div className="item">
+            <span className="bold">Страна:</span>
+            <span className="descr">Молдова</span>
+          </div>
+          <div className="item">
+            <span className="bold">Жанр:</span>
+            <span className="descr">Биография</span>
+          </div>
+        </div>
+      </AsideBox>
+      <SectionBox>
+        <h1>Вестсайдская история на Чеканах</h1>
+        <p>West Side Story 12+</p>
+        <div
+          style={{
+            marginTop: "25px",
+            height: "200px",
+          }}
+        >
+          История о том как главный герой срочно едет на Чеканы, но зачем?
+        </div>
+        <Tooltip position="top-end" label="Добавить в коллекцию">
+          <div
+            onClick={handleSave}
+            style={{
+              position: "relative",
+              top: "-63%",
+              right: "-105%",
+              width: "min-content",
+              cursor: "pointer",
+            }}
+          >
+            <GiDoorWatcher size={23} />
+          </div>
+        </Tooltip>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+            marginTop: "30px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <Link to={`/app/green/l/1/r/${1}`}>
+              <button
+                style={{
+                  width: "130px",
+                  padding: "3px 10px",
+                }}
+              >
+                Читать
+              </button>
+            </Link>
+            <span>онлайн(256 страниц)</span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <a
+              href={linkBook}
+              download="book.pdf"
+              style={{
+                color: "black",
+                textAlign: "center",
+                width: "130px",
+                height: "30.9px",
+                backgroundColor: "#F0F0F0",
+                border: "1px solid gray",
+                padding: "3px 10px",
+              }}
+            >
+              Скачать
+            </a>
+            <span>pdf. файл</span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <button
+              disabled={isPlayBook ? true : false}
+              onClick={() => handleOnPlayBook()}
+              style={{
+                width: "130px",
+                padding: "3px 10px",
+              }}
+            >
+              Слушать
+            </button>
+            <span>аудиокнигу</span>
+          </div>
+        </div>
+      </SectionBox>
+    </LiteratureSectionWrapper>
+  );
 }

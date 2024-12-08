@@ -1,11 +1,7 @@
 import { Chip, Group } from "@mantine/core";
 import { useState } from "react";
-import { Input } from "semantic-ui-react";
-
-
-
-// const primaryColor = '#00CED1'
-// const secondaryColor = '#E0FFFF'
+import { SearchBox } from "../../search/LocalSearch";
+import { redArt } from "../../../data/art/red";
 
 
 export function FiltersArt({ setValue, value, primaryColor, secondaryColor }) {
@@ -82,7 +78,7 @@ export function FiltersArt({ setValue, value, primaryColor, secondaryColor }) {
           <div style={{
             width: '300px'
           }}>
-            <Input fluid icon='search' placeholder='Add a genre, location or tag' />
+            <SearchBox data={redArt} navigatePath={'/app/red/art/'} />
           </div>
         </div>
       </div>

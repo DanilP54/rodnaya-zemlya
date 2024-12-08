@@ -4,11 +4,12 @@ import { useLocation } from "react-router-dom";
 import { useLayoutEffect } from "react";
 import styled from "styled-components";
 import { MenuNotification } from "./notification.jsx";
+import { PRIMARY_GREEN, PRIMARY_RED, PRIMARY_TURQUOISE } from "../../constants.js";
 
 const buttonsList = [
   {
     id: 1,
-    color: "hsl(0, 73%, 64%)",
+    color: PRIMARY_RED,
     name: "red",
     isActive: false,
     isNotification: false,
@@ -37,7 +38,7 @@ const buttonsList = [
   },
   {
     id: 2,
-    color: "hsl(145, 63%, 49%)",
+    color: PRIMARY_GREEN,
     name: "green",
     isActive: false,
     isSelected: false,
@@ -66,7 +67,7 @@ const buttonsList = [
   },
   {
     id: 3,
-    color: "hsl(204, 70%, 53%)",
+    color: PRIMARY_TURQUOISE,
     isActive: false,
     name: "turquoise",
     isVisible: false,
@@ -223,7 +224,7 @@ export function NavigationMenu() {
   return (
     <div
       style={{
-        marginTop: notification.status ? (isGreen || isTurquoise ? "80px" : "60px") : "40px",
+        marginTop: notification.status ? (isGreen || isTurquoise ? "90px" : "60px") : "40px",
         transition: "margin-top 0.4s",
       }}
     >

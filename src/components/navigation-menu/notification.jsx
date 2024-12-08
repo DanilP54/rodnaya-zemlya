@@ -22,26 +22,30 @@ export const MenuNotification = ({ open, setOpen }) => {
       <div
         className={`${classes.wrap}`}
         style={{
+          backgroundColor: theme === "dark" ? "#000000" : "rgb(238, 237, 237)",
           top: open.status ? "10px" : "-300px",
-          border: `1px solid ${open.color
-            ? getColor(open.color)
-            : theme === "dark"
-              ? "white"
-              : "black"
-            }`,
+          // border: `1px solid ${open.color
+          //   ? getColor(open.color)
+          //   : theme === "dark"
+          //     ? "white"
+          //     : "black"
+          //   }`,
+          border: `1px solid #333`
         }}
       >
         <div
           style={{
             position: "absolute",
-            top: "-17px",
-            right: "-30px",
+            top: "-10px",
+            right: "5px",
             cursor: "pointer",
-            color: open.color
-              ? open.color
-              : theme === "dark"
-                ? "white"
-                : "black",
+            // color: open.color
+            //   ? open.color
+            //   : theme === "dark"
+            //     ? "white"
+            //     : "black",
+
+            color: theme === "dark" ? "#ffffffc9" : "#000",
             fontSize: "25px",
             fontWeight: "bold",
           }}
@@ -53,7 +57,7 @@ export const MenuNotification = ({ open, setOpen }) => {
           style={{
             // width: '200px',
             textAlign: 'center',
-            color: theme === "dark" ? "white" : "black",
+            color: theme === "dark" ? "rgb(227, 227, 227)" : "black",
             fontWeight: "bold",
             fontSize: "13px",
           }}
@@ -72,7 +76,7 @@ export const MenuNotification = ({ open, setOpen }) => {
               height: "0",
               borderLeft: "10px solid transparent",
               borderRight: "10px solid transparent",
-              borderTop: `10px solid ${getColor(open.color)}`,
+              borderTop: `10px solid ${theme === "dark" ? "#989797dd" : "#000000"}`,
             }}
           ></div>
         )}

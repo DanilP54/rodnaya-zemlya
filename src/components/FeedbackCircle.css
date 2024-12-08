@@ -1,0 +1,87 @@
+.circle {
+  width: 45px;
+  height: 45px;
+  background-color: #58a6ad; /* Цвет круга */
+  border-radius: 50%;
+  position: fixed; /* Круг фиксирован */
+  bottom: 20px; /* Отступ от нижнего края */
+  right: 10px; /* Отступ от левого края */
+  z-index: 1000; /* Поверх всех элементов */
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease, bottom 0.3s ease;
+}
+
+.circle:hover {
+  background-color: #3b5066; /* Цвет при наведении */
+  transform: scale(1.1);
+}
+
+.feedback-form {
+  color: rgb(221, 220, 220);
+  width: 500px;
+  padding: 20px;
+  backdrop-filter: blur(100px);
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  position: fixed; /* Форма фиксированная */
+  bottom: 20px; /* Отступы для формы */
+  right: 20px;
+  z-index: 1001; /* Выше круга */
+  animation: formFadeIn 0.3s ease;
+}
+
+@keyframes formFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedback-form h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.feedback-form textarea {
+  width: 100%;
+  height: 90px;
+  padding: 10px;
+  resize: none;
+  color: #717171;
+  font-weight: bold;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.feedback-form .submit-button {
+  background-color: #4d4d4d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feedback-form .submit-button:hover {
+  background-color: #525252;
+}
+
+.feedback-form .close-button {
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  /* color: #fffdfd; */
+}

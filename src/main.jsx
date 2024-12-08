@@ -1,8 +1,6 @@
 import { lazy, StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 
-
-
 import 'semantic-ui-css/semantic.min.css'
 import '@mantine/core/styles.css';
 import 'react-h5-audio-player/lib/styles.css';
