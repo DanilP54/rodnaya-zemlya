@@ -6,7 +6,7 @@ import { usePlayerContext } from '../context/usePlayerContext';
 const FeedbackCircle = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const {isOpen: open} = usePlayerContext()
+  const {isOpen: open, isCollaps} = usePlayerContext()
 
   const toggleForm = () => {
     setIsOpen(!isOpen);
@@ -16,7 +16,7 @@ const FeedbackCircle = () => {
     <div>
       {!isOpen && (
         <div style={{
-          bottom: open ? '90px' : '20px'
+          bottom: open && !isCollaps ? '90px' : '20px'
         }} className="circle" onClick={toggleForm}></div>
       )}
 

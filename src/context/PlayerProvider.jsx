@@ -1,6 +1,6 @@
 import { createContext, useLayoutEffect, useState, useEffect, useRef } from "react";
 import AudioPlayer from 'react-h5-audio-player';
-// import Close from '../../public/close.svg';
+
 
 import { useThemeContext } from "./ThemeContext";
 
@@ -155,6 +155,7 @@ export function PlayerProvider({ children }) {
             setOpen(true)
             setTrack(track)
         },
+        isCollaps: collaps,
         handleOnPause,
         handleOnPlay,
         getCurrentTrackId() {
