@@ -54,3 +54,14 @@
 .input_box {
     /* width: 25rem; */
 }
+
+
+.global_link a {
+    padding: 4px;
+   
+}
+
+.global_link a:hover {
+
+    background-color: rgba(128, 128, 128, 0.086);
+}

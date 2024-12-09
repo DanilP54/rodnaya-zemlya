@@ -115,9 +115,16 @@ export function Header() {
           }}
         >
           <div
+            className={style.global_link}
             style={{
+              position: 'absolute',
+              top: "70px",
+              right: "58px",
               display: "flex",
-              gap: "20px",
+              alignItems: 'start',
+              flexDirection: "column",
+
+              gap: "6px",
             }}
           >
             <Link
@@ -137,7 +144,7 @@ export function Header() {
                 <WebSiteIcon color={theme === "light" ? "black" : "white"} />
                 <span
                   style={{
-                    fontWeight: '500',
+                    fontWeight: '400',
                     color: theme === "light" ? "black" : "white",
                     fontSize: "15px",
                   }}
@@ -168,7 +175,7 @@ export function Header() {
                 <span
                   style={{
                     color: theme === "light" ? "black" : "white",
-                    fontWeight: '500',
+                    fontWeight: '400',
                     fontSize: "15px",
                   }}
                 >
