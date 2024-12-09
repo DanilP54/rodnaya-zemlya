@@ -8,158 +8,114 @@ import { turquoiseMovieList } from "../../../data/movie/terquoise";
 const primaryColor = PRIMARY_TURQUOISE;
 const secondaryColor = SECONDARY_TURQUOISE;
 
-function Demo() {
-  return (
-    <>
-      <Chip.Group>
-        <Group justify="center">
-          <Chip value="1">Single chip</Chip>
-          <Chip value="2">Can be selected</Chip>
-          <Chip value="3">At a time</Chip>
-        </Group>
-      </Chip.Group>
-
-      <Chip.Group multiple>
-        <Group justify="center" mt="md">
-          <Chip value="1">Multiple chips</Chip>
-          <Chip value="2">Can be selected</Chip>
-          <Chip value="3">At a time</Chip>
-        </Group>
-      </Chip.Group>
-    </>
-  );
-}
 
 export function TurquoiseFiltersMovie({ setValue, value }) {
+  
   const [checkedCom, setCheckedCom] = useState(false);
   const [checkedNotCom, setCheckedNotCom] = useState(false);
   const [doc, setDoc] = useState(false);
 
   return (
-    <>
-      <div
-        style={{
-          display: "flex",
-          // flexDirection: "column",
-          justifyContent: "space-between",
-          marginLeft: "128px",
-          padding: "10px 68px",
-          borderLeft: `6px solid ${primaryColor}`,
-          borderBottom: `6px solid ${primaryColor}`,
-          borderRight: `6px solid ${primaryColor}`,
-          borderBottom: `6px solid ${primaryColor}`,
-          backgroundColor: secondaryColor,
-        }}
-      >
-        <div style={{ width: "100%" }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div>
-              <Chip.Group onChange={setValue} value={value}>
-                <Group gap={"10px"} align="center">
-                  <Chip
-                    value="Коммерческое"
-                    checked={checkedCom}
-                    onClick={(e) => {
-                      if (e.target.value === value) {
-                        setValue(null);
-                      }
+    <div style={{ display: 'flex', justifyContent: 'space-between', marginLeft: '128px', padding: '10px 68px', borderLeft: `6px solid ${primaryColor}`, borderBottom: `6px solid ${primaryColor}`, borderRight: `6px solid ${primaryColor}`, borderBottom: `6px solid ${primaryColor}`, backgroundColor: secondaryColor }}>
+      <div style={{ width: '100%' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <Chip.Group onChange={setValue} value={value}>
+              <Group gap={'10px'} align="center">
+                <Chip
+                  value='Коммерческое'
+                  checked={checkedCom}
+                  onClick={(e) => {
+                    if (e.target.value === value) {
+                      setValue(null)
+                    }
 
-                      if (checkedNotCom) setCheckedNotCom(false);
-                      if (doc) setDoc(false);
-                      setCheckedCom((v) => !v);
-                    }}
-                    style={{
-                      fontWeight: "bold",
-                      border: "none",
-                      outline: "none",
-                      backgroundColor: "transparent",
-                      padding: "0 0 0 0",
-                    }}
-                    // icon={<IconX />}
-                    color={checkedCom ? primaryColor : ""}
-                    radius={"xs"}
-                    size="md"
-                    variant={checkedCom ? "light" : "none"}
-                  >
-                    Коммерческое
-                  </Chip>
-                  <Chip
-                    value="Некоммерческое"
-                    checked={checkedNotCom}
-                    onClick={(e) => {
-                      if (e.target.value === value) {
-                        setValue(null);
-                      }
+                    if (checkedNotCom) setCheckedNotCom(false);
+                    if(doc) setDoc(false);
+                    setCheckedCom((v) => !v);
 
-                      if (checkedCom) setCheckedCom(false);
-                      if (doc) setDoc(false);
-                      setCheckedNotCom((v) => !v);
-                    }}
-                    style={{
-                      fontWeight: "bold",
-                      border: "none",
-                      outline: "none",
-                      backgroundColor: "transparent",
-                      padding: "0 0 0 0",
-                    }}
-                    // icon={<IconX />}
-                    color={checkedNotCom ? primaryColor : ""}
-                    radius={"xs"}
-                    size="md"
-                    variant={checkedNotCom ? "light" : "none"}
-                  >
-                    Некоммерческое
-                  </Chip>
-                  <Chip
-                    value="Документальное"
-                    checked={doc}
-                    onClick={(e) => {
-                      if (e.target.value === value) {
-                        setValue(null);
-                      }
+                  }}
+                  style={{
+                    fontWeight: 'bold',
+                    border: 'none',
+                    outline: 'none',
+                    backgroundColor: 'transparent',
+                    padding: '0 0 0 0'
+                  }}
+                  // icon={<IconX />}
+                  color={checkedCom ? primaryColor : ''}
+                  radius={'xs'}
+                  size="md"
+                  variant={checkedCom ? 'light' : 'none'}
+                >
+                  Коммерческое
+                </Chip>
+                <Chip
+                  value='Некоммерческое'
+                  checked={checkedNotCom}
+                  onClick={(e) => {
+                    if (e.target.value === value) {
+                      setValue(null)
+                    }
 
-                      if (checkedCom) setCheckedCom(false);
-                      if (checkedNotCom) setCheckedNotCom(false);
-                      setDoc((v) => !v);
-                    }}
-                    style={{
-                      fontWeight: "bold",
-                      border: "none",
-                      outline: "none",
-                      backgroundColor: "transparent",
-                      padding: "0 0 0 0",
-                    }}
-                    // icon={<IconX />}
-                    color={doc ? primaryColor : ""}
-                    radius={"xs"}
-                    size="md"
-                    variant={doc ? "light" : "none"}
-                  >
-                    Документальное
-                  </Chip>
-                </Group>
-              </Chip.Group>
-            </div>
+                    if (checkedCom) setCheckedCom(false);
+                    if (doc) setDoc(false);
+                    setCheckedNotCom((v) => !v);
+
+                  }}
+                  style={{
+                    fontWeight: 'bold',
+                    border: 'none',
+                    outline: 'none',
+                    backgroundColor: 'transparent',
+                    padding: '0 0 0 0'
+                  }}
+                  // icon={<IconX />}
+                  color={checkedNotCom ? primaryColor : ''}
+                  radius={'xs'}
+                  size="md"
+                  variant={checkedNotCom ? 'light' : 'none'}
+                >
+                  Некоммерческое
+                </Chip>
+                <Chip
+                  value="Документальное"
+                  checked={doc}
+                  onClick={(e) => {
+                    if (e.target.value === value) {
+                      setValue(null);
+                    }
+
+                    if (checkedCom) setCheckedCom(false);
+                    if (checkedNotCom) setCheckedNotCom(false);
+                    setDoc((v) => !v);
+                  }}
+                  style={{
+                    fontWeight: "bold",
+                    border: "none",
+                    outline: "none",
+                    backgroundColor: "transparent",
+                    padding: "0 0 0 0",
+                  }}
+                  // icon={<IconX />}
+                  color={doc ? primaryColor : ""}
+                  radius={"xs"}
+                  size="md"
+                  variant={doc ? "light" : "none"}
+                >
+                  Документальное
+                </Chip>
+              </Group>
+            </Chip.Group>
           </div>
-         
-        </div>
-        <div
-            style={{
+          <div style={{
+        
               width: "300px",
-            }}
-          >
-            <SearchBox
-              data={turquoiseMovieList}
-              navigatePath={"/app/turquoise/m/"}
-            />
+            }}>
+            <SearchBox data={turquoiseMovieList} navigatePath={'/app/turquoise/a/'} />
           </div>
+        </div>
       </div>
-    </>
-  );
+    </div>
+  )
 }
