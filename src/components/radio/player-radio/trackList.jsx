@@ -3,13 +3,13 @@ import { Button } from "./Button";
 import { Pause, Play } from "lucide-react";
 import { useThemeContext } from "../../../context/ThemeContext";
 
-// Внешние inline-стили
+
 const styles = {
   container: {
-    height: "100%",
+    // height: "100%",
     padding: '5px',
     overflow: "auto",
-    // border: '1px solid #0b0b0b36'
+    backdropFilter: 'blur(30px)',
   },
   trackItem: {
     display: "flex",
@@ -67,17 +67,26 @@ export const TrackList = ({
           }}
           onClick={(e) => {
             e.stopPropagation();
-            onPlayPause(track.id, track.color);
+            onPlayPause(track.id, track.image);
           }}
-          // onClick={() => onTrackSelect(track)}
+        // onClick={() => onTrackSelect(track)}
         >
-          <div
-            style={{
-              width: '3rem',
-              height: '3rem',
-              backgroundColor: track.color,
-            }}
-          ></div>
+          <div style={{
+            backgroundSize: 'cover',
+            width: '3rem',
+            height: '3rem',
+          }}
+          >
+            <img src={track.image} style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}  alt="" />
+          </div>
+
+
+
+
           <div style={{
             flex: 1,
             color: radio ? "black" : theme === "light" ? "black" : "white",
@@ -87,10 +96,10 @@ export const TrackList = ({
           </div>
           <Button
             style={styles.button}
-           
+
           >
             {playingTrackId === track.id ? (
-              <Pause fill="3" color={radio ? 'black' :theme === 'light' ? 'black' : 'white'} />
+              <Pause fill="3" color={radio ? 'black' : theme === 'light' ? 'black' : 'white'} />
             ) : (
               <Play fill="3" color={radio ? 'black' : theme === 'light' ? 'black' : 'white'} />
             )}

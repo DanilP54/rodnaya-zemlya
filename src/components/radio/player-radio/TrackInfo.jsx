@@ -10,8 +10,9 @@ import './trackinfo.module.css'
 const styles = {
   container: {
     position: "absolute",
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
     padding: "1rem",
+    // backgroundColor: 'rgba(0,0,0, .1)',
+    backdropFilter: 'blur(20px)',
     width: "500px",
   },
   content: {
@@ -23,15 +24,17 @@ const styles = {
   title: {
     fontSize: "1.25rem",
     fontWeight: "bold",
+    color: "#000000",
     marginBottom: "0.5rem",
   },
   artist: {
     fontSize: "0.875rem",
-    color: "#222324",
+    color: "#000000",
     marginBottom: "0.5rem",
   },
   description: {
     fontSize: "1rem",
+    color: "#000000",
     fontWeight: '500'
   },
   progressContainer: {
@@ -46,7 +49,7 @@ const styles = {
     width: "70%",
     justifyContent: "space-between",
     fontSize: "0.875rem",
-    color: "#6b7280",
+    color: "#000000",
   },
   buttonsContainer: {
     display: "flex",
@@ -112,31 +115,31 @@ export const TrackInfo = ({
               gap: "50px",
             }}
           >
-            <Slider showLabelOnHover={false} size={"lg"} radius={"sm"} thumbSize={18} color="dark" style={styles.progressBar} mih={0} max={100} value={Math.floor(progress)}  onChange={(value) => onProgressChange(value)} />
-            <Slider size={"lg"} radius={"sm"} thumbSize={18} color="dark" style={{width: '70px'}} min={0} max={100} defaultValue={70} onChange={(value) => onVolumeChange(Number(value))}  />
+            <Slider bg={'black'} showLabelOnHover={false} size={"sm"} radius={"none"} thumbSize={18} color="black" style={styles.progressBar} mih={0} max={100} value={Math.floor(progress)}  onChange={(value) => onProgressChange(value)} />
+            <Slider bg={'black'} showLabelOnHover={false} size={"sm"} radius={"none"} thumbSize={18} color="black" style={{width: '70px'}} min={0} max={100} defaultValue={70} onChange={(value) => onVolumeChange(Number(value))}  />
           </div>
 
           <div style={styles.timeContainer}>
             <span style={{
-              color: 'black'
+              color: 'inherit'
             }}>
               {formatTime(Math.floor(progress * 0.01 * duration))}
             </span>
             <span style={{
-              color: 'black'
+               color: 'inherit'
             }}>{formatTime(Math.floor(duration))}</span>
           </div>
 
           <div style={styles.buttonsContainer}>
             <Button
               style={{
-                color: "black",
+                color: 'black',
                 backgroundColor: "transparent",
               }}
               onClick={onRewind}
             >
               <Tooltip label="-10s">
-                <RewindIcon fill="3" />
+                <RewindIcon size={20} fill="3" />
               </Tooltip>
             </Button>
             <Button
@@ -149,6 +152,7 @@ export const TrackInfo = ({
               <Tooltip label="+10s">
                 <RewindIcon
                   fill="3"
+                  size={20}
                   style={{
                     transform: "rotate(.5turn)",
                   }}
