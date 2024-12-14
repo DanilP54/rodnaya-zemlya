@@ -56,8 +56,8 @@ import ArtPage from './components/pages/details/turquoise/ArtPage.jsx';
 const RootNews = lazy(() => import('./components/pages/news/RootNews.jsx'))
 import App from './App.jsx'
 import { PRIMARY_GREEN, PRIMARY_RED, PRIMARY_TURQUOISE } from './constants.js';
-// const RootRadio = lazy(() => import('./components/radio/RootRadio.jsx'))
-import RootRadio from './components/radio/RootRadio.jsx';
+const RootRadio = lazy(() => import('./components/radio/RootRadio.jsx'))
+// import RootRadio from './components/radio/RootRadio.jsx';
 // const App = lazy(() => import('./App.jsx'))
 
 
