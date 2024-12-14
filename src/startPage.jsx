@@ -3,6 +3,7 @@ import WhiteLogo from '../public/logo/rz_white.png'
 import BlackLogo from '../public/logo/rz_black_cut.png'
 import { useThemeContext } from "./context/ThemeContext.jsx";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function StartPage() {
 
