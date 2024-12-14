@@ -47,7 +47,6 @@ export function PlayerProvider({ children }) {
     const [track, setTrack] = useState({})
     const [play, setPlay] = useState(false)
     const [collaps, setCollaps] = useState(false)
-
     const { theme } = useThemeContext()
 
     const audioRef = useRef(null)
@@ -151,8 +150,11 @@ export function PlayerProvider({ children }) {
 
     const playerActions = {
 
-        onPlayTrack(track) {
-            setOpen(true)
+        onPlayTrack(track, o = null) {
+            if(!o) {
+                setOpen(true) 
+                return
+            }
             setTrack(track)
         },
         isCollaps: collaps,

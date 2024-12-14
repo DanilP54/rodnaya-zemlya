@@ -74,7 +74,7 @@ export const actions = [
  
 ];
 
-export default function SearchInput({ width }) {
+export default function SearchInput({ width, radio }) {
   const { theme } = useThemeContext();
   const [query, setQuery] = useState("")
 
@@ -89,6 +89,7 @@ export default function SearchInput({ width }) {
             marginLeft: 'auto',
             alignItems: "center",
             border:
+            radio ? '1px solid black' : 
               theme === "light"
                 ? "1px solid rgb(227, 225, 225)"
                 : "1px solid white",
@@ -104,7 +105,7 @@ export default function SearchInput({ width }) {
         >
           <span
             style={{
-              color: theme === "light" ? "black" : "white",
+              color: radio ? "black" : theme === "light" ? "black" : "white",
               fontSize: "14px",
               fontWeight: "400",
             }}
@@ -118,7 +119,7 @@ export default function SearchInput({ width }) {
               alignItems: "center",
             }}
           >
-            <IconSearch color={theme === "light" ? "black" : "white"} />
+            <IconSearch color={radio ? 'black' : theme === "light" ? "black" : "white"} />
           </div>
         </button>
         <Spotlight

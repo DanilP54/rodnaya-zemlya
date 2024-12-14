@@ -56,6 +56,8 @@ import ArtPage from './components/pages/details/turquoise/ArtPage.jsx';
 const RootNews = lazy(() => import('./components/pages/news/RootNews.jsx'))
 import App from './App.jsx'
 import { PRIMARY_GREEN, PRIMARY_RED, PRIMARY_TURQUOISE } from './constants.js';
+// const RootRadio = lazy(() => import('./components/radio/RootRadio.jsx'))
+import RootRadio from './components/radio/RootRadio.jsx';
 // const App = lazy(() => import('./App.jsx'))
 
 
@@ -332,6 +334,15 @@ const routers = [
       justifyContent: 'center',
       alignItems: 'center'
     }}><Loader size={'xl'} color='gray' /></div>}><RootNews /></Suspense>
+  },
+  {
+    path: '/radio',
+    element: <Suspense fallback={<div style={{
+      height: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}><Loader size={'xl'} color='gray' /></div>}><RootRadio /></Suspense>
   }
 ]
 

@@ -75,7 +75,7 @@ export default function StartPage() {
                         <Link style={{
                             fontWeight: 'bold',
                             color: theme === 'light' ? 'black' : 'white',
-                        }} to={'#'}>рз радио</Link>
+                        }} to={'/radio'}>рз радио</Link>
                     </div>
                 </div>
                 

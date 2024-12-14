@@ -37,7 +37,8 @@ body {
   /* transition: background-color 0.4s ease;  */
   color: black;
   background-color: rgb(255, 255, 255);
-  --scrollbar-bg: #f1f1f1;
+  --scrollbar-bg: #202020;
+  /* --scrollbar-bg: #f1f1f1; */
   --scrollbar-thumb: #676767;
 }
 
@@ -59,7 +60,7 @@ html {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
-  border: 3px solid var(--scrollbar-bg);
+  border: 1px solid var(--scrollbar-bg);
 }
 
 .m_576c9d4::before {

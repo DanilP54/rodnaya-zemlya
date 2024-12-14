@@ -1,7 +1,7 @@
 import style from "./header.module.css";
 import WhiteLogo from "../../../public/logo/rz_white.png";
 import BlackLogo from "../../../public/logo/rz_black_cut.png";
-
+import { Newspaper, NewspaperIcon } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Tooltip } from "@mantine/core";
 import { useThemeContext } from "../../context/ThemeContext";
@@ -88,9 +88,10 @@ export function ThemeButton() {
   );
 }
 
-export function Header() {
-
+export function Header({ page, radio = false }) {
   const { theme } = useThemeContext();
+
+  const light = theme === "light";
 
   return (
     <div className={style.header_wrapper}>
@@ -98,7 +99,9 @@ export function Header() {
         <div>
           <Link to="/">
             <img
-              src={theme === "light" ? BlackLogo : WhiteLogo}
+              src={
+                radio ? BlackLogo : theme === "light" ? BlackLogo : WhiteLogo
+              }
               alt="logo"
               className={style.logo}
             />
@@ -114,77 +117,86 @@ export function Header() {
             height: "min-content",
           }}
         >
-          <div
-            className={style.global_link}
-            style={{
-              position: 'absolute',
-              top: "70px",
-              right: "58px",
-              display: "flex",
-              alignItems: 'start',
-              flexDirection: "column",
-
-              gap: "6px",
-            }}
-          >
-            <Link
+          {!page && (
+            <div
+              className={style.global_link}
               style={{
-                color: "black",
-              }}
-              to="/news"
-            >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "15px",
-                }}
-              >
-                <WebSiteIcon color={theme === "light" ? "black" : "white"} />
-                <span
-                  style={{
-                    fontWeight: '400',
-                    color: theme === "light" ? "black" : "white",
-                    fontSize: "15px",
-                  }}
-                >
-                  лента
-                </span>
-              </div>
-            </Link>
-            <Link
-              style={{
+                position: "absolute",
+                top: "70px",
+                right: "58px",
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: theme === "light" ? "black" : "white",
-                // backgroundColor: 'rgba(0,0,0, .1)'
+                alignItems: "start",
+                flexDirection: "column",
+
+                gap: "6px",
               }}
-              to="#"
             >
-              <div
+              <Link
+                style={{
+                  color: "black",
+                }}
+                to="/news"
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "15px",
+                  }}
+                >
+                  <WebSiteIcon color={theme === "light" ? "black" : "white"} />
+                  <span
+                    style={{
+                      fontWeight: "400",
+                      color: theme === "light" ? "black" : "white",
+                      fontSize: "15px",
+                    }}
+                  >
+                    лента
+                  </span>
+                </div>
+              </Link>
+              <Link
                 style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  gap: "15px",
+                  color: theme === "light" ? "black" : "white",
+                  // backgroundColor: 'rgba(0,0,0, .1)'
                 }}
+                to={page === "radio" ? "/app" : "/radio"}
               >
-                <TvIcon color={theme === "light" ? "black" : "white"} />
-                <span
+                <div
                   style={{
-                    color: theme === "light" ? "black" : "white",
-                    fontWeight: '400',
-                    fontSize: "15px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "15px",
                   }}
                 >
-                  рз радио
-                </span>
-              </div>
-            </Link>
-          </div>
+                  {page === "radio" ? (
+                    <NewspaperIcon
+                      size={20}
+                      color={theme === "light" ? "black" : "white"}
+                    />
+                  ) : (
+                    <TvIcon color={theme === "light" ? "black" : "white"} />
+                  )}
 
+                  <span
+                    style={{
+                      color: theme === "light" ? "black" : "white",
+                      fontWeight: "400",
+                      fontSize: "15px",
+                    }}
+                  >
+                    {page === "radio" ? "рз" : "рз радио"}
+                  </span>
+                </div>
+              </Link>
+            </div>
+          )}
           <ThemeButton />
           <div
             style={{
@@ -194,7 +206,9 @@ export function Header() {
               height: "100%",
             }}
           >
-            <ul className={style.lang_list}>
+            <ul style={{
+              color: radio ? 'black' : 'inherit' 
+            }} className={style.lang_list}>
               <li className={style.list_item}>
                 <a href="#" className={style.lang_link}>
                   eng
@@ -218,9 +232,9 @@ export function Header() {
             </ul>
           </div>
 
-          <SearchInput />
+          <SearchInput radio={radio} />
 
-          <AuthButtons />
+          <AuthButtons radio={radio} />
         </div>
         {/* </div> */}
       </header>
