@@ -43,7 +43,8 @@ import { RedLiteraturePage } from "./components/pages/details/red/RedLiteratureP
 import { GreenLiteraturePage } from "./components/pages/details/green/GreenLiteraturePage.jsx";
 import { PlayerProvider } from './context/PlayerProvider.jsx';
 import { ThemeProvider, useThemeContext } from './context/ThemeContext.jsx';
-import StartPage from "./startPage.jsx";
+
+const StartPage = lazy(() => import("./startPage.jsx"))
 import TurquoiseArt from './components/pages/arts/TurquoiseArt.jsx';
 import ArtSection from './components/pages/ArtSection.jsx';
 import ArtDetailsSection from './components/pages/ArtDetails.jsx';
@@ -113,7 +114,12 @@ export const Loading = () => {
 const routers = [
   {
     path: '/',
-    element: <StartPage />,
+    element: <Suspense fallback={<div style={{
+      height: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}><Loader size={'xl'} color='gray' /></div>}><StartPage /></Suspense>,
   },
   {
     path: '/app',
