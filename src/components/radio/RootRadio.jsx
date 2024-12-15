@@ -8,21 +8,17 @@ import { toast, Slide, ToastContainer } from "react-toastify";
 
 const isAuth = false
 
-function LikeIcon({ like, color = 'currentColor' }) {
-
-          
-
-
+function LikeIcon({ like, color = 'currentColor', size = 18 }) {
   if (like) {
-    return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
+    return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
   }
 
-  return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+  return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
 }
 
 
-function SharedIcon({ color = 'currentColor' }) {
-  return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-share-3"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7z" /></svg>
+function SharedIcon({ color = 'currentColor', size = 18 }) {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-share-3"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7z" /></svg>
 }
 
 export default function RootRadio() {
@@ -38,29 +34,29 @@ export default function RootRadio() {
 
 
   const handleSave = () => {
-    if(!isAuth) {
+    if (!isAuth) {
       console.log('1')
-        return toast("Зарегестрируйтесь, пожалуйста, что бы сохранять материалы в личный кабинет", {
-            transition: Slide,
-            position: "top-center",
-            theme: "dark",
-            hideProgressBar: true
-        })
+      return toast("Зарегестрируйтесь, пожалуйста, что бы сохранять материалы в личный кабинет", {
+        transition: Slide,
+        position: "top-center",
+        theme: "dark",
+        hideProgressBar: true
+      })
     }
 
     setLike(s => !s)
-}
+  }
 
-const handleShared = () => {
-    if(!isAuth) {
-        return toast("Зарегестрируйтесь, пожалуйста, что бы делиться материалами", {
-            transition: Slide,
-            position: "top-center",
-            theme: "dark",
-            hideProgressBar: true
-        })
+  const handleShared = () => {
+    if (!isAuth) {
+      return toast("Зарегестрируйтесь, пожалуйста, что бы делиться материалами", {
+        transition: Slide,
+        position: "top-center",
+        theme: "dark",
+        hideProgressBar: true
+      })
     }
-}
+  }
 
 
 
@@ -89,9 +85,44 @@ const handleShared = () => {
           >
             <div style={{
               marginTop: '30px',
+              width: '1150px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '20px'
             }}>
-              <h2>{`Плейлист подкаста "${name}"`}</h2>
+              <div>
+                <h2>{`Плейлист подкаста "${name}"`}</h2>
+              </div>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '20px',
+              }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                }}
+                  onClick={handleSave}
+                >
+                  <LikeIcon like={like} size={22} />
+                </div>
+                <div
+                  onClick={handleShared}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                  }}>
+                  <SharedIcon size={22} />
+                </div>
+              </div>
             </div>
+
 
             <Flex
               mt={50}
@@ -105,6 +136,7 @@ const handleShared = () => {
               {tracks.map((track) => {
                 return (
                   <Card
+                    key={track.id}
                     c={'inherit'}
                     bd={'none'}
                     w={'250px'}
@@ -137,22 +169,22 @@ const handleShared = () => {
                       alignItems: 'center',
                       gap: '20px',
                       marginTop: '20px',
-                
+
                     }}>
                       <div style={{
                         cursor: 'pointer',
-                      }} 
-                      onClick={handleSave}
-                      
+                      }}
+                        onClick={handleSave}
+
                       >
                         <LikeIcon like={like} />
                       </div>
-                      <div 
-                      onClick={handleShared} 
-                      
-                      style={{
-                        cursor: 'pointer',
-                      }}>
+                      <div
+                        onClick={handleShared}
+
+                        style={{
+                          cursor: 'pointer',
+                        }}>
                         <SharedIcon />
                       </div>
                     </div>

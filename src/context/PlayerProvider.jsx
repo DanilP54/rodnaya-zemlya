@@ -64,16 +64,18 @@ export function PlayerProvider({ children }) {
         if (!playerContainer) return
 
         if (theme === 'light') {
+            
             playerContainer.id = 'light__container'
             repeatButton.id = 'light__repeat'
             volumeButton.id = 'light__volume'
             totalTime.id = 'light__volume'
             time.id = 'light__time'
             progress.id = 'light__progress'
+            
             for (let node of mainControl) {
-
                 node.id = 'light__main'
             }
+        
         } else {
             playerContainer.id = 'dark__container'
             repeatButton.id = 'dark__repeat'
