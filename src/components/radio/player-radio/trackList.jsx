@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { Button } from "./Button";
 import { Pause, Play } from "lucide-react";
 import { useThemeContext } from "../../../context/ThemeContext";
+import { usePlayerContext } from "../../../context/usePlayerContext";
 
 
 const styles = {
   container: {
-    // height: "100%",
     padding: '5px',
     overflow: "auto",
     backdropFilter: 'blur(30px)',
@@ -48,12 +48,50 @@ export const TrackList = ({
   radio,
   tracks,
   selectedTrack,
-  playingTrackId,
   onTrackSelect,
-  onPlayPause,
+  setSelectedTrack,
   trackRefs,
+  handleSetTracks
 }) => {
+  
   const { theme } = useThemeContext();
+  const {onPlayTrackAndNoOpen, handleOnPause, handleOnPlay, getCurrentTrackId, isPlayPlayer, setOpen} = usePlayerContext()
+  
+  
+
+
+
+  const handleTogglePlayAndPause = (track) => {
+    const currentId = getCurrentTrackId()
+
+    if(!!currentId && currentId === track.id && isPlayPlayer) {
+      return handleOnPause()
+    }
+
+    if(!!currentId && currentId === track.id && !isPlayPlayer) {
+      return handleOnPlay()
+    }
+ 
+    onPlayTrackAndNoOpen({
+      id: track.id,
+      title: track.title,
+      imageSrc: track.image,
+      trackSrc: track.trackSrc
+    })
+  }
+
+
+  useLayoutEffect(() => {
+    tracks.forEach((track) => {
+      if(getCurrentTrackId() === track.id) {
+        document.querySelector('#radio').style.backgroundImage = `url(${track.image})`
+        setSelectedTrack(track)
+        handleSetTracks(track.playlist, track.title)
+        setOpen(false)
+      }
+    })
+  }, [])
+
 
   return (
     <div style={styles.container}>
@@ -67,9 +105,9 @@ export const TrackList = ({
           }}
           onClick={(e) => {
             e.stopPropagation();
-            onPlayPause(track.id, track.image);
+            handleTogglePlayAndPause(track)
+            onTrackSelect(track)
           }}
-        // onClick={() => onTrackSelect(track)}
         >
           <div style={{
             backgroundSize: 'cover',
@@ -98,7 +136,7 @@ export const TrackList = ({
             style={styles.button}
 
           >
-            {playingTrackId === track.id ? (
+            {getCurrentTrackId() === track.id && isPlayPlayer ? (
               <Pause fill="3" color={radio ? 'black' : theme === 'light' ? 'black' : 'white'} />
             ) : (
               <Play fill="3" color={radio ? 'black' : theme === 'light' ? 'black' : 'white'} />

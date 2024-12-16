@@ -1,4 +1,7 @@
-import track from '../../../../public/podcasts/podcast.mp3'
+import track from '../../../../public/podcasts/pod.mp3'
+import track1 from '../../../../public/red-music/1.mp3'
+import track2 from '../../../../public/red-music/2.mp3'
+import track3 from '../../../../public/red-music/3.mp3'
 
 import image1 from '../../../../public/podcasts/1.jpg'
 import image2 from '../../../../public/podcasts/3.webp'
@@ -10,9 +13,7 @@ import Card1 from '../../../../public/Card1.jpg'
 import Card2 from '../../../../public/Card2.jpg'
 import Card3 from '../../../../public/Card3.jpg'
 import Card4 from '../../../../public/Card4.jpg'
-import Card5 from '../../../../public/Card5.jpg'
 import Card6 from '../../../../public/Card6.jpg'
-import Card7 from '../../../../public/Card7.jpg'
 import Card8 from '../../../../public/Card8.jpg'
 import Card9 from '../../../../public/Card9.jpg'
 import Card10 from '../../../../public/Card10.jpg'
@@ -23,14 +24,12 @@ import Card14 from '../../../../public/Card21.jpg'
 import Card15 from '../../../../public/Card22.jpg'
 import Card16 from '../../../../public/Card23.jpg'
 import Card17 from '../../../../public/Card24.jpg'
-import Card18 from '../../../../public/6.jpg'
-import Card19 from '../../../../public/5.jpg'
-import Card20 from '../../../../public/4.jpg'
+
 
 
 export const tracks = [
   {
-    id: 1,
+    id: 200,
     title: 'Дэймон, навсегда!',
     artist: '15 ноября 2024 г.',
     description: 'Музыкальный мир Дэймона Албарна и его влияние на мир',
@@ -47,14 +46,14 @@ export const tracks = [
     ]
   },
   {
-    id: 2,
+    id: 201,
     title: 'Love Supreme (ft. Jahan)',
     artist: '20 июля 2024 г.',
     description: 'Другое описание подкаста...',
     duration: 45,
     image: image2,
     color: 'blue',
-    trackSrc: track,
+    trackSrc: track1,
 
     playlist: [ // Обновлено поле playlist
       { title: 'Love Supreme', artist: 'John Coltrane', image: Card6 },
@@ -65,14 +64,14 @@ export const tracks = [
     ]
   },
   {
-    id: 3,
+    id: 202,
     title: 'DADADOO from Arbutus Cany',
     artist: '2 июня 2024 г.',
     description: 'Еще одно описание подкаста...',
     duration: 15,
     image: image3,
     color: 'green',
-    trackSrc: track,
+    trackSrc: track2,
     playlist: [ // Обновлено поле playlist
       { title: 'Electric Feel', artist: 'MGMT', image: Card11 },
       { title: 'Young Folks', artist: 'Peter Bjorn and John', image: Card12 },
@@ -82,14 +81,14 @@ export const tracks = [
     ]
   },
   {
-    id: 4,
+    id: 203,
     title: 'Chill Beats for Studying',
     artist: '12 мая 2024 г.',
     description: 'Расслабляющие биты для учебы и концентрации...',
     duration: 20,
     color: 'red',
     image: image4,
-    trackSrc: track,
+    trackSrc: track3,
     playlist: [ // Обновлено поле playlist
       { title: 'Weightless', artist: 'Marconi Union', image: Card16 },
       { title: 'Cold Little Heart', artist: 'Michael Kiwanuka', image: Card17 },
@@ -105,7 +104,7 @@ export const tracks = [
   //   description: 'Современные интерпретации джазовой классики...',
   //   duration: 50,
   //   color: 'purple',
-  //   trackSrc: track,
+  //   trackSrc: '',
   //   image: '/placeholder.svg?height=40&width=40',
   //   playlist: [ // Обновлено поле playlist
   //     { title: 'Take Five', artist: 'Dave Brubeck' },

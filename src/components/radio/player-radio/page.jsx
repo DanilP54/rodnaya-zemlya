@@ -31,7 +31,7 @@ export default function PodcastPlayer({ handleSetTracks, radio = false }) {
   const [duration, setDuration] = useState(0);
   const audioRef = useRef(new Audio());
   const trackRefs = useRef([]);
-  // const [currentTime, setCurrentTime] = useState(0);
+
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -53,7 +53,6 @@ export default function PodcastPlayer({ handleSetTracks, radio = false }) {
     audio.addEventListener("loadedmetadata", updateDuration);
 
     return () => {
-      audio.pause()
       audio.removeEventListener("timeupdate", updateProgress);
       audio.removeEventListener("loadedmetadata", updateDuration);
     };
@@ -61,11 +60,10 @@ export default function PodcastPlayer({ handleSetTracks, radio = false }) {
 
 
   const handleTrackSelect = (track) => {
-
-    setSelectedTrack(track);
-    setPlayingTrackId(track.id);
-    audioRef.current.src = track.trackSrc;
-    audioRef.current.play();
+      document.querySelector("#radio").style.transition = 'background-image .3s';
+      document.querySelector('#radio').style.backgroundImage = `url(${track.image})`
+      handleSetTracks(track.playlist, track.title)
+      setSelectedTrack(track);
   };
 
 
@@ -85,7 +83,6 @@ export default function PodcastPlayer({ handleSetTracks, radio = false }) {
         setSelectedTrack(track);
         setPlayingTrackId(trackId);
         audio.src = track.trackSrc;
-
 
         audio.play();
       }
@@ -147,6 +144,8 @@ export default function PodcastPlayer({ handleSetTracks, radio = false }) {
           playingTrackId={playingTrackId}
           onTrackSelect={handleTrackSelect}
           onPlayPause={handlePlayPause}
+          setSelectedTrack={setSelectedTrack}
+          handleSetTracks={handleSetTracks}
           trackRefs={trackRefs}
         />
       </div>

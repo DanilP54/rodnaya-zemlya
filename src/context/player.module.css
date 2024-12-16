@@ -1,0 +1,46 @@
+.playerContainer {
+    position: fixed;
+    z-index: 111;
+    display: none;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.playerContainerCollapsed {
+    border-radius: 10px;
+    width: 120px;
+    bottom: 10px;
+    left: 10px;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trackTitle {
+    color: inherit;
+    width: 500px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.trackTitleDark {
+    color: gray;
+}
+
+.headerButtonContainer {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    align-items: center;
+}
+
+.headerButton {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

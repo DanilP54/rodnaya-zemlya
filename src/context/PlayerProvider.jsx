@@ -1,6 +1,6 @@
 import { createContext, useLayoutEffect, useState, useEffect, useRef } from "react";
 import AudioPlayer from 'react-h5-audio-player';
-
+import styles from './player.module.css';
 
 import { useThemeContext } from "./ThemeContext";
 
@@ -15,7 +15,6 @@ function Close({ color }) {
     </svg>
 }
 
-
 function CollapsSvg({ color }) {
     return <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill='none'
         stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -28,6 +27,40 @@ function CollapsSvg({ color }) {
 function RightCollapsSvg({ color }) {
     return <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill='none' stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg>
 }
+
+
+const HeaderPlayer = ({ collaps, setCollaps, theme, onClose, track }) => {
+    return (
+        <div className={styles.headerContainer}>
+            {
+                !collaps && <span className={`${styles.trackTitle} ${theme === 'dark' ? styles.trackTitleDark : ''}`}
+                >
+                    {track.title}
+                </span>
+            }
+            <div className={styles.headerButtonContainer} style={collaps ? { justifyContent: 'space-between' } : {} }>
+                <div onClick={() => setCollaps(c => !c)} className={styles.headerButton} style={!collaps ? {marginLeft: 'auto'} : {}}>
+                    {
+                        collaps
+                            ? <RightCollapsSvg color={theme === 'light' ? 'black' : 'gray'} />
+                            : <CollapsSvg color={theme === 'light' ? 'black' : 'gray'} />
+                    }
+                </div>
+                <div onClick={() => onClose()} className={styles.headerButton}>
+                    <Close color={theme === 'light' ? 'black' : 'gray'} />
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+export const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60)
+    const remainingSeconds = seconds % 60
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`
+}
+
 
 
 export const PlayerContext = createContext()
@@ -49,6 +82,15 @@ export function PlayerProvider({ children }) {
     const [collaps, setCollaps] = useState(false)
     const { theme } = useThemeContext()
 
+
+    console.log(track)
+
+    const [mode, setMode] = useState('default')
+    // const [volume, setVolume] = useState(1)
+    const [currentTime, setCurrentTime] = useState(0)
+    const [totalTime, setTotalTime] = useState(0)
+    // const [progress, setProgress] = useState(null)
+    const [dataLoaded, setDataLoaded] = useState(false)
     const audioRef = useRef(null)
 
     useLayoutEffect(() => {
@@ -58,29 +100,29 @@ export function PlayerProvider({ children }) {
         let mainControl = document.querySelectorAll('.rhap_main-controls-button')
         let volumeButton = document.querySelector('.rhap_volume-button')
         let time = document.querySelector('.rhap_time')
-        let totalTime = document.querySelector('.rhap_total-time')
+        let totalTimeElement = document.querySelector('.rhap_total-time')
         let progress = document.querySelector('.rhap_progress-filled')
 
         if (!playerContainer) return
 
         if (theme === 'light') {
-            
+
             playerContainer.id = 'light__container'
             repeatButton.id = 'light__repeat'
             volumeButton.id = 'light__volume'
-            totalTime.id = 'light__volume'
+            totalTimeElement.id = 'light__volume'
             time.id = 'light__time'
             progress.id = 'light__progress'
-            
+
             for (let node of mainControl) {
                 node.id = 'light__main'
             }
-        
+
         } else {
             playerContainer.id = 'dark__container'
             repeatButton.id = 'dark__repeat'
             volumeButton.id = 'dark__volume'
-            totalTime.id = 'dark__volume'
+            totalTimeElement.id = 'dark__volume'
             progress.id = 'dark__progress'
             time.id = 'dark__time'
             for (let node of mainControl) {
@@ -89,13 +131,15 @@ export function PlayerProvider({ children }) {
         }
     }, [theme])
 
-
     const onClose = () => {
-
+        audioRef.current.audio.current.pause();
+        audioRef.current.audio.current.currentTime = 0;
+        audioRef.current.audio.current.src = '';
         setCollaps(false)
         setTrack({})
         setPlay(false)
         setOpen(false)
+        
     }
 
     useEffect(() => {
@@ -132,13 +176,25 @@ export function PlayerProvider({ children }) {
 
     }, [collaps])
 
+    // useEffect(() => {
+    //     if (!open && audioRef.current) {
+    //         audioRef.current.audio.current.pause();
+    //         audioRef.current.audio.current.currentTime = 0;
+    //     }
+    // }, [open]);
 
     useEffect(() => {
-        if (!open && audioRef.current) {
-            audioRef.current.audio.current.pause();
-            audioRef.current.audio.current.currentTime = 0;
+        if (audioRef.current && audioRef.current.audio.current) {
+            const audio = audioRef.current.audio.current;
+            const updateTime = () => {
+                setCurrentTime(audio.currentTime);
+                setTotalTime(audio.duration);
+            };
+            
+            audio.addEventListener('timeupdate', updateTime);
+            return () => audio.removeEventListener('timeupdate', updateTime);
         }
-    }, [open]);
+    }, [audioRef.current]);
 
     const handleOnPause = () => {
         const audio = document.querySelector('audio')
@@ -150,13 +206,23 @@ export function PlayerProvider({ children }) {
         audio.play()
     }
 
-    const playerActions = {
+ 
 
-        onPlayTrack(track, o = null) {
-            if(!o) {
-                setOpen(true) 
-                return
-            }
+    const playerActions = {
+        meta: {
+            dataLoaded,
+            audio: audioRef,
+            currentTime,
+            totalTime,
+        },
+        onPlayTrackAndNoOpen: (track) => {
+            setDataLoaded(false)
+            setTrack(track)
+        },
+        setOpen,
+
+        onPlayTrack(track) {
+            setOpen(true)
             setTrack(track)
         },
         isCollaps: collaps,
@@ -171,87 +237,27 @@ export function PlayerProvider({ children }) {
 
     }
 
-
-
     return (
         <PlayerContext.Provider value={playerActions}>
             {children}
-
-
-            <div style={{
-                position: 'fixed',
-                borderRadius: collaps ? '10px' : 0,
-                zIndex: 111,
-                display: open ? 'block' : 'none',
-                width: collaps ? '120px' : '100%',
-                bottom: collaps ? '10px' : 0,
-                left: collaps ? '10px' : 0,
-            }}>
+            <div
+                className={`${styles.playerContainer} ${collaps ? styles.playerContainerCollapsed : ''}`}
+                style={{ display: open ? 'block' : 'none' }}>
                 <AudioPlayer
+                    onLoadedMetaData={(e) => {
+                        setDataLoaded(true)
+                        setTotalTime(e.target.duration)
+                    }}
                     ref={audioRef}
                     showDownloadProgress={true}
-                    header={
-                        <div
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center'
-                            }}>
-                            {
-                                !collaps && <span
-                                    style={{
-                                        color: theme === 'light' ? 'inherit' : 'gray',
-                                        fontSize: '13px',
-                                        fontWeight: 'bold',
-                                    }}>
-                                    {track.title}
-                                </span>
-                            }
-
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    width: collaps ? '100%' : '',
-                                    justifyContent: collaps ? 'space-between' : '',
-                                    gap: '5px',
-                                    alignItems: 'center'
-                                }}>
-                                <div onClick={() => setCollaps(c => !c)} style={{
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-
-                                }}>
-                                    {
-                                        collaps
-                                            ? <RightCollapsSvg color={theme === 'light' ? 'black' : 'gray'} />
-                                            : <CollapsSvg color={theme === 'light' ? 'black' : 'gray'} />
-                                    }
-                                </div>
-                                <div onClick={() => onClose()} style={{
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    {
-                                        <Close color={theme === 'light' ? 'black' : 'gray'} />
-                                    }
-                                </div>
-
-                            </div>
-                        </div>
-                    }
+                    header={<HeaderPlayer collaps={collaps} setCollaps={setCollaps} theme={theme} onClose={onClose} track={track} />}
                     layout={'horizontal-reverse'}
                     src={!!track?.trackSrc && track.trackSrc}
-                    autoPlay
+                    autoPlay={open}
                     onPlay={() => setPlay(true)}
                     onPause={(e) => setPlay(false)}
                 />
             </div>
-
-
         </PlayerContext.Provider>
     )
 }

@@ -39,11 +39,6 @@ export default function RedMusicCardList({ cards, setCards, newsVariant = null }
 
 
     const handlePlay = (id) => {
-
-        if (isPlayPlayer) {
-
-        }
-
         cards.forEach((card) => {
             const p = card.isPlay
 

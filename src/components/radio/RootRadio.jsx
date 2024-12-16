@@ -35,7 +35,6 @@ export default function RootRadio() {
 
   const handleSave = () => {
     if (!isAuth) {
-      console.log('1')
       return toast("Зарегестрируйтесь, пожалуйста, что бы сохранять материалы в личный кабинет", {
         transition: Slide,
         position: "top-center",
@@ -62,90 +61,32 @@ export default function RootRadio() {
 
   return (
     <>
-      <div
-        id="radio"
-        style={{
-          height: "100vh",
-        }}
-      >
+      <div id="radio" style={{height: "100vh"}}>
         <Header page={"radio"} radio={!!tracks} />
         <PodcastBlock handleSetTracks={handleSetTracks} radio={!!tracks} />
       </div>
       {
         tracks && (
           <div
-            style={{
-              display: "flex",
-              flexDirection: 'column',
-              alignItems: "center",
-              justifyContent: "center",
-              minHeight: "500px",
-              borderRadius: '1px solid red'
-            }}
-          >
-            <div style={{
-              marginTop: '30px',
-              width: '1150px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              gap: '20px'
-            }}>
+            style={{display: "flex",flexDirection: 'column',alignItems: "center",justifyContent: "center",minHeight: "500px",borderRadius: '1px solid red'}}>
+            <div style={{marginTop: '30px',width: '1150px',display: 'flex',justifyContent: 'space-between',alignItems: 'center',gap: '20px'}}>
               <div>
                 <h2>{`Плейлист подкаста "${name}"`}</h2>
               </div>
-              <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '20px',
-              }}>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                }}
-                  onClick={handleSave}
-                >
+              <div style={{display: 'flex',justifyContent: 'center',alignItems: 'center',gap: '20px'}}>
+                <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center',cursor: 'pointer'}} onClick={handleSave}>
                   <LikeIcon like={like} size={22} />
                 </div>
-                <div
-                  onClick={handleShared}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                  }}>
+                <div onClick={handleShared} style={{display: 'flex', alignItems: 'center',justifyContent: 'center', cursor: 'pointer'}}>
                   <SharedIcon size={22} />
                 </div>
               </div>
             </div>
-
-
-            <Flex
-              mt={50}
-              mih={50}
-              gap="md"
-              justify="start"
-              align="flex-start"
-              direction="row"
-              wrap="wrap"
-            >
+            <Flex mt={50} mih={50} gap="md" justify="start" align="flex-start" direction="row" wrap="wrap">
+              
               {tracks.map((track) => {
                 return (
-                  <Card
-                    key={track.id}
-                    c={'inherit'}
-                    bd={'none'}
-                    w={'250px'}
-                    bg={"transparent"}
-                    shadow="sm"
-                    padding="lg"
-                    radius="xs"
-                    withBorder
-                  >
+                  <Card key={track.id} c={'inherit'} bd={'none'} w={'250px'} bg={"transparent"} shadow="sm" padding="lg" radius="xs" withBorder>
                     <Card.Section>
                       <Image w={'100%'} height={'100%'} src={track.image} alt={track.title} />
                     </Card.Section>
