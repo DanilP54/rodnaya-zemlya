@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { formatTime } from "./formatTime.js";
 import { Button } from "./Button";
 import { RewindIcon } from "lucide-react";
-import { Slider, Tooltip } from "@mantine/core";
+import { Skeleton, Slider, Tooltip } from "@mantine/core";
 import './trackinfo.module.css'
 import { usePlayerContext } from "../../../context/usePlayerContext.jsx";
 
@@ -65,7 +65,7 @@ const styles = {
 
 export const TrackInfo = ({ track, radio }) => {
 
-  const { meta, isPlayPlayer, getCurrentTrackId, setOpen } = usePlayerContext()
+  const { meta, getCurrentTrackId, setOpen } = usePlayerContext()
 
   const [localProgress, setLocalProgress] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -164,33 +164,62 @@ export const TrackInfo = ({ track, radio }) => {
 
         <div style={styles.progressContainer}>
           <div style={{ display: "flex", alignItems: "center", gap: "50px" }}>
-            <Slider
-              showLabelOnHover={false}
-              size={"sm"}
-              radius={"xs"}
-              thumbSize={17}
-              color="black"
-              style={styles.progressBar}
-              mih={0}
-              max={100}
-              value={Math.floor(localProgress)}
-              onChange={handleChangeCurrentTime}
-              onChangeEnd={handleDragEnd}
-              onMouseDown={handleDragStart}
-              onTouchStart={handleDragStart}
-            />
-            <Slider
-              showLabelOnHover={false}
-              size={"sm"}
-              radius={"xs"}
-              thumbSize={17}
-              color="black"
-              style={{ width: '70px' }}
-              min={0}
-              max={100}
-              defaultValue={(meta.audio.current.audio.current.volume * 100)}
-              onChange={(value) => handleOnVolumeChange(value)}
-            />
+            {!meta.dataLoaded ?
+              (
+                <>
+                  <div style={{ display: "flex", gap: "10px" }}>
+                    <Skeleton
+                      c={"blue"}
+                      height={17}
+                      width={17}
+                      radius={"xl"}
+                    />
+                    <Skeleton
+                      c={"blue"}
+                      height={17}
+                      width={17}
+                      radius={"xl"}
+                    />
+                    <Skeleton
+                      c={"blue"}
+                      height={17}
+                      width={17}
+                      radius={"xl"}
+                    />
+                  </div>
+                </>
+              )
+              :
+              <>
+                <Slider
+                  showLabelOnHover={false}
+                  size={"sm"}
+                  radius={"xs"}
+                  thumbSize={17}
+                  color="black"
+                  style={styles.progressBar}
+                  mih={0}
+                  max={100}
+                  value={Math.floor(localProgress)}
+                  onChange={handleChangeCurrentTime}
+                  onChangeEnd={handleDragEnd}
+                  onMouseDown={handleDragStart}
+                  onTouchStart={handleDragStart}
+                />
+                <Slider
+                  showLabelOnHover={false}
+                  size={"sm"}
+                  radius={"xs"}
+                  thumbSize={17}
+                  color="black"
+                  style={{ width: '70px' }}
+                  min={0}
+                  max={100}
+                  defaultValue={(meta.audio.current.audio.current.volume * 100)}
+                  onChange={(value) => handleOnVolumeChange(value)}
+                />
+              </>
+            }
           </div>
 
           <div style={styles.timeContainer}>
