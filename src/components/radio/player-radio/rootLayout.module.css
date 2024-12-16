@@ -1,0 +1,55 @@
+.image_box {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+/* .small_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.play_icon {
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+    bottom: 10px;
+    display: none;
+    transition: transform .1s ease-out;
+    z-index: 55;
+}
+
+.paused_icon {
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+    bottom: 10px;
+    display: none;
+    transition: transform .1s ease-out;
+    z-index: 55;
+}
+
+.image_box:hover .play_icon {
+    display: block;
+    /* Показываем .play_icon при наведении */
+}
+
+.image_box:hover .paused_icon {
+    display: block;
+    /* Показываем .play_icon при наведении */
+}
+
+
+
+.small_image:hover {
+    cursor: pointer;
+}
+
+.image_box:hover .dimmer {
+    background-color: rgba(0, 0, 0, .2);
+    /* Сохраняем затемнение при наведении */
+}
+
+
+

@@ -2,10 +2,10 @@ import { Card, Image, Text } from "@mantine/core";
 import classes from "./secondary.image.module.css";
 import { Link } from "react-router-dom";
 
+import PausedIcon from "../../../../../public/paused.svg";
 import PlayIcon from "../../../../../public/play.svg";
 import styled from "styled-components";
 import { usePlayerContext } from "../../../../context/usePlayerContext";
-import PausedIcon from "../../../../../public/paused.svg";
 import { useThemeContext } from "../../../../context/ThemeContext";
 
 const LinkStyled = styled(Link)`

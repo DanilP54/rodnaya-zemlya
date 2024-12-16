@@ -83,15 +83,14 @@ export function PlayerProvider({ children }) {
     const { theme } = useThemeContext()
 
 
-    console.log(track)
 
-    const [mode, setMode] = useState('default')
-    // const [volume, setVolume] = useState(1)
     const [currentTime, setCurrentTime] = useState(0)
     const [totalTime, setTotalTime] = useState(0)
-    // const [progress, setProgress] = useState(null)
+
     const [dataLoaded, setDataLoaded] = useState(false)
     const audioRef = useRef(null)
+
+
 
     useLayoutEffect(() => {
 
@@ -175,13 +174,6 @@ export function PlayerProvider({ children }) {
         onCollaps()
 
     }, [collaps])
-
-    // useEffect(() => {
-    //     if (!open && audioRef.current) {
-    //         audioRef.current.audio.current.pause();
-    //         audioRef.current.audio.current.currentTime = 0;
-    //     }
-    // }, [open]);
 
     useEffect(() => {
         if (audioRef.current && audioRef.current.audio.current) {

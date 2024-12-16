@@ -9,6 +9,34 @@ import image3 from '../../../../public/podcasts/5.webp'
 import image4 from '../../../../public/podcasts/6.jpg'
 
 
+
+import track4 from '../../../../public/red-music/4.mp3'
+import track5 from '../../../../public/red-music/5.mp3'
+import track6 from '../../../../public/red-music/6.mp3'
+import track7 from '../../../../public/red-music/7.mp3'
+
+
+import track8 from '../../../../public/turqu-music/1.mp3'
+import track9 from '../../../../public/turqu-music/2.mp3'
+import track10 from '../../../../public/turqu-music/3.mp3'
+import track11 from '../../../../public/turqu-music/4.mp3'
+import track12 from '../../../../public/turqu-music/5.mp3'
+import track13 from '../../../../public/turqu-music/6.mp3'
+import track14 from '../../../../public/turqu-music/7.mp3'
+import track15 from '../../../../public/turqu-music/8.mp3'
+
+import track16 from '../../../../public/green-music/1.mp3'
+import track17 from '../../../../public/green-music/2.mp3'
+import track18 from '../../../../public/green-music/3.mp3'
+import track19 from '../../../../public/green-music/4.mp3'
+import track20 from '../../../../public/green-music/5.mp3'
+import track21 from '../../../../public/green-music/6.mp3'
+import track22 from '../../../../public/green-music/7.mp3'
+
+
+
+
+
 import Card1 from '../../../../public/Card1.jpg'
 import Card2 from '../../../../public/Card2.jpg'
 import Card3 from '../../../../public/Card3.jpg'
@@ -38,11 +66,11 @@ export const tracks = [
     color: '#3CB371',
     trackSrc: track,
     playlist: [ // Обновлено поле playlist
-      { title: 'Feel Good Inc.', artist: 'Gorillaz', image: Card1 },
-      { title: 'Clint Eastwood', artist: 'Gorillaz', image: Card2 },
-      { title: 'On Melancholy Hill', artist: 'Gorillaz', image: Card3 },
-      { title: 'Dare', artist: 'Gorillaz', image: Card4 },
-      { title: 'Stylo', artist: 'Gorillaz', image: Card4 },
+      { id: 300, title: 'Feel Good Inc.', artist: 'Gorillaz', image: Card1, trackSrc: track4 },
+      { id: 301, title: 'Clint Eastwood', artist: 'Gorillaz', image: Card2, trackSrc: track5 },
+      { id: 302, title: 'On Melancholy Hill', artist: 'Gorillaz', image: Card3, trackSrc: track6 },
+      { id: 303, title: 'Dare', artist: 'Gorillaz', image: Card4, trackSrc: track7 },
+      { id: 304, title: 'Stylo', artist: 'Gorillaz', image: Card4, trackSrc: track8 },
     ]
   },
   {
@@ -56,11 +84,11 @@ export const tracks = [
     trackSrc: track1,
 
     playlist: [ // Обновлено поле playlist
-      { title: 'Love Supreme', artist: 'John Coltrane', image: Card6 },
-      { title: 'Take Five', artist: 'Dave Brubeck', image: Card10 },
-      { title: 'So What', artist: 'Miles Davis', image: Card8 },
-      { title: 'Strange Fruit', artist: 'Billie Holiday', image: Card9 },
-      { title: 'A Love Supreme', artist: 'John Coltrane', image: Card10 },
+      { id: 305, title: 'Love Supreme', artist: 'John Coltrane', image: Card6, trackSrc: track9 },
+      { id: 306, title: 'Take Five', artist: 'Dave Brubeck', image: Card10, trackSrc: track10 },
+      { id: 307, title: 'So What', artist: 'Miles Davis', image: Card8, trackSrc: track11 },
+      { id: 308, title: 'Strange Fruit', artist: 'Billie Holiday', image: Card9, trackSrc: track12 },
+      { id: 309, title: 'A Love Supreme', artist: 'John Coltrane', image: Card10, trackSrc: track13 },
     ]
   },
   {
@@ -73,11 +101,11 @@ export const tracks = [
     color: 'green',
     trackSrc: track2,
     playlist: [ // Обновлено поле playlist
-      { title: 'Electric Feel', artist: 'MGMT', image: Card11 },
-      { title: 'Young Folks', artist: 'Peter Bjorn and John', image: Card12 },
-      { title: 'Pumped Up Kicks', artist: 'Foster the People', image: Card13 },
-      { title: '1901', artist: 'Phoenix', image: Card14 },
-      { title: 'Somebody That', artist: 'Gotye', image: Card15 },
+      { id: 310, title: 'Electric Feel', artist: 'MGMT', image: Card11, trackSrc: track14 },
+      { id: 311, title: 'Young Folks', artist: 'Peter Bjorn and John', image: Card12, trackSrc: track15 },
+      { id: 312, title: 'Pumped Up Kicks', artist: 'Foster the People', image: Card13, trackSrc: track16 },
+      { id: 313, title: '1901', artist: 'Phoenix', image: Card14, trackSrc: track17 },
+      { id: 314, title: 'Somebody That', artist: 'Gotye', image: Card15, trackSrc: track18 },
     ]
   },
   {
@@ -90,11 +118,11 @@ export const tracks = [
     image: image4,
     trackSrc: track3,
     playlist: [ // Обновлено поле playlist
-      { title: 'Weightless', artist: 'Marconi Union', image: Card16 },
-      { title: 'Cold Little Heart', artist: 'Michael Kiwanuka', image: Card17 },
-      { title: 'River', artist: 'Leon Bridges', image: Card12 },
-      { title: 'Sunset Lover', artist: 'Petit Biscuit', image: Card11 },
-      { title: 'Night Owl', artist: 'Galimatias', image: Card4 },
+      { id: 315, title: 'Weightless', artist: 'Marconi Union', image: Card16, trackSrc: track19 },
+      { id: 316, title: 'Cold Little Heart', artist: 'Michael Kiwanuka', image: Card17, trackSrc: track20 },
+      { id: 317, title: 'River', artist: 'Leon Bridges', image: Card12, trackSrc: track21 },
+      { id: 318, title: 'Sunset Lover', artist: 'Petit Biscuit', image: Card11, trackSrc: track22 },
+      { id: 319, title: 'Night Owl', artist: 'Galimatias', image: Card4, trackSrc: track19 },
     ]
   },
   // {

@@ -50,28 +50,27 @@ export const TrackList = ({
   selectedTrack,
   onTrackSelect,
   setSelectedTrack,
-  trackRefs,
   handleSetTracks
 }) => {
-  
+
   const { theme } = useThemeContext();
-  const {onPlayTrackAndNoOpen, handleOnPause, handleOnPlay, getCurrentTrackId, isPlayPlayer, setOpen} = usePlayerContext()
-  
-  
+  const { onPlayTrackAndNoOpen, handleOnPause, handleOnPlay, getCurrentTrackId, isPlayPlayer, setOpen } = usePlayerContext()
+
+
 
 
 
   const handleTogglePlayAndPause = (track) => {
     const currentId = getCurrentTrackId()
 
-    if(!!currentId && currentId === track.id && isPlayPlayer) {
+    if (!!currentId && currentId === track.id && isPlayPlayer) {
       return handleOnPause()
     }
 
-    if(!!currentId && currentId === track.id && !isPlayPlayer) {
+    if (!!currentId && currentId === track.id && !isPlayPlayer) {
       return handleOnPlay()
     }
- 
+
     onPlayTrackAndNoOpen({
       id: track.id,
       title: track.title,
@@ -83,12 +82,24 @@ export const TrackList = ({
 
   useLayoutEffect(() => {
     tracks.forEach((track) => {
-      if(getCurrentTrackId() === track.id) {
+      if (getCurrentTrackId() === track.id) {
         document.querySelector('#radio').style.backgroundImage = `url(${track.image})`
         setSelectedTrack(track)
         handleSetTracks(track.playlist, track.title)
         setOpen(false)
+        return
       }
+
+      track.playlist.forEach((playlist) => {
+        if (getCurrentTrackId() === playlist.id) {
+          document.querySelector('#radio').style.backgroundImage = `url(${track.image})`
+          setSelectedTrack(track)
+          handleSetTracks(track.playlist, track.title)
+          setOpen(false)
+        }
+      })
+
+
     })
   }, [])
 
@@ -98,7 +109,6 @@ export const TrackList = ({
       {tracks.map((track, index) => (
         <div
           key={track.id}
-          ref={(el) => (trackRefs.current[index] = el)}
           style={{
             ...styles.trackItem,
             ...(selectedTrack?.id === track.id ? styles.trackItemHover : {}),
@@ -119,7 +129,7 @@ export const TrackList = ({
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-            }}  alt="" />
+            }} alt="" />
           </div>
 
 

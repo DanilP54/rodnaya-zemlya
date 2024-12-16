@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { formatTime } from "./formatTime.js";
 import { Button } from "./Button";
-import { Music, RewindIcon } from "lucide-react";
+import { RewindIcon } from "lucide-react";
 import { Slider, Tooltip } from "@mantine/core";
 import './trackinfo.module.css'
 import { usePlayerContext } from "../../../context/usePlayerContext.jsx";
+
 
 
 const styles = {
@@ -62,7 +63,7 @@ const styles = {
   },
 };
 
-export const TrackInfo = ({ track, onRewind, onForward, radio }) => {
+export const TrackInfo = ({ track, radio }) => {
 
   const { meta, isPlayPlayer, getCurrentTrackId, setOpen } = usePlayerContext()
 
@@ -94,16 +95,16 @@ export const TrackInfo = ({ track, onRewind, onForward, radio }) => {
   }
 
   const handleNext = () => {
-    if(meta.currentTime + 10 >= meta.totalTime) {
+    if (meta.currentTime + 10 >= meta.totalTime) {
       meta.audio.current.audio.current.currentTime = meta.totalTime
       return
     }
 
-    meta.audio.current.audio.current.currentTime = meta.currentTime + 10 
+    meta.audio.current.audio.current.currentTime = meta.currentTime + 10
   }
 
   const handlePrev = () => {
-    if(meta.currentTime - 10 <= 0) {
+    if (meta.currentTime - 10 <= 0) {
       meta.audio.current.audio.current.currentTime = 0
       return
     }
@@ -116,9 +117,7 @@ export const TrackInfo = ({ track, onRewind, onForward, radio }) => {
     setOpen(false)
 
     return () => {
-      if (getCurrentTrackId() === track.id) {
-        setOpen(true)
-      }
+      setOpen(true)
     }
   }, [setOpen])
 
@@ -129,9 +128,24 @@ export const TrackInfo = ({ track, onRewind, onForward, radio }) => {
           <div style={{ color: 'black', display: 'flex', flexDirection: 'column' }}>
             <h2 style={styles.title}>{track.title}</h2>
             <div style={styles.artist}>{track.artist}</div>
-            <div style={styles.description}>
-              <p>{track.description}</p>
-            </div>
+            {getCurrentTrackId() === track.id ?
+              <div style={styles.description}>
+                <p>{track.description}</p>
+              </div>
+              : track.playlist.map((playlist) => {
+                if (getCurrentTrackId() === playlist.id) {
+                  return (
+                    <div style={styles.description}>
+                      <p>Песня {playlist.title} из подкаста</p>
+                    </div>
+                  )
+                }
+              })
+            }
+
+
+
+
           </div>
           <div style={styles.buttonsContainer}>
             <Button style={{ color: 'black', backgroundColor: "transparent" }} onClick={handlePrev}>
